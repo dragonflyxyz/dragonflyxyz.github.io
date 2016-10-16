@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[my_blog_set]]></title>
+      <url>https://dragonflyxyz.github.io/2016/10/16/my-blog-set/</url>
+      <content type="html"><![CDATA[<p></p><h1>博客设置</h1><br>安装好blog后，使用<a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">Yelee主题</a>。<p></p>
+<p>增加本地搜索功能：<br>    安装插件: <a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[test1]]></title>
       <url>https://dragonflyxyz.github.io/2016/10/16/test1/</url>
       <content type="html"><![CDATA[<p></p><h1>一个测试页面h1</h1><p></p>
