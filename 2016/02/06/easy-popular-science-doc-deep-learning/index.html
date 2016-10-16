@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Dragonflyxyz" />
+
+
+
+<meta name="description" content="Geoff Hinton，deep learning 学派创始人之一
+神经网络研究的历史，是怎样的？深度学习有多深？学了究竟有几分?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于深度学习可能最容易读进去的科普贴">
+<meta property="og:url" content="https://dragonflyxyz.github.io/2016/02/06/easy-popular-science-doc-deep-learning/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Geoff Hinton，deep learning 学派创始人之一
+神经网络研究的历史，是怎样的？深度学习有多深？学了究竟有几分?">
+<meta property="og:image" content="http://a.36krcnd.com/nil_class/a7ed1c96-e13a-4abd-8c8b-3250622e3b7d/_____2015-06-15___8.51.12.png">
+<meta property="og:image" content="http://e.36krcnd.com/nil_class/5fa84d5b-e72e-446e-8476-d0455ad6da42/681A.tmp.jpg">
+<meta property="og:image" content="http://c.36krcnd.com/nil_class/cb8d6760-4230-470c-9475-e6ae63981460/6B8F.tmp.jpg">
+<meta property="og:image" content="http://a.36krcnd.com/nil_class/50286351-bf5b-4c3a-a7be-084cf1280921/5FC2.tmp.jpg">
+<meta property="og:image" content="http://a.36krcnd.com/nil_class/51ec40af-7d7d-473a-b19f-9d65066d4993/62B5.tmp.jpg">
+<meta property="og:image" content="http://a.36krcnd.com/nil_class/7961e254-1a67-49ac-91dd-ee93a7ce5995/640.jpg">
+<meta property="og:image" content="http://e.36krcnd.com/nil_class/5b47d9e7-6ee3-42e5-a8d7-dd9c7753eb23/0.jpg">
+<meta property="og:image" content="http://b.36krcnd.com/nil_class/4b1e2214-7b83-4f1c-8955-04b66f986894/640.jpg">
+<meta property="og:image" content="http://a.36krcnd.com/nil_class/b6313122-38ff-446a-937c-8f62e5d0c74a/3.png">
+<meta property="og:image" content="http://c.36krcnd.com/nil_class/6cd03998-03a2-4314-94fa-2a69d7716100/640.jpg">
+<meta property="og:image" content="http://a.36krcnd.com/nil_class/277fe259-96ef-4961-9529-31bf69d421d7/640.jpg">
+<meta property="og:image" content="http://b.36krcnd.com/nil_class/48dbce52-0845-400e-ad65-6aebc8fd931b/640.jpg">
+<meta property="og:updated_time" content="2016-10-16T08:19:30.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于深度学习可能最容易读进去的科普贴">
+<meta name="twitter:description" content="Geoff Hinton，deep learning 学派创始人之一
+神经网络研究的历史，是怎样的？深度学习有多深？学了究竟有几分?">
+<meta name="twitter:image" content="http://a.36krcnd.com/nil_class/a7ed1c96-e13a-4abd-8c8b-3250622e3b7d/_____2015-06-15___8.51.12.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>关于深度学习可能最容易读进去的科普贴 | Hexo</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Dragonflyxyz</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homedesign/">homedesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/">others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-easy-popular-science-doc-deep-learning" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/06/easy-popular-science-doc-deep-learning/" class="article-date">
+      <time datetime="2016-02-06T07:54:52.000Z" itemprop="datePublished">2016-02-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于深度学习可能最容易读进去的科普贴
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/MachineLearning/">MachineLearning</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><img src="http://a.36krcnd.com/nil_class/a7ed1c96-e13a-4abd-8c8b-3250622e3b7d/_____2015-06-15___8.51.12.png" alt="enter description here"><br>Geoff Hinton，deep learning 学派创始人之一</p>
+<p>神经网络研究的历史，是怎样的？<br>深度学习有多深？学了究竟有几分?<br><a id="more"></a></p>
+<p></p><h2>Part 1</h2><br>一<p></p>
+<p>2016 年一月底，人工智能的研究领域，发生了两件大事。</p>
+<p>先是一月二十四号，ＭIT 的教授，人工智能研究的先驱者，Marvin Minsky 去世，享年89 岁。</p>
+<p>三天之后，谷歌在自然杂志上正式公开发表论文，宣布其以深度学习技术为基础的电脑程序 AlphaGo， 在 2015年 十月,连续五局击败欧洲冠军、职业二段樊辉。 </p>
+<p>这是第一次机器击败职业围棋选手。距离 97年IBM 电脑击败国际象棋世界冠军，一晃近二十年了。</p>
+<p>极具讽刺意义的是，Minsky 教授，一直不看好深度学习的概念。他曾在 1969年 出版了 Perceptron (感知器) 一书，指出了神经网络技术 (就是深度学习的前身) 的局限性。这本书直接导致了神经网络研究的将近二十年的长期低潮。</p>
+<p>神经网络研究的历史，是怎样的？</p>
+<p>深度学习有多深？学了究竟有几分?</p>
+<p>二</p>
+<p>人工智能研究的方向之一，是以所谓 “专家系统” 为代表的，用大量 “如果-就” (If - Then) 规则定义的，自上而下的思路。</p>
+<p>人工神经网络 ( Artifical Neural Network)，标志着另外一种自下而上的思路。</p>
+<p>神经网络没有一个严格的正式定义。它的基本特点，是试图模仿大脑的神经元之间传递，处理信息的模式。</p>
+<p><img src="http://e.36krcnd.com/nil_class/5fa84d5b-e72e-446e-8476-d0455ad6da42/681A.tmp.jpg" alt="enter description here"></p>
+<p>一个计算模型，要划分为神经网络，通常需要大量彼此连接的节点 (也称 ‘神经元’)，并且具备两个特性：</p>
+<p>每个神经元，通过某种特定的输出函数 (也叫激励函数 activation function)，计算处理来自其它相邻神经元的加权输入值<br>神经元之间的信息传递的强度，用所谓加权值来定义，算法会不断自我学习，调整这个加权值</p>
+<p>在此基础上,神经网络的计算模型，依靠大量的数据来训练，还需要：</p>
+<p>成本函数  (cost function)：用来定量评估根据特定输入值, 计算出来的输出结果,离正确值有多远,结果有多靠谱<br>学习的算法 ( learning algorithm )：这是根据成本函数的结果, 自学, 纠错, 最快地找到神经元之间最优化的加权值<br>用小明、小红和隔壁老王们都可以听懂的语言来解释，神经网络算法的核心就是：计算、连接、评估、纠错、疯狂培训。</p>
+<p>随着神经网络研究的不断变迁，其计算特点和传统的生物神经元的连接模型渐渐脱钩。</p>
+<p>但是它保留的精髓是：非线性、分布式、并行计算、自适应、自组织。</p>
+<p>三</p>
+<p>神经网络作为一个计算模型的理论，1943年 最初由科学家 Warren McCulloch 和 Walter Pitts 提出。</p>
+<p>康内尔大学教授 Frank Rosenblatt 1957年 提出的”感知器” (Perceptron)，是第一个用算法来精确定义神经网络，第一个具有自组织自学习能力的数学模型，是日后许多新的神经网络模型的始祖。</p>
+<p><img src="http://c.36krcnd.com/nil_class/cb8d6760-4230-470c-9475-e6ae63981460/6B8F.tmp.jpg" alt="enter description here"></p>
+<p>Rosenblatt 乐观地预测，感知器最终可以 “学习、做决定、翻译语言”。感知器的技术，六十年代一度走红，美国海军曾出资支持这个技术的研究，期望它 “以后可以自己走、说话、看、读、自我复制、甚至拥有自我意识”。</p>
+<p>Rosenblatt 和 Minsky 实际上是间隔一级的高中校友。但是六十年代，两个人在感知器的问题上展开了长时间的激辩。Rosenblatt 认为感应器将无所不能，Minsky 则认为它应用有限。</p>
+<p>1969 年，Marvin Minsky 和 Seymour Papert 出版了新书：“感知器：计算几何简介”。书中论证了感知器模型的两个关键问题：</p>
+<p>第一，单层的神经网络无法解决不可线性分割的问题，典型例子如异或门，XOR Circuit ( 通俗地说，异或门就是：两个输入如果是异性恋，输出为一。两个输入如果是同性恋，输出为零 )</p>
+<p>第二，更致命的问题是，当时的电脑完全没有能力完成神经网络模型所需要的超大的计算量。</p>
+<p>此后的十几年，以神经网络为基础的人工智能研究进入低潮，相关项目长期无法得到政府经费支持，这段时间被称为业界的核冬天。</p>
+<p>Rosenblatt 自己则没有见证日后神经网络研究的复兴。1971年 他 43 岁生日时，不幸在海上开船时因为事故而丧生。</p>
+<p></p><h2>Part 2</h2><br>一<p></p>
+<p>1970年，当神经网络研究的第一个寒冬降临时。在英国的爱丁堡大学，一位二十三岁的年轻人，Geoffrey Hinton，刚刚获得心理学的学士学位。</p>
+<p>Hinton 六十年代还是中学生时，就对脑科学着迷。当时一个同学给他介绍关于大脑记忆的理论是： </p>
+<p>大脑对于事物和概念的记忆，不是存储在某个单一的地点，而是像全息照片一样，分布式地，存在于一个巨大的神经元的网络里。</p>
+<p>分布式表征 (Distributed Representation)，是神经网络研究的一个核心思想。</p>
+<p>它的意思是，当你表达一个概念的时候，不是用单个神经元一对一地存储定义；概念和神经元是多对多的关系：一个概念可以用多个神经元共同定义表达，同时一个神经元也可以参与多个不同概念的表达。</p>
+<p>举个最简单的例子。一辆 “大白卡车”，如果分布式地表达，一个神经元代表大小，一个神经元代表颜色，第三个神经元代表车的类别。三个神经元同时激活时，就可以准确描述我们要表达的物体。</p>
+<p>分布式表征和传统的局部表征 (localized representation) 相比，存储效率高很多。线性增加的神经元数目，可以表达指数级增加的大量不同概念。</p>
+<p>分布式表征的另一个优点是，即使局部出现硬件故障，信息的表达不会受到根本性的破坏。</p>
+<p>这个理念让 Hinton 顿悟，使他四十多年来，一直在神经网络研究的领域里坚持下来没有退缩。</p>
+<p>本科毕业后，Hinton 选择继续在爱丁堡大学读研，把人工智能作为自己的博士研究方向。</p>
+<p>周围的一些朋友对此颇为不解。”你疯了吗? 为什么浪费时间在这些东西上? 这 (神经网络) 早就被证明是扯淡的东西了。”</p>
+<p>Hinton 1978 年在爱丁堡获得博士学位后，来到美国继续他的研究工作。</p>
+<p>二</p>
+<p>神经网络当年被 Minsky 诟病的问题之一是巨大的计算量。</p>
+<p>简单说，传统的感知器用所谓 “梯度下降”的算法纠错时，耗费的计算量和神经元数目的平方成正比。当神经元数目增多，庞大的计算量是当时的硬件无法胜任的。</p>
+<p>1986年 七月，Hinton 和 David Rumelhart 合作在自然杂志上发表论文， “Learning Representations by Back-propagating errors”，第一次系统简洁地阐述反向传播算法在神经网络模型上的应用。</p>
+<p>反向传播算法，把纠错的运算量下降到只和神经元数目本身成正比。</p>
+<p>反向传播算法，通过在神经网络里增加一个所谓隐层 (hidden layer)，同时也解决了感知器无法解决异或门 (XOR gate) 的难题。</p>
+<p>使用了反向传播算法的神经网络，在做诸如形状识别之类的简单工作时，效率比感知器大大提高。</p>
+<p>八十年代末计算机的运行速度，也比二十年前高了几个数量级。</p>
+<p>神经网络的研究开始复苏。</p>
+<p>三</p>
+<p>Yann Lecun (我给他取个中文名叫 “严乐春”吧) 1960年 出生于巴黎。1987年 在法国获得博士学位后，他曾追随 Hinton 教授到多伦多大学做了一年博士后的工作，随后搬到新泽西州的贝尔实验室继续研究工作。</p>
+<p>在贝尔实验室，严乐春 1989年 发表了论文， “反向传播算法在手写邮政编码上的应用”。他用美国邮政系统提供的近万个手写数字的样本来培训神经网络系统，培训好的系统在独立的测试样本中， 错误率只有 5%。</p>
+<p>严乐春进一步运用一种叫做”卷积神经网络” (Convoluted Neural Networks) 的技术，开发出商业软件用于读取银行支票上的手写数字,，这个支票识别系统在九十年代末占据了美国接近 20%的市场。</p>
+<p>此时就在贝尔实验室，严乐春临近办公室的一个同事的工作，又把神经网络的研究带入第二个寒冬。</p>
+<p>四</p>
+<p>Vladmir Vapnik，1936年 出生于前苏联，90年 移民到美国，在贝尔实验室做研究。</p>
+<p>早在 1963年，Vapnik 就提出了 支持向量机 (Support Vector Machine) 的算法。支持向量机，是一种精巧的分类算法。</p>
+<p>除了基本的线性分类外，在数据样本线性不可分的时候，SVM 使用所谓 “核机制” (kernel trick) 的非线性映射算法，将线性不可分的样本转化到高维特征空间 (high-dimensional feature space)，使其线性可分。</p>
+<p>SVM，作为一种分类算法，九十年代初开始，在图像和语音识别上找到了广泛的用途。</p>
+<p>在贝尔实验室的走廊上，严乐春和 Vapnik 常常就 (深度) 神经网络和 SVM 两种技术的优缺点，展开热烈的讨论。</p>
+<p>Vapnik 的观点是：SVM，非常精巧地在 “容量调节” (Capacity Control) 上 选择一个合适的平衡点，而这是神经网络不擅长的。</p>
+<p>什么是 “容量调节”？  举个简单的例子：如果算法容量太大，就像一个记忆力极为精准的植物学家，当她看到一颗新的树的时候，由于这棵树的叶子和她以前看到的树的叶子数目不一样，所以她判断这不是树；如果算法容量太小，就像一个懒惰的植物学家，只要看到绿色的东西都把它叫做树。</p>
+<p>严乐春的观点是：用有限的计算能力，解决高度复杂的问题，比”容量调节”更重要。支持向量机，虽然算法精巧，但本质就是一个双层神经网络系统。它的最大的局限性，在于其”核机制”的选择。当图像识别技术需要忽略一些噪音信号时，卷积神经网络的技术，计算效率就比 SVM 高的多。</p>
+<p>在手写邮政编码的识别问题上，SVM 的技术不断进步，1998年 就把错误率降到低于 0.8%，2002年 最低达到了 0.56%，这远远超越同期传统神经网络算法的表现。</p>
+<p>神经网络的计算，在实践中还有另外两个主要问题：</p>
+<p>第一，算法经常停止于局部最优解，而不是全球最优解。这好比”只见树木,不见森林”。</p>
+<p>第二，算法的培训，时间过长时，会出现过度拟合 (overfit)，把噪音当做有效信号。</p>
+<p></p><h2>Part 3</h2><br>一<p></p>
+<p>1992 年笔者在纽约州的罗切斯特大学选修计算机课的时候，学到这样一句话，印象极为深刻。</p>
+<p>When in doubt, use brute force.<br>“如果遇到困惑 (的问题), 就使用蛮力. “<br>此话出自当年 UNIX 系统的发明人之一 Ken Thompson。他的本意是，程序设计中，简单粗暴的计算方法，虽然可能计算量大，但是便于实现和维护，长期看，还是优于一些精巧但是复杂的计算手段。</p>
+<p>这句话常令我遐想起，1943年 七月苏联和德国在库尔斯克的坦克大决战。苏军八千多辆傻大黑粗的 T-34 坦克，以损失三倍于对手的惨重代价，最终挫败德军三千多辆质量精良的虎式坦克集群。</p>
+<p>有哲人对蛮力有另外一个诠释：“ Quantity is Quality ”。 </p>
+<p>数量就是质量。向数量要质量。 </p>
+<p>九十年代，一个简单的神经网络数据培训的计算往往至少要花几天、甚至几周的时间。 </p>
+<p>这对于算法的改进调整和应用开发，都是一个巨大的瓶颈。</p>
+<p>神经网络的研究，呼唤着蛮力，呼唤着来自计算速度、网络速度、内存容量、数据规模各个方面的、更强大的、指数增长的蛮力。 </p>
+<p>二</p>
+<p>这个蛮力的基础，其实在 1993年 就埋下了种子。<br><img src="http://a.36krcnd.com/nil_class/50286351-bf5b-4c3a-a7be-084cf1280921/5FC2.tmp.jpg" alt="enter description here"><br>黄仁勋，1963年 出生于台湾。1993年 从斯坦福大学硕士毕业后不久，创立了 Nvidia。 </p>
+<p>Nvidia 起家时，做的是图像处理的芯片，主要面对电脑游戏市场。1999 年Nvidia 推销自己的 Geforce 256 芯片时，发明了 GPU (Graphics Processing Unit, 图像处理器) 这个名词。</p>
+<p>GPU 的主要任务，是要在最短时间内显示上百万、千万甚至更多的像素。这在电脑游戏中是最核心的需求。这个计算工作的核心特点，是要同时并行处理海量的数据。</p>
+<p>GPU 在芯片层面的设计时，专门优化系统，用于处理大规模并行计算。</p>
+<p>传统的 CPU (中央处理器) 芯片架构，关注点不在并行处理，一次只能同时做一两个加减法运算。 而 GPU 在最底层的算术逻辑单元 (ALU, Arithmetic Logic Unit)，是基于所谓的 Single Instruction Multiple Data ( 单指令多数据流) 的架构,擅长对于大批量数据并行处理。<br><img src="http://a.36krcnd.com/nil_class/51ec40af-7d7d-473a-b19f-9d65066d4993/62B5.tmp.jpg" alt="enter description here"><br>打个最简单的比方，如果有 1, 2, 3,   .. 32 个数字，你需要对它们进行计算处理。传统的 CPU，32 个数字要一个个按顺序依次计算。</p>
+<p>但是 GPU 在最低层的 ALU，允许同时对 32 个数字做批量处理。</p>
+<p>一个 GPU，往往包含几百个 ALU， 并行计算能力极高。所以尽管 GPU 内核的时钟速度往往比 CPU 的还要慢，但对大规模并行处理的计算工作，速度比 CPU 快许多。</p>
+<p>而神经网络的计算工作，本质上就是大量的矩阵计算的操作，因此特别适合于使用 GPU。</p>
+<p>三</p>
+<p>这个速度有多快呢？Nvidia 480 GPU, 2010年 的时候，一秒钟可以显示十六亿个三角形，一秒钟计算速度达 1.3 TFLOPS (万亿次浮点计算)。</p>
+<p>而 2015年 出品的 Nvidia Titan X GPU, 一秒钟可以达到 6.1 TFLOPS , 接近 2010年 的五倍。其二手货的市价不到一千美元。</p>
+<p>作为参照，人类的超级计算机，真正第一次突破一个 TFLOPS 的计算速度，实际上也就是 1996年 底，但其价格是几百万美元量级的。</p>
+<p>2007年 Nvidia 推出名叫 CUDA 的并行计算软件开发接口，使开发者可以更方便的使用其 GPU 开发应用软件。多家大学的研究者撰文表示，对于特定工作，NVIDIA GPU 带来的相对于 Intel 的 CPU 的计算速度提高，达到 100-300 倍。</p>
+<p>Intel 技术人员 2010年 专门发表文章驳斥，大意是 Nvidia 实际上只比 intel 快 14 倍，而不是传说中的 100 倍。</p>
+<p>Nvidia 的 Andy Keane 评论： “老夫在芯片行业混了 26年 了，从没见过一个竞争对手，在重要的行业会议上站起来宣布，你的技术 <strong><em> 只是 </em></strong> 比他们快 14 倍”。</p>
+<p>一个蛮力，一个来自 GPU 的计算蛮力，要在深度学习的应用中爆发了。</p>
+<p></p><h2>Part 4</h2><br> 一<br>九十年代末，神经网络研究遇到的困境，除了慢，还是慢。<p></p>
+<p>抛开计算速度的因素，传统神经网络的反向传播算法，捉虫时极为困难，一个根本的问题叫做所谓 vanishing gradient problem (梯度消失问题)。</p>
+<p>这个问题在 1991年，被德国学者 Sepp Hochreiter 第一次清晰提出和阐明原因。</p>
+<p>简单的说， 就是成本函数 (cost function) 从输出层反向传播时， 每经过一层,梯度衰减速度极快， 学习速度变得极慢，神经网络很容易停滞于局部最优解而无法自拔。</p>
+<p>这就像原始部落的小混混，山中无老虎时，在本地称王称霸很舒服。 但任何关于”外面的世界很精彩”的信息，在落后的层层传播机制中被噪音混淆淹没了。</p>
+<p>小混混一辈子很开心， 没有意识到外面的世界有多大， 也从未想出去多看看。</p>
+<p>二<br>支持向量机 (SVM) 技术在图像和语音识别方面的成功，使得神经网络的研究重新陷入低潮。 </p>
+<p>SVM 理论上更加严谨完备，结果重复性好， 上手简单， 得到主流学术界的追捧。 </p>
+<p>学术界的共识是： 多层神经网络的计算模型，实践效果不好，完全没有前途。 这是个死胡同。</p>
+<p>这个情况到本世纪初,变得如此糟糕， 以至于任何论文送到学术期刊时，研究者都不敢用 “神经网络” 几个字，免得被粗暴拒绝。</p>
+<p>2003年，Geoffrey Hinton， 还在多伦多大学，在神经网络的领域苦苦坚守。 </p>
+<p>一个五十六岁的穷教授， 搞了三十多年没有前途的研究,要四处绞尽脑汁，化缘申请研究经费。他不是卢瑟 (loser) ， 谁还是卢瑟？</p>
+<p>2003年 在温哥华大都会酒店，以 Hinton 为首的十五名来自各地的不同专业的科学家，和加拿大先进研究院 (Canadan Institue oF Advanced Research, 简称 CIFAR) 的基金管理负责人，Melvin Silverman 交谈。</p>
+<p>Silverman 问大家，为什么 CIFAR 要支持他们的研究项目。</p>
+<p>计算神经科学研究者，Sebastian Sung (现为普林斯顿大学教授)，回答道，“喔，因为我们有点古怪。如果 CIFAR 要跳出自己的舒适区，寻找一个高风险，极具探索性的团体，就应当资助我们了！”</p>
+<p>最终 CIFAR 同意从 2004年 开始资助这个团体十年，总额一千万加元。CIFAR 成为当时，世界上唯一支持神经网络研究的机构。</p>
+<p>不夸张地说，如果没有 2004年 CIFAR 的资金支持，人类在人工智能的研究上可能还会在黑暗中多摸索几年。</p>
+<p>Hinton 拿到资金支持不久，做的第一件事，就是先换个牌坊。</p>
+<p>两千多年前的刘三， 改了名换了姓，叫什么 “汉高祖”。鉴于”神经网络”口碑不好，也被 Hinton 改了名，换了姓，叫 “深度学习” (Deep Learning) 了。</p>
+<p>Hinton 的同事，此后时不时会听到他突然在办公室大叫，”我知道人脑是如何工作的了！”。</p>
+<p>三<br>2006年，Hinton 和合作者发表论文，”A fast algorithm for deep belief nets” (深信度网络的一种快速算法)。</p>
+<p>在这篇论文里，Hinton 在算法上的核心，是借用了统计力学里的”玻尔兹曼分布”的概念 (一个微粒在某个状态的几率，和那个状态的能量的指数成反比，和它的温度的倒数之指数成反比)，使用所谓的”限制玻尔兹曼机” (RBM) 来学习。</p>
+<p><img src="http://a.36krcnd.com/nil_class/7961e254-1a67-49ac-91dd-ee93a7ce5995/640.jpg" alt="enter description here"><br>RBM 引入了统计力学常用的概率工具。而在七十年代，概率和不确定性恰恰是主流的人工智能的研究者极为痛恨的。</p>
+<p>RBM 相当于一个两层网络，同一层神经元之间不可连接 (所以叫 “限制”)，可以对神经网络实现 “没有监督的训练”(unsupervised training)。深信度网络就是几层 RBM 叠加在一起。</p>
+<p>略掉技术细节，RBM 可以从输入数据中进行预先训练，自己寻找发现重要的特征，对神经网络连接的权重进行有效的初始化。这属于一种叫做特征提取器 （feature extractor）的神经网络，也称自动编码器 （autoencoder）。</p>
+<p>经过 RBM 预先训练初始化后的神经网络，再用反向传播算法微调,效果就好多了。</p>
+<p>Hinton 后来指出，深度学习的突破，除了计算蛮力的大幅度提高以外聪明有效地对网络链接权重的初始化也是一个重要原因。</p>
+<p>Hinton 的论文里，经过六万个 MNIST 数据库的图像培训后，对于一万个测试图像的识别错误率最低降到了只有 1.25%。</p>
+<p>虽然这还不足以让主流学术界改变观点，但深度学习的发展已经见到一丝曙光。</p>
+<p></p><h2>Part 5</h2><br>一、<br>主流学术界的研究者，大多注重于在算法上的渐进式提高， 而轻视计算速度和用于训练的数据规模的重要性。<p></p>
+<p>孔丘老师早在两千多年前，就高瞻远瞩的为深度学习指明了方向：“学而不思则罔, 思而不学则殆”。</p>
+<p>用深度学习的语言来说，就是，“光有大数据，算得不快，则还是迷惘；光算得快，而没有大量的数据来训练，则还是疲倦无所得”。</p>
+<p>2007年 之前， 用 GPU 编程，缺乏一个简单的软件接口。 编程繁琐，捉虫困难。这在 07年 Nvidia 推出 CUDA 的 GPU 软件接口后才真正改善。</p>
+<p>2009年 六月， 斯坦福大学的 Rajat Raina 和吴恩达合作发表论文，“用 GPU 大规模无监督深度学习”（“Large-scale Deep Unsupervised Learning using Graphic Processors）。</p>
+<p>论文模型里的参数总数 (就是各层不同神经元之间链接的总数)，达到一亿，与之相比，Hinton 2006年 的论文里用到的参数数目，只有一百七十万。</p>
+<p>论文结果显示，使用 GPU 运行速度和用传统双核 CPU 相比， 最快时要快近七十倍。在一个四层，一亿个参数的深信度网络上，使用 GPU 把程序运行时间从几周降到一天。</p>
+<p>二、<br>2010年 瑞士学者 Dan Ciresan 和合作者发表论文，“又深又大又简单的神经网络在手写数字识别上表现出色”。（“Deep Big Simple Neural Nets Excel on Handwritten Digit Recognition”）</p>
+<p>这篇论文里， 使用的还是是八十年代的反向传播计算方法，但是计算搬移到 Nivida GTX280 GPU 上实现。在反向传播计算时，速度比传统 CPU 快了 40 倍。</p>
+<p>另一个关键点是：</p>
+<p>把训练神经网络的图像，刻意通过旋转， 放大缩小和弹性形变等方式进行改变。这样用于训练的图像数目大大增加。使用 GPU 后，改变六万张训练图像的计算速度从 93 秒降到了 9 秒钟， 快了十倍。不断用计算变形实现的图像， 等价于一个数量无限的训练数据库。</p>
+<p>论文结果显示，一个六层，拥有一千两百万个参数的神经网络模型，经过两个小时的训练后，在测试图像上的错误率就降到 1%。 经过 114 个小时训练后，模型的测试错误率更是降到了 0.35%。</p>
+<p>  三、</p>
+<p>2012 年还在斯坦福大学做研究生的黎越国同学 (Quoc Viet Le) 领衔， 和他的导师吴恩达，以及众多谷歌的科学家联合发表论文，“用大规模无监督学习建造高层次特征”（Building High-level Features Using Large Scale Unsupervised Learning）。</p>
+<p>黎越国的文章中， 使用了九层神经网络，网络的参数数量高达十亿，是 Ciresan 2010年 论文中的模型的一百倍，是 2009年Raina 论文模型的十倍。</p>
+<p>作为参照，按照丹麦学者 Bente Pakkenberg 2003年 的估算，人的脑皮层 (Neocortex) 内就有接近一百五十万亿个神经元突触（Synapse，是连接神经元传递信号的结构）， 是黎同学的模型参数数量的十万倍。</p>
+<p>用于训练这个神经网络的图像， 都是从谷歌的录像网站 youtube 上截屏获得。 一千万个原始录像，每个录像只截取一张图片， 每张图片有四万个像素， 与之相比，先前大部分论文使用的训练图像，原始图像的数目大多在十万以下，图片的像素大多不到一千。</p>
+<p>黎越国的计算模型分布式地在一千台机器 (每台机器有 16 个 CPU 内核) 上运行，花了三天三夜才完成培训。</p>
+<p>经过培训的神经网络，在一个名叫 ImageNet 的共享图像数据库里,面对两万两千个不同类别，一千四百万个图像中， 分类识别的正确率达到了 15.8%。 而在此之前最好的公开发表的模型，正确率只有 9.3%。</p>
+<p>深度学习的研究进步在加速，但要说服更多的主流的人工智能研究者加入，需要的是更多的， 可直接对比的，大幅领先的，无可辩驳的计算结果。</p>
+<p></p><h2>Part 6</h2><br>一、<br>计算速度和数据规模的大幅度提高，也引导出更多算法上的改进。<p></p>
+<p>在网络构架上，一些算法更多地借鉴人脑认知的成功经验： 多提高效率， 少做无用功。多闭目养神，少乱说乱动。 多关注主要矛盾，少关心细枝末节。</p>
+<p>2003年 纽约大学神经科学中心的 Peter Lennie 在论文中指出，人脑的神经元，一般最多 1-4%的比例， 可以同时处于激活状态。比例更高时，大脑则无法提供相应的能量需求。</p>
+<p>神经网络的模型中，通过所谓激励函数（activation function）， 根据上一层神经元输入值来计算输出值。</p>
+<p>最典型的传统激励函数，sigmoid function，输出值在 0 和 1 之间，也就意味着神经元平均下来，每时每刻都在使用一半的力量。</p>
+<p><img src="http://e.36krcnd.com/nil_class/5b47d9e7-6ee3-42e5-a8d7-dd9c7753eb23/0.jpg" alt="enter description here"><br>这种高强度能量需求，对于普通生物体而言，是无法持续的。</p>
+<p>一个有意思的比方是鳄鱼。真实生活中的鳄鱼，和动物世界的纪录片中纵身一跃，凶猛捕食的形象大相径庭。</p>
+<p>鳄鱼 90%的时间是一动不动的，（一个近距离观察者常会把它误认为是石雕）剩下 5%的时间用于求偶交配，5%的时间用于觅食。</p>
+<p><img src="http://b.36krcnd.com/nil_class/4b1e2214-7b83-4f1c-8955-04b66f986894/640.jpg" alt="enter description here"></p>
+<p>鳄鱼的低能耗绿色生活方式，使它成为两栖动物界的寿星。虽然野生鳄鱼的平均寿命缺乏严格科学的统计，但是被捕获后人工饲养的鳄鱼中，有不少个体，记录在案的寿命超过了七十岁。</p>
+<p>二、<br>2011 年，加拿大的蒙特利尔大学学者 Xavier Glorot 和 Yoshua Bengio 发表论文，“Deep Sparse Rectifier Neural Networks”。(深而稀疏的修正神经网络).</p>
+<p>论文的算法中使用一种称为 “修正线性单元”（REctified Linear Unit，又称 RELU）的激励函数。用数学公式表达：rectifier (x) = max (0, x ). </p>
+<p><img src="http://a.36krcnd.com/nil_class/b6313122-38ff-446a-937c-8f62e5d0c74a/3.png" alt="enter description here"><br>对于 RELU 而言，如果输入为负值，输出为零。否则输入和输出相等。</p>
+<p>换而言之，对于特定的输入，统计上有一半神经元是没有反应，保持沉默的。</p>
+<p>使用 RELU 的含有三个隐层的神经网络模型，被用来测试于四个不同的经典的图像识别问题。和使用别的激励函数的模型相比，RELU 不仅识别错误率普遍更低，而且其有效性，对于神经网络是否进行 “预先训练” 过并不敏感。</p>
+<p>RELU 的优势还有下面三点：</p>
+<p>传统的激励函数,计算时要用指数或者三角函数,计算量要比简单的 RELU 至少高两个数量级.</p>
+<p>RELU 的导数是常数, 非零即一, 不存在传统激励函数在反向传播计算中的”梯度消失问题”.</p>
+<p>由于统计上,约一半的神经元在计算过程中输出为零,使用 RELU 的模型计算效率更高,而且自然而然的形成了所谓 “稀疏表征” (sparse representation), 用少量的神经元可以高效, 灵活,稳健地表达抽象复杂的概念.</p>
+<p></p><h2>Part 7</h2><br>一、<br>神经网络计算，另一个常为人诟病的问题，是过度拟合（overfitting）。<p></p>
+<p>一个拥有大量自由参数的模型，很容易通过调试,和训练数据吻合。但这并不意味着，这就是个好模型。</p>
+<p>美国数学家冯纽曼（John Von Neumann）曾说， “给我四个参数，我的模型可以拟合一个大象。给我五个参数， 我可以让它扭动它的鼻子。”<br><img src="http://c.36krcnd.com/nil_class/6cd03998-03a2-4314-94fa-2a69d7716100/640.jpg" alt="enter description here"></p>
+<p>神经网络模型的自由参数，现在往往超过一亿。如果说四个参数可以拟合一个大象的话，对于全世界总数不到一百万的大象来说，实在是游刃有余。</p>
+<p>一个模型好坏的试金石，不在于和现有数据的拟合度， 而在于它是否可以在全新的情况和数据面前，做出正确的判断和预测。</p>
+<p>金融界的人常会看到各种交易模型，许多模型面对历史数据的测试时，表现非常好，胜率极高。但是如果投资者天真地以为找到了致富的捷径，把模型用于实际交易时，结果往往差强人意。</p>
+<p>另外一个典型的过度拟合的例子，可以在小孩教育上看到。许多家长把孩子从小就送到奥数、钢琴、小提琴等各类才艺和竞赛的培训班，唯恐孩子学得不够，以后上不了好大学,找不到好工作。</p>
+<p>这实际上就是根据社会现有的经济结构做出的一种过度拟合的训练。</p>
+<p>当时代迅速发展，以前吃香的技能，职业突然被淘汰，孩子必须面对社会变化和学校教育体系的巨大落差而无法迅速随机应变时，悲剧将很难避免。</p>
+<p>二、<br>解决这个问题的算法上的革新，启迪又是来自生物界，来自有性繁殖和无性繁殖的对比。</p>
+<p>爱尔兰著名哲学家和诗人，奥斯卡.王尔德 (Oscar Wilde) 先生曾有名言，”世界上所有东西都是关于性。 除了性本身” (Everything in the world is about sex，Except sex)。<br><img src="http://a.36krcnd.com/nil_class/277fe259-96ef-4961-9529-31bf69d421d7/640.jpg" alt="enter description here"></p>
+<p>直觉上，有性繁殖是为了生物进化，适应环境。但是如果一个已经非常健康的个体，为什么还要通过有性繁殖，抛弃掉自己一半的优秀基因去和另外一个个体合作制造下一代呢？</p>
+<p>无性生殖的优点是节能省时，无须浪费时间求偶交配。但致命的弱点是，基因没有任何变化，遗传病很容易被传播到下一代，进而降低生存的概率。</p>
+<p>加州大学伯克利分校学者 Adi Livnat 在 2007年 的论文， “关于性在进化中的角色的混合能力理论 “(A mixability theory of the role of sex in evolution ) 中通过模拟计算得出下述结论：</p>
+<p>性在生物进化中的目的，不是制造适合某个单一环境的，最优秀的个体基因，而是为了制造最容易和其它多种基因合作的基因，这样在多变的外界环境下，总有一款可以生存延续下来。</p>
+<p>优秀个体在有性繁殖中，虽然损失了一半的基因，短期内看上去不是好事。但是长期看，生物组织整体的存活能力，更加稳健强大。</p>
+<p>有性繁殖，在金融投资上的一个类比是： 把财富分散到不同种类的资产上，定期重新调整再平衡。 这样做的缺点是，某个表现特别好的资产可能会被过早的卖掉。 但优点在于，让投资组合不过分依赖于某个单一资产，在金融风暴中得以生存下来。</p>
+<p>歌舞升平的年代，人们总是互相攀比投资回报、没有觉得生存、保本是个问题。当金融黑天鹅降临时，才幡然醒悟，资本和生命的保全，而不是寻欢作乐，才是真正最重要的。</p>
+<p>三、<br>2012年 七月， Hinton 教授发表论文， “通过阻止特征检测器的共同作用来改进神经网络” （Improving neural networks by preventing co-adaptation of feature detectors）。</p>
+<p>论文中为了解决过度拟合的问题，采用了一种新的称为”丢弃” （Dropout）的算法。</p>
+<p>丢弃算法的具体实施,是在每次培训中，给每个神经元一定的几率（比如 50%），假装它不存在，计算中忽略不计。</p>
+<p><img src="http://b.36krcnd.com/nil_class/48dbce52-0845-400e-ad65-6aebc8fd931b/640.jpg" alt="enter description here"><br>从一个角度看，丢弃算法，每次训练时使用的是不同架构的神经网络（因为每次都有部分神经元装死），最后训练出来的东西，相当于不同架构的神经网络模型的平均值。</p>
+<p>从生物的有性繁殖角度看，丢弃算法，试图训练不同的小部分神经元，通过多种可能的交配组合，获得接近理想值的答案。</p>
+<p>使用丢弃算法的神经网络，被强迫用不同的、独立的、神经元的子集来接受学习训练。 这样网络更强健，避免了过度拟合的死胡同，不会因为外在输入的很小变化，导致输出质量的很大差异。</p>
+<p>论文结果显示，使用丢弃算法后，在诸如 MINST、 TIMID、 CIFAR-10 等多个经典语音和图像识别的问题中， 神经网络在测试数据中的错误率。 相对于经典的深度学习算法，都获得了可观的进步 （错误率下降了 10% 到 30% 不等）。</p>
+<p>四、<br>2012年 的夏天, 距离 Hinton 教授 1970年 开始攻读博士学位, 距离 Rosenblatt 1971年 溺水身亡, 一晃四十多年过去了。</p>
+<p>深度学习的技术，此时有了</p>
+<p>GPU 快捷的计算速度,<br>海量的训练数据,<br>更多新的聪明的算法。<br>条件已经成熟, 该用实验结果,证明自己相对别的技术,无可辩驳的优越性了。</p>
+<p>有诗为证： </p>
+<p>“鸿鹄高飞，一举千里。 </p>
+<p> 羽翼已就，横绝四海。 </p>
+<p> 横绝四海，当可奈何！ </p>
+<p> 虽有缯缴，尚安所施! “ </p>
+<p>from:<a href="http://36kr.com/p/5043570.html" target="_blank" rel="external">http://36kr.com/p/5043570.html</a><br>作者王川，投资人，中科大少年班校友，现居加州硅谷</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/02/06/easy-popular-science-doc-deep-learning/">关于深度学习可能最容易读进去的科普贴</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
+        <p><span>发布时间:</span>2016-02-06, 15:54:52</p>
+        <p><span>最后更新:</span>2016-10-16, 16:19:30</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/06/easy-popular-science-doc-deep-learning/" title="关于深度学习可能最容易读进去的科普贴">https://dragonflyxyz.github.io/2016/02/06/easy-popular-science-doc-deep-learning/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2016/02/06/easy-popular-science-doc-deep-learning/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/10/16/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/12/16/what-is-iot-ppt/">
+                    物联网是什么-ppt图
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Part 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Part 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">Part 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">Part 4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">Part 5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">Part 6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">Part 7</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"关于深度学习可能最容易读进去的科普贴　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/16/hello-world/" title="上一篇: Hello World">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/12/16/what-is-iot-ppt/" title="下一篇: 物联网是什么-ppt图">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/php-develop-1200examples/">《PHP开发实战1200例》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/introduction-john-carmack/">第一人称射击游戏教父，首款3D游戏的开发者，传奇程序员——约翰·卡马克</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/Ebook-search-engine/">几个好的电子书搜索引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/MIT-tech-review-2016/">麻省理工科技评论2016年1-6月</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/head-first-python/">《Head First Python》中文版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/my-blog-set/">博客设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/test1/">test1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/06/easy-popular-science-doc-deep-learning/">关于深度学习可能最容易读进去的科普贴</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/16/what-is-iot-ppt/">物联网是什么-ppt图</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/100-BBC-recordfile-parents-with-children/">家长应该陪孩子一起看的100部BBC纪录片</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/homedesign-north-america/">越来越喜欢北美的家庭装饰风格</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Dragonflyxyz
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
