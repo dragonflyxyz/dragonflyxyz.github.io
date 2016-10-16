@@ -232,6 +232,19 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Intel将两款arduino设备的实时操作系统开源]]></title>
+      <url>https://dragonflyxyz.github.io/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/</url>
+      <content type="html"><![CDATA[<p>Intel宣布：驱动Arduino 101 and Genuino 101两款设备的实时操作系统（RTOS）的源代码开源，以供Hack和研究之用。<br><a id="more"></a><br><img src="https://blog.arduino.cc/wp-content/uploads/2016/04/ABX00005_front-e1461226866918.jpg" alt="enter description here"><br>INTEL RELEASES THE ARDUINO 101 FIRMWARE SOURCE CODE<br>Martino Facchin — April 21st, 2016</p>
+<p>We’re very happy to announce that the source code of the real-time operating system (RTOS) powering the Arduino 101 and Genuino 101 is now available for hacking and study purposes.</p>
+<p>The package contains the complete BSP (Board Support Package) for the Curie processor on the 101. It allows you to compile and modify the core OS and the firmware to manage updates and the bootloader. (Be careful with this one since flashing the wrong bootloader could brick your board and require a JTAG programmer to unbrick it).</p>
+<p>The firmware runs on the x86 chip inside the Curie module and communicates with the ARC core (which runs your Arduino sketches) using these callbacks.<br>Right now, the x86 core takes care of handling Bluetooth Low Energy (BLE) and USB communication, offloading the ARC core.<br>You can use the code which implements these functionalities as a starting point for your custom extra features.</p>
+<p>Ever wondered about adding Mouse and Keyboard functionalities to your Arduino 101 and Genuino 101? Or uploading your sketches via BLE? Or add deep sleep functionalities when your application is battery powered? Now you can! (Some effort may be required :) )</p>
+<p>We hope that this step will bring even more interesting features to your Arduino 101 and Genuino 101, so even if you are not into low-level C programming, keep an eye on the dedicated forum section and Arduino 101 core github repo to follow the news and be the first to try new features.</p>
+<p>If you want to know more about projects made with Arduino 101, check our Project Hub section in Arduino Create, don’t forget to share with the community your experiments creating a new project and take look to this obstacle avoidance tutorial  on America’s Greatest Maker website  !<br>原文:<a href="https://blog.arduino.cc/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/" target="_blank" rel="external">https://blog.arduino.cc/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《编程问题的非程序员解决方案之研究》]]></title>
       <url>https://dragonflyxyz.github.io/2016/04/20/studying-the-language-and-structure-in-non-programmers-solutions/</url>
       <content type="html"><![CDATA[<p>2001年的一篇论文Studying the Language and Structure  in non-programmers’ solutions to programming problems (编程问题的非程序员解决方案之研究)。编程是一个复杂的活计，经常让初学者摸不着头脑，本论文探讨了用非程序员的角度来解决编程的问题，旨在让编程语言更容易学习和使用，这是因为语言更好地匹配了初学者的能力。</p>
