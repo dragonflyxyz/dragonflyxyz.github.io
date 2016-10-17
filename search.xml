@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[为什么我从Python转战到Node.js]]></title>
+      <url>https://dragonflyxyz.github.io/2016/10/17/why-im-switching-from-python-to-nodejs/</url>
+      <content type="html"><![CDATA[<p>老生常谈？这些日子谁不是切换到Node呢？我就是其中之一，下面是我的理由。<br><img src="/images/nodejs-logo-2.jpg" alt="enter description here" title="nodejs-logo-2.jpg"><br><a id="more"></a></p>
+<h2>Python 2，抑或是Python 3？</h2>
+
+<p>Python版本之间缺乏重点和运转是一个巨大的阵痛。是的，我知道很多库正在被转换或已经被转换过了。但是，一个接一个地缺乏重点以及明确的方向使得我对它的信任降到历史最低。我知道这和不想移动的社区有很大的关系，但开发人员对此不买账，尽管是社区驱动项目。</p>
+<h2>Unicode支持</h2><br>你有没有试过在Python中使用Unicode？TMD真心太痛苦了。是的，关于这个主题有很多这方面的文档，因此它不应该那么令人费解。Python 3是一个进步。当然我并没有说Node和JavaScript在这方面非常突出，但它们绝对有更佳的选项。<br><br><h2>循环导入</h2>
+
+<p>循环导入是任何Python程序员的痛苦之源，并且在我看来是这个语言非常破的一个架构选择。我知道在大多数情况下，循环导入是模块设计被破坏的一个标志。但是，如果你是一个有经验的开发人员，那么可能你会将更多的时间花在将Python硬塞到高级模式中。好吧，对此我只想说祝你好运。Node.js允许我导入模块到任何地方。</p>
+<p>旁注：显然Go也有这个限制。这太让我伤心了:(</p>
+<h2>NPM VS PIP</h2>
+
+<p>Python有PIP，这真的很棒。不过，我在NPM上经常能发现更多最新的现代化模块。随着NPM上其他共享的内容也出现了废话，因而你得对此提防。我一直认为在PIP上共享烦人，而在NPM上真心易如反掌。我的第一个模块共享只用了总共5分钟。</p>
+<h2>效率=更多钱！</h2>
+
+<p>这是毫无疑问的。当涉及到硬件（如果编写正确的话）的时候，Node比Python更精简。能够真正利用低端硬件并产生可接受结果是一个重要优势。很多优势都可以归结为Node的异步特性。是的，我知道Twisted和类似的库。你有没有在其中实际写过一个异步app？在构建一个产品时，开发速度很重要，但保持低的开销成本也很重要。我们可以运行相同的Node项目在Python所需的一半硬件上。</p>
+<h2>团队熟悉度</h2>
+
+<p>这总是一个值得探讨的话题，但是我更喜欢整个团队都能有一个基本的JavaScript水平。这意味着他们可以查看Node代码，并理解是怎么回事。如果团队里面有前端开发人员，那意味着连接到API端点或处理意见非常容易。这对我而言也意味着在帮助他们时受到的干扰更少。太棒了！</p>
+<h2>MongoDB和JSON</h2>
+
+<p>我们喜爱MongoDB和JSON。Node不假思索地使用它俩。当然，显然这也可以用其他语言来完成，但是它的便捷性有着致命的吸引力，使得我不得不提到它。</p>
+<h2>它就是JavaScript</h2>
+
+<p>如果你像我这样热爱JavaScript，那么这是一个额外的优势。如果你不喜欢JavaScript，那么这个优势可能也不是很大。我认为JavaScript之所以有趣是因为它善于表达。它提供了很多做事的方法，这在应用特定策略来解决关键问题时非常棒。这也滋生了一些愚蠢的辩论，例如“添加分号VS不要分号”。在此郑重声明，我赞同使用分号。</p>
+<h2>结论</h2>
+
+<p>需要说明的是，我依然深爱着Python。它已经陪伴了我好多年，并且我用Python写了好几个产品app（见Postach.io和QuoteRobot），然后经常用于快速服务器脚本。Node.js本来并非我的第一选择，但是我想要一些现代化的东西，并且做一些新颖的Web设计。PHP，Python和Ruby显然不符合要求。我的第一个选择是去学习Go（golang），但是由于时间限制和团队技能集让我与之无缘。初创企业对工作玩命，你懂的！Node折中了这些方面，允许我们立刻上手。</p>
+<p>你对于现代语言有什么想法？你更喜欢Python抑或其他？为什么？欢迎分享任何有关于Node方面的“陷阱”。<br>译文链接：<a href="http://www.codeceo.com/article/why-i-switch-python-to-node-js.html" target="_blank" rel="external">http://www.codeceo.com/article/why-i-switch-python-to-node-js.html</a><br>英文原文：<a href="http://geekforbrains.com/post/why-im-switching-from-python-to-node-js" target="_blank" rel="external">http://geekforbrains.com/post/why-im-switching-from-python-to-node-js</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[《PHP开发实战1200例》]]></title>
       <url>https://dragonflyxyz.github.io/2016/10/16/php-develop-1200examples/</url>
       <content type="html"><![CDATA[<p><img src="/images/s26692439.jpg" alt="enter description here" title="s26692439.jpg"></p>
@@ -226,10 +259,128 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Python多线程(Decorated concurrency)]]></title>
+      <url>https://dragonflyxyz.github.io/2016/05/17/python-decorated-concurrency/</url>
+      <content type="html"><![CDATA[<p>Decorated Concurrency - Python multiprocessing made really really easy<br>from:<a href="https://www.peterbe.com/plog/deco" target="_blank" rel="external">https://www.peterbe.com/plog/deco</a><br>tl;dr There’s a new interesting wrapper on Python multiprocessing called deco, written by Alex Sherman and Peter Den Hartog, both at University of Wisconsin - Madison. It makes Python multiprocessing really really easy.<br><a id="more"></a><br>The paper is here (PDF) and the code is here: <a href="https://github.com/alex-sherman/deco" target="_blank" rel="external">https://github.com/alex-sherman/deco</a>.</p>
+<p>This library is based on something called Pydron which, if I understand it correctly, is still a piece of research with no code released. (“We currently estimate that we will be ready for the release in the first quarter of 2015.”)</p>
+<p>Apart from using simple decorators on functions, the big difference that deco takes, is that it makes it really easy to get started and that there’s a hard restriction on how to gather the results of sub-process calls’. In deco, you pass in a mutable object that has a keyed index (e.g. a python dict). A python list is also mutable but it doesn’t have an index. Meaning, you could get race conditions on mylist.append().</p>
+<p>“However, DECO does impose one important restriction on the program: all mutations may only by index based.”</p>
+<p>Some basic example</p>
+<p>Just look at this example:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># before.py</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">slow</span><span class="params">(index)</span>:</span></div><div class="line">    time.sleep(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> list(<span class="string">'123'</span>):</div><div class="line">        slow(index)</div><div class="line">run()</div></pre></td></tr></table></figure>
+<p>And when run, you clearly expect it to take 15 seconds:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ time python before.py</div><div class="line"></div><div class="line">real    0m15.090s</div><div class="line">user    0m0.057s</div><div class="line">sys 0m0.022s</div></pre></td></tr></table></figure></p>
+<p>Ok, let’s parallelize this with deco. First pip install deco, then:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># after.py</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> deco <span class="keyword">import</span> concurrent, synchronized</div><div class="line"></div><div class="line"><span class="meta">@concurrent</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">slow</span><span class="params">(index)</span>:</span></div><div class="line">    time.sleep(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="meta">@synchronized</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> list(<span class="string">'123'</span>):</div><div class="line">        slow(index)</div><div class="line"></div><div class="line">run()</div></pre></td></tr></table></figure></p>
+<p>And when run, it should be less than 15 seconds:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ time python after.py</div><div class="line"></div><div class="line">real    0m5.145s</div><div class="line">user    0m0.082s</div><div class="line">sys 0m0.038s</div></pre></td></tr></table></figure></p>
+<h3>About the order of execution</h3>
+
+<p>Let’s put some logging into that slow() function above.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">slow</span><span class="params">(index)</span>:</span></div><div class="line">    time.sleep(<span class="number">5</span>)</div><div class="line">    <span class="keyword">print</span> <span class="string">'done with &#123;&#125;'</span>.format(index)</div></pre></td></tr></table></figure></p>
+<p>Run the example a couple of times and note that the order is not predictable:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ python after.py</div><div class="line"><span class="keyword">done</span> with 1</div><div class="line"><span class="keyword">done</span> with 3</div><div class="line"><span class="keyword">done</span> with 2</div><div class="line">$ python after.py</div><div class="line"><span class="keyword">done</span> with 1</div><div class="line"><span class="keyword">done</span> with 2</div><div class="line"><span class="keyword">done</span> with 3</div><div class="line">$ python after.py</div><div class="line"><span class="keyword">done</span> with 3</div><div class="line"><span class="keyword">done</span> with 2</div><div class="line"><span class="keyword">done</span> with 1</div></pre></td></tr></table></figure></p>
+<p>That probably don’t come as a surprise for those familiar with async stuff, but it’s worth reminding so you don’t accidentally depend on order.</p>
+<p></p><h3>@synchronized or .wait()</h3><p></p>
+<p>Remember the run() function in the example above? The @synchronized decorator is magic. It basically figures out that within the function call there are calls out to sub-process work. What it does it that it “pauses” until all those have finished. An alternative approach is to call the .wait() method on the decorated concurrency function:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> list(<span class="string">'123'</span>):</div><div class="line">        slow(index)</div><div class="line">    slow.wait()</div></pre></td></tr></table></figure></p>
+<p>That works the same way. This could potentially be useful if you, on the next line, need to depend on the results. But if that’s the case you could just split up the function and slap a @synchronized decorator on the split-out function.</p>
+<h3>No Fire-and-forget</h3>
+
+<p>It might be tempting to not set the @synchronized decorator and not call .wait() hoping the work will be finished anyway somewhere in the background. The functions that are concurrent could be, for example, functions that generate thumbnails from a larger image or something time consuming where you don’t care when it finishes, as long as it finishes.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># fireandforget.py</span></div><div class="line"><span class="comment"># THIS DOES NOT WORK</span></div><div class="line"><span class="comment"># And it's not expected to either.</span></div><div class="line"></div><div class="line"><span class="meta">@concurrent</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">slow</span><span class="params">(index)</span>:</span></div><div class="line">    time.sleep(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> list(<span class="string">'123'</span>):</div><div class="line">        slow(index)</div><div class="line"></div><div class="line">run()</div></pre></td></tr></table></figure></p>
+<p>When you run it, you don’t get an error:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ time python fireandforget.py</div><div class="line"></div><div class="line">real    0m0.231s</div><div class="line">user    0m0.079s</div><div class="line">sys 0m0.047s</div></pre></td></tr></table></figure></p>
+<p>But if you dig deeper, you’ll find that it never actually executes those concurrent functions.</p>
+<p>If you want to do fire-and-forget you need to have another service/process that actually keeps running and waiting for all work to be finished. That’s how the likes of a message queue works.</p>
+<h3>Number of concurrent workers</h3>
+
+<p>multiprocessing.Pool automatically, as far as I can understand, figures out how many concurrent jobs it can run. On my Mac, where I have 8 CPUS, the number is 8.</p>
+<p>This is easy to demonstrate. In the example above it does exactly 3 concurrent jobs, because len(list(‘123’)) == 3. If I make it 8 items, the whole demo run takes, still, 5 seconds (plus a tiny amount of overhead). If I make it 9 items, it now takes 10 seconds.</p>
+<p>How multiprocessing figures this out I don’t know but I can’t imagine it being anything but a standard lib OS call to ask the operating system how many CPUs it has.</p>
+<p>You can actually override this with your own number. It looks like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> deco <span class="keyword">import</span> concurrent</div><div class="line"></div><div class="line"><span class="meta">@concurrent(processes=5)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">really_slow_and_intensive_thing</span><span class="params">()</span>:</span></div><div class="line">    ...</div></pre></td></tr></table></figure></p>
+<p>So that way, the operating system doesn’t get too busy. It’s like a throttle.</p>
+<h3>A more realistic example</h3>
+
+<p>Let’s actually use the mutable for something and let’s do something that isn’t just a time.sleep(). Also, let’s do something that is CPU bound. A lot of times where concurrency is useful is when you’re network bound because running many network waiting things at the same time doesn’t hose the system from being able to do other things.</p>
+<p>Here’s the code:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">from</span> deco <span class="keyword">import</span> concurrent, synchronized</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@concurrent</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">slow</span><span class="params">(times, offset)</span>:</span></div><div class="line">    t0 = time.time()</div><div class="line">    path = <span class="string">'9745e8.jpg'</span></div><div class="line">    img = Image.open(path)</div><div class="line">    size = (<span class="number">100</span> + offset * <span class="number">20</span>, <span class="number">100</span> + offset * <span class="number">20</span>)</div><div class="line">    img.thumbnail(size, Image.ANTIALIAS)</div><div class="line">    img.save(<span class="string">'thumbnails/&#123;&#125;.jpg'</span>.format(offset), <span class="string">'JPEG'</span>)</div><div class="line">    t1 = time.time()</div><div class="line">    times[offset] = t1 - t0</div><div class="line"></div><div class="line"><span class="meta">@synchronized</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(times)</span>:</span></div><div class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">100</span>):</div><div class="line">        slow(times, index)</div><div class="line"></div><div class="line">t0 = time.time()</div><div class="line">times = &#123;&#125;</div><div class="line">run(times)</div><div class="line">t1 = time.time()</div><div class="line"><span class="keyword">print</span> <span class="string">"TOOK"</span>, t1-t0</div><div class="line"><span class="keyword">print</span> <span class="string">"WOULD HAVE TAKEN"</span>, sum(times.values())</div></pre></td></tr></table></figure></p>
+<p>It generates 100 different thumbnails from a very large original JPG. Running this on my macbook pro takes 8.4 seconds but the individual times was a total of 65.1 seconds. The numbers makes sense, because 65 seconds / 8 cores ~= 8 seconds.</p>
+<p>But, where it gets really interesting is that if you remove the deco decorators and run 100 thumbnail creations in serial, on my laptop, it takes 28.9 seconds. Now, 28.9 seconds is much more than 8.4 seconds so it’s still a win to multiprocessing for this kind of CPU bound work. However, stampeding herd of doing 8 CPU intensive tasks at the same time can put some serious strains on your system. Also, it could cause high spikes in terms of memory allocation that wouldn’t have happened if freed space can be re-used in the serial pattern.</p>
+<p>Here’s by the way the difference in what this looks like in the Activity Monitor:</p>
+<p>Fully concurrent PIL work<br><img src="/images/e1ead7c28760d4b30f500fbd2705873f.png" alt="enter description here" title="e1ead7c28760d4b30f500fbd2705873f.png"></p>
+<p>Same work but in serial<br><img src="/images/0b3b67971b642c1937445ecdf88fcd65.png" alt="enter description here" title="0b3b67971b642c1937445ecdf88fcd65.png"></p>
+<h3>One more “realistic” pattern</h3>
+
+<p>Let’s do this again with a network bound task. Let’s download 100 webpages from my blog. We’ll do this by keeping an index where the URL is the key and the value is the time it took to download that one individual URL. This time, let’s start with the serial pattern:</p>
+<p>(Note! I ran these two experiments a couple of times so that the server-side cache would get a chance to clear out outliers)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time, requests</div><div class="line"></div><div class="line">urls = <span class="string">"""</span></div><div class="line">https://www.peterbe.com/plog/blogitem-040212-1</div><div class="line">https://www.peterbe.com/plog/geopy-distance-calculation-pitfall</div><div class="line">https://www.peterbe.com/plog/app-for-figuring-out-the-best-car-for-you</div><div class="line">https://www.peterbe.com/plog/Mvbackupfiles</div><div class="line">...a bunch more...</div><div class="line">https://www.peterbe.com/plog/swedish-holidays-explaine</div><div class="line">https://www.peterbe.com/plog/wing-ide-versus-jed</div><div class="line">https://www.peterbe.com/plog/worst-flash-site-of-the-year-2010</div><div class="line">""".strip().splitlines()</div><div class="line"><span class="keyword">assert</span> len(urls) == <span class="number">100</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(url, data)</span>:</span></div><div class="line">    t0 = time.time()</div><div class="line">    <span class="keyword">assert</span> requests.get(url).status_code == <span class="number">200</span></div><div class="line">    t1 = time.time()</div><div class="line">    data[url] = t1-t0</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(data)</span>:</span></div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        download(url, data)</div><div class="line"></div><div class="line">somemute = &#123;&#125;</div><div class="line">t0 = time.time()</div><div class="line">run(somemute)</div><div class="line">t1 = time.time()</div><div class="line"><span class="keyword">print</span> <span class="string">"TOOK"</span>, t1-t0</div><div class="line"><span class="keyword">print</span> <span class="string">"WOULD HAVE TAKEN"</span>, sum(somemute.values()), <span class="string">"seconds"</span></div></pre></td></tr></table></figure></p>
+<p>When run, the output is:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">TOOK 35.3457410336</div><div class="line">WOULD HAVE TAKEN 35.3454759121 seconds</div></pre></td></tr></table></figure></p>
+<p>Now, let’s add the deco decorators, so basically these changes:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> deco <span class="keyword">import</span> concurrent, synchronized</div><div class="line"></div><div class="line"><span class="meta">@concurrent</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(url, data)</span>:</span></div><div class="line">    t0 = time.time()</div><div class="line">    <span class="keyword">assert</span> requests.get(url).status_code == <span class="number">200</span></div><div class="line">    t1 = time.time()</div><div class="line">    data[url] = t1-t0</div><div class="line"></div><div class="line"><span class="meta">@synchronized</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(data)</span>:</span></div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        download(url, data)</div></pre></td></tr></table></figure></p>
+<p>And the output this time:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">TOOK 5.13103795052</div><div class="line">WOULD HAVE TAKEN 39.7795288563 seconds</div></pre></td></tr></table></figure></p>
+<p>So, instead of it having to take 39.8 seconds it only needed to take 5 seconds with extremely little modification. I call that a win!</p>
+<h3>What’s next</h3>
+
+<p>Easy; actually build something that uses this.</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Github上最全的机器学习资料集合]]></title>
       <url>https://dragonflyxyz.github.io/2016/05/15/github-awesome-machine-learning/</url>
       <content type="html"><![CDATA[<p>机器学习(Machine Learning, ML)是一门多领域交叉学科，涉及概率论、统计学、逼近论、凸分析、算法复杂度理论等多门学科。专门研究计算机怎样模拟或实现人类的学习行为，以获取新的知识或技能，重新组织已有的知识结构使之不断改善自身的性能。机器学习牵涉的编程语言十分之广，包括了MATLAB、Julia、R、Perl、Python、Clojure、Ruby等等。<br>为了让开发者更加广泛、深入地了解机器学习，云栖社区组织翻译了GitHub Awesome Machine Learning 资源，涵盖24种编程语言的机器学习的框架、库以及其他相关资料。<br><a id="more"></a><br><a href="https://yq.aliyun.com/articles/43089" target="_blank" rel="external">https://yq.aliyun.com/articles/43089</a></p>
 <p>Github Awesome Machine Learning: <a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank" rel="external">https://github.com/josephmisiti/awesome-machine-learning</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[数据处理的 9 大编程语言]]></title>
+      <url>https://dragonflyxyz.github.io/2016/05/12/the-9-best-languages-form-crunching-data/</url>
+      <content type="html"><![CDATA[<p>有关大数据的话题一直很火热。伴随着信息的爆炸式增长，大数据渗透到了各行各业，广泛应用于公司中，同时也使得传统的软件比如 Excel 看起来很笨拙。数据分析不再只是书呆子的事，同时其对高复杂性分析、实时处理的需求也比以往更加庞大。</p>
+<p>那么筛选海量数据集最优的工具是什么呢？我们咨询了一些数据黑客关于他们在数据分析的核心工作中最喜欢的编程语言和工具包。<br><a id="more"></a></p>
+<h2>R 语言</h2>
+
+<p>这份名单如果不以 R 开头，那就是彻头彻尾的疏忽。自 1997 年起，作为一门免费的，可替代 Matlab 或 SAS 等昂贵统计软件的语言，R 被抛弃。</p>
+<p>但是在过去的几年中，它却成了数据科学的宠儿—甚至成了统计学家、 华尔街交易员、生物学家和硅谷开发者必不可少的工具。 随着其商业价值的不断增长和传播，诸如谷歌、Facebook、 美国银行和纽约时代周刊都在使用。</p>
+<p>R 简单易用。通过 R ，短短几行代码就可以筛选复杂的数据集，通过成熟的模型函数处理数据，制作精美的图表进行数据可视化。简直就是 Excel 的加强灵活版。</p>
+<p>R 最大的价值就是围绕其开发的活跃的生态圈： R 社区在持续不断地向现存丰富的函数集增添新的包和特性。据估计 R 的使用者已经超过 200 万人，最近的一项调查也显示 R目前是数据科学领域最受欢迎的语言，大约 61% 的受访者使用 R（第二名是 Python, 占比39%）。</p>
+<p>在华尔街，R 的使用比例也在不断增长。美国银行副总裁Niall O’Connor 说：“以往，分析员通常是熬夜研究 Excel 文件，但是现在 R 正被逐渐地应用于金融建模，尤其是作为可视化工具。R 促使了表格化分析的出局。”</p>
+<p>作为一门数据建模语言， R 正在走向成熟，尽管在公司需要大规模产品的时候 R 能力有限，也有些人说它已经被其他语言替代了。</p>
+<p>Metamarkets 公司的 CEO Michael Driscoll 说：“ R 擅长的是勾画，而不是搭建，在 Google 的 page rank 算法和 Facebook 的好友推荐算法实现的核心中是不会有 R 的。工程师会用 R 进行原型设计，再用 Java 或者 Python将其实现。”</p>
+<p>Paul Butler 在 2010 年用 R 构建了一个著名的 Facebook 世界地图，证明了 R 在数据可视化上的强大能力。然而他并不经常使用 R。</p>
+<p>Butler 说：“由于在处理较大数据集时缓慢且笨拙，R 在行业中已经有些沦为明日黄花了 ”</p>
+<p>那么使用什么作为它的替代呢？看下去。</p>
+<h2>Python</h2>
+
+<p>如果 R 是个有点神经质的可爱的极客，那么 Python 就是它容易相处的欢快的表弟。融合了 R 快速成熟的数据挖掘能力以及更实际的产品构建能力， Python 正迅速地获得主流的呼声。 Python 更直观，且比 R 更易学，近几年其整体的生态系统发展也成长得很快，使其在统计分析上的能力超越了之前的 R 语言。</p>
+<p>Butler 说：“Python 是行业人员正在转换发展的方向。过去两年里，很明显存在由 R 向 Python 转化的趋势”</p>
+<p>在数据处理中，通常存在规模和技巧的权衡，Python 作为一个折中出现了。 IPython notebook 和NumPy 可以用于轻量工作的处理， 而 Python 则是中级规模数据处理的有力工具。丰富的数据交流社区也是 Python 的优势，它提供了大量的Python 工具包和特性。</p>
+<p>美国银行利用 Python 开发新产品以及基础设施接口，同时也用于处理金融数据。O’Donnell 说：“Python 用途宽广且灵活，所以人们蜂拥而至”。</p>
+<p>然而， Driscoll 也提到它并不是高性能的语言，偶尔才会用于装配驱动大规模的核心基础设施。</p>
+<h2>JULIA</h2>
+
+<p>最主流的数据科学处理语言包括 R、 Python、 Java、 Matlab和 SAS。但是这些语言仍然存在一些不足之处，而Julia 正是待以观察的新人。</p>
+<p>对大规模商用来说， Julia 还是太晦涩了。但在谈到其取代 R 和 Python 领先地位的潜力的时候，数据极客们都会变得很激动。 Julia 是一门高级的，非常快的函数式语言。速度上比 R 快， 可能比 Python 的扩展性更高，且相对易学。</p>
+<p>Butler 说：“Julia 正在快速上升。最终将可以用 Julia 完成任何 R 和 Python 可以完成的事”。</p>
+<p>如今的问题是 Julia 太“年轻”了。 其数据交流社区仍处在早期发展阶段，在没有足够的包和工具之前是不足以与 R 和 Python 竞争的。</p>
+<p>Driscoll 说：“Julia 很年轻，但正在积攒力量而且未来很可观”。</p>
+<h2>JAVA</h2>
+
+<p>在硅谷最大的科技公司里，Java 和基于 Java 的框架构成了其底层的技术骨架。Driscoll 说：“如果深入观察Twitter，Linkedin 或者 Facebook，你会发现 Java 是他们公司数据引擎架构的基础语言”。</p>
+<p>Java 并没有 R 和 Python 那样的数据可视化的能力， 同时也不是最好的用于统计模型的语言。但是如果需要进行原型的基础开发和构建大规模系统， Java 往往是最好的选择。</p>
+<h2>HADOOP 和 HIVE</h2>
+
+<p>为了满足数据处理的巨大需求，基于 Java 的工具群涌而现。 作为基于 Java 的框架，Hadoop 在批处理领域成为热点。Hadoop 比其他处理工具速度要慢，但是它非常精确且被广泛的应用于后台分析，它很好的融合了 Hive， 一个运行在 Hadoop 上的基于查询的框架。</p>
+<h2>SCALA</h2>
+
+<p>Scala 是另一个基于 Java的语言，和 Java 很相似，它正在逐渐成长为大规模机器学习或高级算法的工具。它是函数式语言，也能够构建健壮的系统。</p>
+<p>Driscoll 说：“Java 就像是直接用钢筋进行搭建， Scala 则像是在处理黏土原材料，可以将其放进窖中烧制成钢筋”。</p>
+<h2>KAFKA 和 STORM</h2>
+
+<p>当需要快速、实时分析时怎么办？Kafka 可以帮助你。它已经发展了大概五年时间，但最近才成为一个流处理的流行框架。</p>
+<p>Kafka 诞生于 Linkedin 公司的内部项目，是一个快速查询系统。至于 Kafka 的缺点呢？ 它太快了，实时的操作也导致了自身的错误，且偶尔还会遗失信息。</p>
+<p>Driscoll 说：“在精度和速度之间总需要做权衡，所以硅谷所有的大公司一般都双管齐下： 用 kafka 和 Storm 进行实时处理，用 Hadoop 做批处理系统，虽然会慢一点但却十分精确”。</p>
+<p>Storm 是另一个用 Scala 写的框架，且它在硅谷以擅长流处理而受到极大的关注。毫无疑问， Twitter， 一个对快速消息处理有着巨大兴趣的公司会收购了 Storm。</p>
+<p>荣幸的提到：</p>
+<h2>MATLAB</h2>
+
+<p>MATLAB 已经存在很长时间了，尽管价格昂贵，但它仍在某些特定领域被广泛使用： 机器学习研究、信号处理、图像识别等领域。</p>
+<h2>OCTAVE</h2>
+
+<p>Octave 与 Matlab 非常相似，只不过它是免费的。然而除了信号处理的学术圈之外很少见到使用。</p>
+<h2>GO</h2>
+
+<p>GO 是另外一个获得关注的新手。它由 Google 开发，与 C 有一定渊源，且在构建稳定系统方面与 Java 和 Python 展开了竞争。<br>转载:<a href="http://blog.jobbole.com/100732/" target="_blank" rel="external">http://blog.jobbole.com/100732/</a><br>英文原文:<a href="https://www.fastcompany.com/3030716/the-9-best-languages-for-crunching-data" target="_blank" rel="external">https://www.fastcompany.com/3030716/the-9-best-languages-for-crunching-data</a></p>
 ]]></content>
     </entry>
     
