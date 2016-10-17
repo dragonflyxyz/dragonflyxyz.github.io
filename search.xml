@@ -217,21 +217,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>https://dragonflyxyz.github.io/2016/10/16/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[一个逗逼的科研狗是如何成为诺贝尔奖得主的]]></title>
       <url>https://dragonflyxyz.github.io/2016/05/01/a-low-scientist-how-to-get-nobel-prize/</url>
       <content type="html"><![CDATA[<p>首先来认识一下今天的主角——Andre Geim （以下简称AG）。他的科学才华无与伦比。在他的眼中，科研是一个满足自己好奇心的游戏。并且在十几年的时间中，玩耍出了很多惊世骇俗的科学成果，让所有苦行僧一样的科研狗们羡慕不己。<br>但当他还是一只科研狗的时候，也曾经四面楚歌,苦逼到饭都吃不起的地步。<br>事实一再印证，命运之神会眷念每一个逗逼。于是，他终于发现了牛B的石墨烯，使人类的科技从硅时代一跃进入碳时代，并为自己赢得了科学家的最高奖——诺贝尔物理学奖。<br>他曾一无所有，他将拥有一切。他神一般的存在，只为证明一个真理：好奇心才是科学的第一推动力！！！<br><a id="more"></a></p>
@@ -761,6 +746,21 @@
       <title><![CDATA[越来越喜欢北美的家庭装饰风格]]></title>
       <url>https://dragonflyxyz.github.io/2015/10/16/homedesign-north-america/</url>
       <content type="html"><![CDATA[<p>发现最近越来越喜欢北美的装饰风格，比起简约派，它又是另一种味道，饱满而热烈。感觉这就是物品堆积起来的家，却又不显得那样的杂乱无章。同样类型的东西放在一起，反而更显得有序。这是一对年轻夫妇杰西和莱娅的家，位于自加州，圣巴巴拉的一幢住宅。典型美式装修风格，轻装修重装饰!<br><a id="more"></a><br><img src="/images/a071c310jw1e59mjikiklj20c12lc7a5.jpg" alt="enter description here" title="a071c310jw1e59mjikiklj20c12lc7a5.jpg"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>https://dragonflyxyz.github.io/2015/05/01/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
     </entry>
     
