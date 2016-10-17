@@ -250,6 +250,14 @@
     </entry>
     
     <entry>
+      <title><![CDATA[微软开源Malmo AI项目平台 利用Minecraft构建复杂机器人任务]]></title>
+      <url>https://dragonflyxyz.github.io/2016/07/09/microsoft-opensource-malmo-ai/</url>
+      <content type="html"><![CDATA[<p>上周四，微软透露Malmo项目从一小群计算机科学家手中的一个私人预览转变到在GitHub上公开的源代码。让微软Malmo人工智能项目平台开源。微软Malmo项目是一个人工智能系统，用Minecraft World来测试人工智能算法。Malmo项目以前被称为AIX项目，该平台研发目的是为初创公司提供便宜，有效的方法，来测试人工智能程序，而无需建立机器人使用物理物体进行命令和理解能力测试。<br><a id="more"></a><br>该平台的主要目标是提高一般的AI研究，包括教授AI如何学习，保持对话，做出决定和完成复杂任务。据微软英国剑桥研究实验室的研究员卡佳霍夫曼表示，Malmo项目也可以用在在“强化学习”方面，即人工智能通过试错来完成任务，并且当人工智能做出正确选择之后给予奖励。<br>微软还为开源版本Malmo项目增加了新的功能，将允许开发人员创建机器人，学会互相交谈，研究人员也将能够对Minecraft World实验速度进行超频。Malmo项目目前与Windows，Linux和Mac OS兼容。</p>
+<p>项目Github主页：<a href="https://github.com/Microsoft/malmo" target="_blank" rel="external">https://github.com/Microsoft/malmo</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hadoop学习资源集合（Github）]]></title>
       <url>https://dragonflyxyz.github.io/2016/05/20/github-awesome-hadoop/</url>
       <content type="html"><![CDATA[<p>Hadoop是一个由Apache基金会所开发的开源分布式系统基础架构。用户可以在不了解分布式底层细节的情况下，开发分布式程序，充分利用集群的威力进行高速运算和存储。Hadoop得以在大数据处理应用中广泛应用得益于其自身在数据提取、变形和加载(ETL)方面上的天然优势。Hadoop的分布式架构，将大数据处理引擎尽可能的靠近存储。<br><a id="more"></a></p>
