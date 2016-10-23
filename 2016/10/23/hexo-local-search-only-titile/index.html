@@ -15,19 +15,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="我的hexo搜索使用的是本地搜索插件hexo-generator-search使用一段时间后发现生成的search.xml越来越大，虽然设置成了搜索时才下载，但还是随着文章内容越来越多（有断网恐惧症，所以大部分的转载都全文复制到本地）搜索加载的时间越来越长，开始考虑优化搜索，试了baidu，Google，Swfttype，都不是很理想。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://dragonflyxyz.github.io/2014/05/01/hello-world/index.html">
+<meta property="og:title" content="让Hexo的本地搜索只搜索标题">
+<meta property="og:url" content="https://dragonflyxyz.github.io/2016/10/23/hexo-local-search-only-titile/index.html">
 <meta property="og:site_name" content="Dragonflyxyz的知识整理">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-10-17T15:59:38.097Z">
+<meta property="og:description" content="我的hexo搜索使用的是本地搜索插件hexo-generator-search使用一段时间后发现生成的search.xml越来越大，虽然设置成了搜索时才下载，但还是随着文章内容越来越多（有断网恐惧症，所以大部分的转载都全文复制到本地）搜索加载的时间越来越长，开始考虑优化搜索，试了baidu，Google，Swfttype，都不是很理想。">
+<meta property="og:updated_time" content="2016-10-23T06:52:33.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="让Hexo的本地搜索只搜索标题">
+<meta name="twitter:description" content="我的hexo搜索使用的是本地搜索插件hexo-generator-search使用一段时间后发现生成的search.xml越来越大，虽然设置成了搜索时才下载，但还是随着文章内容越来越多（有断网恐惧症，所以大部分的转载都全文复制到本地）搜索加载的时间越来越长，开始考虑优化搜索，试了baidu，Google，Swfttype，都不是很理想。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +56,7 @@ Quick">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hello World | Dragonflyxyz的知识整理</title>
+<title>让Hexo的本地搜索只搜索标题 | Dragonflyxyz的知识整理</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +263,11 @@ Quick">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hexo-local-search-only-titile" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/05/01/hello-world/" class="article-date">
-      <time datetime="2014-05-01T01:51:30.000Z" itemprop="datePublished">2014-05-01</time>
+      <a href="/2016/10/23/hexo-local-search-only-titile/" class="article-date">
+      <time datetime="2016-10-23T06:35:08.000Z" itemprop="datePublished">2016-10-23</time>
 </a>
 
 
@@ -285,7 +282,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      让Hexo的本地搜索只搜索标题
     </h1>
   
 
@@ -299,6 +296,10 @@ Quick">
 
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -306,15 +307,13 @@ Quick">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>我的hexo搜索使用的是本地搜索插件hexo-generator-search<br>使用一段时间后发现生成的search.xml越来越大，虽然设置成了搜索时才下载，但还是随着文章内容越来越多（有断网恐惧症，所以大部分的转载都全文复制到本地）搜索加载的时间越来越长，开始考虑优化搜索，试了baidu，Google，Swfttype，都不是很理想。<br><a id="more"></a><br>后来想了想搜索的时候大部分人是针对标题去的，因此想干脆在search.xml中之保存标题不保存全文就小多了，开始动手吧：</p>
+<p></p><h3>1、先找到生成search.xml的文件在哪里</h3><br>我是在笔记本电脑的windows10系统上安装的Hexo写作环境，记得曾看到过生成search.xml的文件是search.ejs，查找到路径是：C:\hexo\blog\node_modules\hexo-generator-search\search.ejs。<p></p>
+<p></p><h3>2、修改search.ejs</h3><br>Notepad++打开search.ejs:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;search&gt;</div><div class="line">  &lt;% var url = config.url + config.root %&gt;</div><div class="line">  &lt;% if(posts)&#123; %&gt;</div><div class="line">    &lt;% posts.each(function(post)&#123; %&gt;</div><div class="line">    &lt;entry&gt;</div><div class="line">      &lt;title&gt;&lt;%-: post.title | cdata %&gt;&lt;/title&gt;</div><div class="line">      &lt;url&gt;&lt;%- encodeURI(post.permalink) %&gt;&lt;/url&gt;</div><div class="line">      &lt;content type="html"&gt;&lt;%-: post.content | cdata %&gt;&lt;/content&gt;</div><div class="line">    &lt;/entry&gt;</div><div class="line">    &lt;% &#125;) %&gt;</div><div class="line">  &lt;% &#125; %&gt;</div><div class="line">  &lt;% if(pages)&#123; %&gt;</div><div class="line">    &lt;% pages.each(function(page)&#123; %&gt;</div><div class="line">    &lt;entry&gt;</div><div class="line">      &lt;title&gt;&lt;%-: page.title | cdata %&gt;&lt;/title&gt;</div><div class="line">      &lt;url&gt;&lt;%- encodeURI(page.permalink) %&gt;&lt;/url&gt;</div><div class="line">      &lt;content type="html"&gt;&lt;%-: page.content | cdata %&gt;&lt;/content&gt;</div><div class="line">    &lt;/entry&gt;</div><div class="line">    &lt;% &#125;) %&gt;</div><div class="line">  &lt;% &#125; %&gt;</div><div class="line">&lt;/search&gt;</div></pre></td></tr></table></figure><p></p>
+<p>找到生成全文索引的语句应该是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;content type=<span class="string">"html"</span>&gt;&lt;%-: post.content | cdata %&gt;&lt;/content&gt;</div></pre></td></tr></table></figure></p>
+<p>还不能值为空，所以将post.content改为 post.title，就重复一次title也没多大的。</p>
+<p></p><h3>重生成search.xml</h3><br>重生成文件:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure><p></p>
+<p>search.xml从400k变成9kb，搜索速度飞快，虽然不能全文搜索了，但搜索速度提高的感觉太爽了。</p>
 
       
     </div>
@@ -323,13 +322,13 @@ Quick">
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2014/05/01/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2016/10/23/hexo-local-search-only-titile/">让Hexo的本地搜索只搜索标题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
-        <p><span>发布时间:</span>2014-05-01, 09:51:30</p>
-        <p><span>最后更新:</span>2016-10-17, 23:59:38</p>
+        <p><span>发布时间:</span>2016-10-23, 14:35:08</p>
+        <p><span>最后更新:</span>2016-10-23, 14:52:33</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2014/05/01/hello-world/" title="Hello World">https://dragonflyxyz.github.io/2014/05/01/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2014/05/01/hello-world/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/23/hexo-local-search-only-titile/" title="让Hexo的本地搜索只搜索标题">https://dragonflyxyz.github.io/2016/10/23/hexo-local-search-only-titile/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2016/10/23/hexo-local-search-only-titile/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -341,16 +340,10 @@ Quick">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2014/10/01/john-carmack-on-inlined-code/">
-                    John Carmack on inlined code
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2014/01/16/test1/">
-                    test1
+                <a href="/2016/10/17/why-im-switching-from-python-to-nodejs/">
+                    为什么我从Python转战到Node.js
                 </a>
             </div>
         
@@ -362,7 +355,7 @@ Quick">
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1、先找到生成search.xml的文件在哪里</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2、修改search.ejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">重生成search.xml</span></a></li></ol>
         
     </div>
     <style>
@@ -398,7 +391,7 @@ Quick">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hello World　| Dragonflyxyz的知识整理　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"让Hexo的本地搜索只搜索标题　| Dragonflyxyz的知识整理　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -418,15 +411,13 @@ Quick">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2014/10/01/john-carmack-on-inlined-code/" title="上一篇: John Carmack on inlined code">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2014/01/16/test1/" title="下一篇: test1">
+            <a href="/2016/10/17/why-im-switching-from-python-to-nodejs/" title="下一篇: 为什么我从Python转战到Node.js">
                 <i class="fa fa-angle-right"></i>
             </a>
         

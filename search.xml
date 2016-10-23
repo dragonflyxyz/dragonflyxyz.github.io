@@ -4,6 +4,12 @@
   
     
     <entry>
+      <title><![CDATA[让Hexo的本地搜索只搜索标题]]></title>
+      <url>https://dragonflyxyz.github.io/2016/10/23/hexo-local-search-only-titile/</url>
+      <content type="html"><![CDATA[让Hexo的本地搜索只搜索标题]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[为什么我从Python转战到Node.js]]></title>
       <url>https://dragonflyxyz.github.io/2016/10/17/why-im-switching-from-python-to-nodejs/</url>
       <content type="html"><![CDATA[为什么我从Python转战到Node.js]]></content>
