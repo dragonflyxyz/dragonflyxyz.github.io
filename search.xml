@@ -258,6 +258,16 @@
     </entry>
     
     <entry>
+      <title><![CDATA[零售业有福了！大数据机器人卖场值班，点货超轻松]]></title>
+      <url>https://dragonflyxyz.github.io/2016/06/22/why-this-robot-in-the-grocery-store/</url>
+      <content type="html"><![CDATA[<p>或许再过不久，当你到超市买东西的时候，就会看到一台机器人站在走道中间，检查货架上少了几瓶可乐。<br><img src="http://imgs.technews.cn/wp-content/uploads/2015/11/Tally_bnext1112.jpg" alt="enter description here"><br><a id="more"></a></p>
+<p>一家美国硅谷新创公司 Simbe Robotics，推出专门追踪货架上物品的机器人 Tally，能够在 30 至 40 分钟内扫描完一家超市的所有货架，每小时平均能够获取 1 万 5 千至 2 万笔产品资讯；对一般员工而言，可能得花上 20 至 30 小时。对零售业来说，愈多内部流程能够自动化，所提供的价钱就能压得愈低、获得市场竞争优势。而往好处想，宕机器人取代点货人力时，也代表此家店面能够拥有更多员工来进行顾客服务，提高购物满意度。</p>
+<p>这台 Tally 约 100 公分高，能够在店内边走边扫描货架上商品状况，扫描、拍照后，能够把这些即时货架影像上传到云端数据库，与理想货架状况进行比对，发现差异后，会将报告传给店经理。报告内容可能会是这样：“货架 6 缺少 3 瓶饮料罐、货架 7 的书栏位放错、货架 10 标错价钱。”<br>在 Tally 正式自己工作时，得先由店里人员带着它走一圈，知道这个空间的行走路线，而它也有设置感应器，防止撞上顾客或货架，此外，虽然机身只有 100 公分高，它的可视范围可达约 243 公分高，不怕漏掉高处货架商品。</p>
+<p>Tally 所收集的资料，不仅对店经理、店里货物摆放有帮助，当时间一久、资料收集的数量愈多，这些资料也可应用在销售上，帮助品牌经理了解某项产品在货架上的表现、当与竞争产品放在一起时的销售状况等。<br>from:<a href="http://www.bnext.com.tw/article/view/id/37945" target="_blank" rel="external">http://www.bnext.com.tw/article/view/id/37945</a><br>英文原文：<a href="http://money.cnn.com/2015/11/10/technology/robot-tally-store/" target="_blank" rel="external">http://money.cnn.com/2015/11/10/technology/robot-tally-store/</a><br><a href="https://www.washingtonpost.com/news/innovations/wp/2015/11/10/why-this-robot-may-soon-be-cruising-down-your-grocery-stores-aisles/" target="_blank" rel="external">https://www.washingtonpost.com/news/innovations/wp/2015/11/10/why-this-robot-may-soon-be-cruising-down-your-grocery-stores-aisles/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hadoop学习资源集合（Github）]]></title>
       <url>https://dragonflyxyz.github.io/2016/05/20/github-awesome-hadoop/</url>
       <content type="html"><![CDATA[<p>Hadoop是一个由Apache基金会所开发的开源分布式系统基础架构。用户可以在不了解分布式底层细节的情况下，开发分布式程序，充分利用集群的威力进行高速运算和存储。Hadoop得以在大数据处理应用中广泛应用得益于其自身在数据提取、变形和加载(ETL)方面上的天然优势。Hadoop的分布式架构，将大数据处理引擎尽可能的靠近存储。<br><a id="more"></a></p>
