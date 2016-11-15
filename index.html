@@ -334,6 +334,75 @@
 
 
   
+    <article id="post-hexo-show-mathjax-and-table" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/15/hexo-show-mathjax-and-table/" class="article-date">
+      <time datetime="2016-11-14T23:08:11.000Z" itemprop="datePublished">2016-11-15</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/15/hexo-show-mathjax-and-table/">Hexo如何显示公式和表格</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="公式的显示"><a href="#公式的显示" class="headerlink" title="公式的显示"></a>公式的显示</h2><p>默认情况下hexo是不支持Mathjax写Latex公式的，我们可以使用猫杀（cat x）提供的插件（可自动部署）在这里向猫杀同志致以感谢！<br>地址在：<a href="http://catx.me/2014/03/09/hexo-mathjax-plugin" target="_blank" rel="external">http://catx.me/2014/03/09/hexo-mathjax-plugin</a><br>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div></pre></td></tr></table></figure></p>
+<p>在blog文件夹中执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo math install</div></pre></td></tr></table></figure></p>
+<p>在<code>_config.yml</code>文件中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugins:</div><div class="line">- hexo-math</div></pre></td></tr></table></figure></p>
+<p>当写到多行公式是发现生成的html没有将公式换行，查看marked.js发现将双反斜杠\\转义成了单反斜杠\<br>网上有修改marked.js文件的方法：<br><a href="http://blog.csdn.net/emptyset110/article/details/50123231" target="_blank" rel="external">http://blog.csdn.net/emptyset110/article/details/50123231</a><br>但是又怕对其他文件有影响，参考了kubi的做法：<br><a href="http://kubicode.me/2016/03/18/Hexo/The-Trick-about-Hexo-Support-MutiLine-Equation-using-Mathjax" target="_blank" rel="external">http://kubicode.me/2016/03/18/Hexo/The-Trick-about-Hexo-Support-MutiLine-Equation-using-Mathjax</a><br>将两个反斜杠改为四个反斜杠<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\\\\</div></pre></td></tr></table></figure></p>
+<p>就可以达到想要的效果了。</p>
+<h2 id="表格的显示"><a href="#表格的显示" class="headerlink" title="表格的显示"></a>表格的显示</h2><p>表格要与上面的文本空出一行，才能生成表格效果，切记。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/others/">others</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo-local-search-only-titile" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -849,74 +918,6 @@
       
         <p class="article-more-link">
           <a href="/2016/07/09/microsoft-opensource-malmo-ai/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-why-this-robot-in-the-grocery-store" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/22/why-this-robot-in-the-grocery-store/" class="article-date">
-      <time datetime="2016-06-22T05:15:54.000Z" itemprop="datePublished">2016-06-22</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/22/why-this-robot-in-the-grocery-store/">零售业有福了！大数据机器人卖场值班，点货超轻松</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>或许再过不久，当你到超市买东西的时候，就会看到一台机器人站在走道中间，检查货架上少了几瓶可乐。<br><img src="http://imgs.technews.cn/wp-content/uploads/2015/11/Tally_bnext1112.jpg" alt="enter description here"><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/others/">others</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/robot/">robot</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/06/22/why-this-robot-in-the-grocery-store/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
