@@ -2,7 +2,7 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lt IE 9]>
         <style>body {display: none; background: none !important} </style>
         <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
     <![endif]-->
@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2256672-acff576747ef4259.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/360">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2256672-9b651d237936781c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/360">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2256672-1e66158656366b57.png">
-<meta property="og:updated_time" content="2016-11-15T00:20:54.208Z">
+<meta property="og:updated_time" content="2016-11-15T00:27:43.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="零基础入门深度学习(1)-感知器">
 <meta name="twitter:description" content="https://zybuluo.com/hanbingtao/note/433855无论即将到来的是大数据时代还是人工智能时代，亦或是传统行业使用人工智能在云上处理大数据的时代，作为一个有理想有追求的程序员，不懂深度学习（Deep Learning）这个超热的技术，会不会感觉马上就out了？现在救命稻草来了，《零基础入门深度学习》系列文章旨在讲帮助爱编程的你从零基础达到入门级水平。零基础意味着你不">
@@ -87,7 +87,7 @@
 
 
 
-    <script> yiliaConfig.rootUrl = "\/";</script>
+    <script> yiliaConfig.rootUrl = "\/";</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -96,7 +96,7 @@
 
 </head>
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
@@ -313,7 +313,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://zybuluo.com/hanbingtao/note/433855" target="_blank" rel="external">https://zybuluo.com/hanbingtao/note/433855</a><br>无论即将到来的是大数据时代还是人工智能时代，亦或是传统行业使用人工智能在云上处理大数据的时代，作为一个有理想有追求的程序员，不懂深度学习（Deep Learning）这个超热的技术，会不会感觉马上就out了？现在救命稻草来了，《零基础入门深度学习》系列文章旨在讲帮助爱编程的你从零基础达到入门级水平。零基础意味着你不需要太多的数学知识，只要会写程序就行了，没错，这是专门为程序员写的文章。虽然文中会有很多公式你也许看不懂，但同时也会有更多的代码，程序员的你一定能看懂的（我周围是一群狂热的Clean Code程序员，所以我写的代码也不会很差）。</p>
+        <p><a href="https://zybuluo.com/hanbingtao/note/433855" target="_blank" rel="external">https://zybuluo.com/hanbingtao/note/433855</a><br>无论即将到来的是大数据时代还是人工智能时代，亦或是传统行业使用人工智能在云上处理大数据的时代，作为一个有理想有追求的程序员，不懂深度学习（Deep Learning）这个超热的技术，会不会感觉马上就out了？现在救命稻草来了，《零基础入门深度学习》系列文章旨在讲帮助爱编程的你从零基础达到入门级水平。零基础意味着你不需要太多的数学知识，只要会写程序就行了，没错，这是专门为程序员写的文章。虽然文中会有很多公式你也许看不懂，但同时也会有更多的代码，程序员的你一定能看懂的（我周围是一群狂热的Clean Code程序员，所以我写的代码也不会很差）。<br><a id="more"></a></p>
 <h2 id="深度学习是啥"><a href="#深度学习是啥" class="headerlink" title="深度学习是啥"></a>深度学习是啥</h2><p>在人工智能领域，有一个方法叫机器学习。在机器学习这个方法里，有一类算法叫神经网络。神经网络如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/2256672-c6f640c11a06ac2e.png" alt=""><br>上图中每个圆圈都是一个神经元，每条线表示神经元之间的连接。我们可以看到，上面的神经元被分成了多层，层与层之间的神经元有连接，而层内之间的神经元没有连接。最左边的层叫做<strong>输入层</strong>，这层负责接收输入数据；最右边的层叫<strong>输出层</strong>，我们可以从这层获取神经网络输出数据。输入层和输出层之间的层叫做<strong>隐藏层</strong>。</p>
 <p>隐藏层比较多（大于2）的神经网络叫做深度神经网络。而深度学习，就是使用深层架构（比如，深度神经网络）的机器学习方法。</p>
 <p>那么深层网络和浅层网络相比有什么优势呢？简单来说深层网络能够表达力更强。事实上，一个仅有一个隐藏层的神经网络就能拟合任何一个函数，但是它需要很多很多的神经元。而深层网络用少得多的神经元就能拟合同样的函数。也就是为了拟合一个函数，要么使用一个浅而宽的网络，要么使用一个深而窄的网络。而后者往往更节约资源。</p>
@@ -360,7 +360,7 @@
         <p><span>本文标题:</span><a href="/2016/11/15/learn-deep-learning-zero-based-1/">零基础入门深度学习(1)-感知器</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
         <p><span>发布时间:</span>2016-11-15, 08:18:11</p>
-        <p><span>最后更新:</span>2016-11-15, 08:20:54</p>
+        <p><span>最后更新:</span>2016-11-15, 08:27:43</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/11/15/learn-deep-learning-zero-based-1/" title="零基础入门深度学习(1)-感知器">https://dragonflyxyz.github.io/2016/11/15/learn-deep-learning-zero-based-1/</a>
             <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2016/11/15/learn-deep-learning-zero-based-1/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -552,6 +552,23 @@
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
