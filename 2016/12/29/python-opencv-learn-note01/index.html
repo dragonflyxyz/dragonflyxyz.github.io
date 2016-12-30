@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Dragonflyxyz" />
+
+
+
+<meta name="description" content="自己学习Python + OpenCV的记录平台：Windows7 64位简体中文旗舰版（E3-1231v3,16G内存）Python: 2.7OpenCV: 2.4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python OpenCV学习记录">
+<meta property="og:url" content="https://dragonflyxyz.github.io/2016/12/29/python-opencv-learn-note01/index.html">
+<meta property="og:site_name" content="Dragonflyxyz的知识整理">
+<meta property="og:description" content="自己学习Python + OpenCV的记录平台：Windows7 64位简体中文旗舰版（E3-1231v3,16G内存）Python: 2.7OpenCV: 2.4">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/jordan01_roi_show.jpg">
+<meta property="og:updated_time" content="2016-12-30T05:44:22.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python OpenCV学习记录">
+<meta name="twitter:description" content="自己学习Python + OpenCV的记录平台：Windows7 64位简体中文旗舰版（E3-1231v3,16G内存）Python: 2.7OpenCV: 2.4">
+<meta name="twitter:image" content="http://oa8dfoyas.bkt.clouddn.com/jordan01_roi_show.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Dragonflyxyz的知识整理" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python OpenCV学习记录 | Dragonflyxyz的知识整理</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Dragonflyxyz</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AES/">AES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft/">Microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDMS/">RDMS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vision/">Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino/">arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chip/">chip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homedesign/">homedesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intel/">intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opensource/">opensource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimize/">optimize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/">others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picture/">picture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robot/">robot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solution/">solution</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-python-opencv-learn-note01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/29/python-opencv-learn-note01/" class="article-date">
+      <time datetime="2016-12-29T02:21:30.000Z" itemprop="datePublished">2016-12-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python OpenCV学习记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vision/">Vision</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>自己学习Python + OpenCV的记录<br>平台：Windows7 64位简体中文旗舰版（E3-1231v3,16G内存）<br>Python: 2.7<br>OpenCV: 2.4<br><a id="more"></a></p>
+<h2 id="参考书1：《OpenCV官方教程中文版（For-Python）》"><a href="#参考书1：《OpenCV官方教程中文版（For-Python）》" class="headerlink" title="参考书1：《OpenCV官方教程中文版（For Python）》"></a>参考书1：《OpenCV官方教程中文版（For Python）》</h2><p>（段力辉 翻译，从Linux公社www.linuxidc.com下载）2014年2月</p>
+<h3 id="本书介绍"><a href="#本书介绍" class="headerlink" title="本书介绍"></a>本书介绍</h3><h4 id="译者的话："><a href="#译者的话：" class="headerlink" title="译者的话："></a>译者的话：</h4><p>非常可惜关于在 Python 下使用 OpenCV 的书，除了这本在线教程之外，仅有一个 100 多页的书 opencv computer vision with python（本书虽然挺好的，但是不够全面，不能让读者完全了解 opencv 的现状）。而我翻译的这本书是来源于 OpenCV 的官方文档，内容全面，对各种的算法的描述简单易懂，而且不拘泥于长篇大论的数学推导，非常适合想使用OpenCV 解决实际问题的人，对他们来说具体的数学原理并不重要，重要是能解决实际问题。<br>在国内这本书可以说是第一本 Python_OpenCV 的译作。</p>
+<h4 id="本书的时效性："><a href="#本书的时效性：" class="headerlink" title="本书的时效性："></a>本书的时效性：</h4><p>本书的编写时针对最新的 OpenCV3.0 的，本版本还没有正式发布（但很稳定），其中的内容页非常新，甚至用到了 2012 年才提出的算法。因此本书的时效性上应该是没有问题的。</p>
+<h4 id="本书的目标读者："><a href="#本书的目标读者：" class="headerlink" title="本书的目标读者："></a>本书的目标读者：</h4><p>本书针的读者是高校学生，科研工作者，图像处理爱好者。对于这些人群，他们往往是带着具体的问题，在苦苦寻找解决方案。为了一个小问题就让他们去学习 C++ 这么深奥的语言几乎是不可能的。而 Python 的悄然兴起给他们带来的希望，如果说 C++ 是 tex 的话，那 Python 的易用性相当于 word。他们可以很快的看懂本书的所有代码，并可以学着使用它们来解决自己的问题，同时也能拓展自己的视野。别人经常说 Python 不够快，但是对于上面的这些读者，我相信这不是问题，现在我们日常使用的PC 机已经无比强大了，而且绝大多数情况下不会用到实时处理，更不会在嵌入式设备上使用。因此这不是问题。</p>
+<h3 id="用OpenCV处理鼠标事件"><a href="#用OpenCV处理鼠标事件" class="headerlink" title="用OpenCV处理鼠标事件"></a>用OpenCV处理鼠标事件</h3><p>函数：cv2.setMouseCallback()</p>
+<p>例子1：查看所有被支持的鼠标事件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> cv2</div><div class="line">events=[i <span class="keyword">for</span> i <span class="keyword">in</span> dir(cv2) <span class="keyword">if</span> <span class="string">'EVENT'</span> <span class="keyword">in</span> i]</div><div class="line"><span class="keyword">print</span> events</div></pre></td></tr></table></figure></p>
+<p>可以得到<br>event:<br>CV_EVENT_LBUTTONDOWN<br>CV_EVENT_RBUTTONDOWN<br>CV_EVENT_MBUTTONDOWN<br>CV_EVENT_LBUTTONUP<br>CV_EVENT_RBUTTONUP<br>CV_EVENT_MBUTTONUP<br>CV_EVENT_LBUTTONDBLCLK<br>CV_EVENT_RBUTTONDBLCLK<br>CV_EVENT_MBUTTONDBLCLK<br>CV_EVENT_MOUSEMOVE</p>
+<p>flags:<br>CV_EVENT_FLAG_CTRLKEY<br>CV_EVENT_FLAG_SHIFTKEY<br>CV_EVENT_FLAG_ALTKEY<br>CV_EVENT_FLAG_LBUTTON<br>CV_EVENT_FLAG_RBUTTON<br>CV_EVENT_FLAG_MBUTTON</p>
+<p>例子2：在双击的地方绘制一个圆圈<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-*- coding:utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_circle</span><span class="params">(event, x, y, falgs, param)</span>:</span></div><div class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDBLCLK:</div><div class="line">	    cv2.circle(img, (x,y), <span class="number">100</span>, (<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>), <span class="number">-1</span>)</div><div class="line"></div><div class="line"><span class="comment"># 创建图像与窗口并将窗口与回调函数绑定</span></div><div class="line">img = np.zeros((<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>), np.uint8)</div><div class="line">cv2.namedWindow(<span class="string">'drawcircle'</span>)</div><div class="line">cv2.setMouseCallback(<span class="string">'drawcircle'</span>, draw_circle)</div><div class="line"></div><div class="line"><span class="keyword">while</span>(<span class="number">1</span>):</div><div class="line">    cv2.imshow(<span class="string">'drawcircle'</span>, img)</div><div class="line">    <span class="keyword">if</span> cv2.waitKey(<span class="number">20</span>)&amp;<span class="number">0xFF</span>==<span class="number">27</span>:</div><div class="line">	    <span class="keyword">break</span></div><div class="line">cv2.destroyAllWindows()</div></pre></td></tr></table></figure></p>
+<p>例子3：有交互的，拖动鼠标时绘制矩形或圆圈，按键盘上的’m’键可切换。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-*- coding:utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment"># 当鼠标按下时变为 True</span></div><div class="line">drawing=<span class="keyword">False</span></div><div class="line"><span class="comment"># 如果 mode 为 true 绘制矩形。按下'm' 变成绘制曲线。</span></div><div class="line">mode=<span class="keyword">True</span></div><div class="line">ix,iy = <span class="number">-1</span>,<span class="number">-1</span></div><div class="line"></div><div class="line"><span class="comment"># 创建回调函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_circle</span><span class="params">(event,x,y,flags,param)</span>:</span></div><div class="line">    <span class="keyword">global</span> ix,iy,drawing,mode</div><div class="line">    <span class="comment"># 当按下左键是返回起始位置坐标</span></div><div class="line">    <span class="keyword">if</span> event==cv2.EVENT_LBUTTONDOWN:</div><div class="line">        drawing=<span class="keyword">True</span></div><div class="line">        ix,iy = x,y</div><div class="line">    <span class="comment"># 当鼠标左键按下并移动是绘制图形。 event 可以查看移动， flag 查看是否按下</span></div><div class="line">    <span class="keyword">elif</span> event==cv2.EVENT_MOUSEMOVE <span class="keyword">and</span> flags==cv2.EVENT_FLAG_LBUTTON:</div><div class="line">        <span class="keyword">if</span> drawing==<span class="keyword">True</span>:</div><div class="line">            <span class="keyword">if</span> mode==<span class="keyword">True</span>:</div><div class="line">                cv2.rectangle(img,(ix,iy),(x,y),(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">-1</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="comment"># 绘制圆圈，小圆点连在一起就成了线， 3 代表了笔画的粗细</span></div><div class="line">                cv2.circle(img,(x,y),<span class="number">3</span>,(<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>),<span class="number">-1</span>)</div><div class="line"></div><div class="line"><span class="comment"># 下面注释掉的代码是起始点为圆心，起点到终点为半径的</span></div><div class="line"><span class="comment"># r=int(np.sqrt((x-ix)**2+(y-iy)**2))</span></div><div class="line"><span class="comment"># cv2.circle(img,(x,y),r,(0,0,255),-1)</span></div><div class="line"><span class="comment"># 当鼠标松开停止绘画。</span></div><div class="line">    <span class="keyword">elif</span> event==cv2.EVENT_LBUTTONUP:</div><div class="line">        drawing==<span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="comment"># 创建图像与窗口并将窗口与回调函数绑定</span></div><div class="line">img = np.zeros((<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>), np.uint8)</div><div class="line">cv2.namedWindow(<span class="string">'image'</span>)</div><div class="line">cv2.setMouseCallback(<span class="string">'image'</span>, draw_circle)</div><div class="line"><span class="keyword">while</span>(<span class="number">1</span>):</div><div class="line">    cv2.imshow(<span class="string">'image'</span>, img)</div><div class="line">    k = cv2.waitKey(<span class="number">1</span>)&amp;<span class="number">0xFF</span></div><div class="line">    <span class="keyword">if</span> k == ord(<span class="string">'m'</span>):</div><div class="line">        mode = <span class="keyword">not</span> mode</div><div class="line">    <span class="keyword">elif</span> k == <span class="number">27</span>:</div><div class="line">        <span class="keyword">break</span></div></pre></td></tr></table></figure></p>
+<h3 id="用滑动条做调色板"><a href="#用滑动条做调色板" class="headerlink" title="用滑动条做调色板"></a>用滑动条做调色板</h3><p>函数：<br>cv2.getTrackbarPos()<br>cv2.creatTrackbar()</p>
+<p>例子1：滑动条设置调色板<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="string">"""</span></div><div class="line">Created on Sun Jan 5 13:51:34 2014</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">nothing</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="comment"># 创建一副黑色图像</span></div><div class="line">img = np.zeros((<span class="number">300</span>,<span class="number">512</span>,<span class="number">3</span>),np.uint8)</div><div class="line">cv2.namedWindow(<span class="string">'image'</span>)</div><div class="line">cv2.createTrackbar(<span class="string">'R'</span>, <span class="string">'image'</span>, <span class="number">0</span>, <span class="number">255</span>, nothing)</div><div class="line">cv2.createTrackbar(<span class="string">'G'</span>, <span class="string">'image'</span>, <span class="number">0</span>, <span class="number">255</span>, nothing)</div><div class="line">cv2.createTrackbar(<span class="string">'B'</span>, <span class="string">'image'</span>, <span class="number">0</span>, <span class="number">255</span>, nothing)</div><div class="line"></div><div class="line">switch = <span class="string">'0:OFF\n1:ON'</span></div><div class="line">cv2.createTrackbar(switch, <span class="string">'image'</span>, <span class="number">0</span>, <span class="number">1</span>, nothing)</div><div class="line"></div><div class="line"><span class="keyword">while</span>(<span class="number">1</span>):</div><div class="line">    cv2.imshow(<span class="string">'image'</span>, img)</div><div class="line">    k = cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span></div><div class="line">    <span class="keyword">if</span> k == <span class="number">27</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    r=cv2.getTrackbarPos(<span class="string">'R'</span>, <span class="string">'image'</span>)</div><div class="line">    g=cv2.getTrackbarPos(<span class="string">'G'</span>, <span class="string">'image'</span>)</div><div class="line">    b=cv2.getTrackbarPos(<span class="string">'B'</span>, <span class="string">'image'</span>)</div><div class="line">    s=cv2.getTrackbarPos(switch, <span class="string">'image'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> s == <span class="number">0</span>:</div><div class="line">        img[:] = <span class="number">0</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        img[:] = [b, g, r]</div><div class="line"></div><div class="line">cv2.destroyAllWindows()</div></pre></td></tr></table></figure></p>
+<h3 id="图像的基础操作"><a href="#图像的基础操作" class="headerlink" title="图像的基础操作"></a>图像的基础操作</h3><h4 id="获取并修改像素值"><a href="#获取并修改像素值" class="headerlink" title="获取并修改像素值"></a>获取并修改像素值</h4><p>例子1：获得像素值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">img = cv2.imread(<span class="string">'/home/cinct/vision/1.jpg'</span>)</div><div class="line">px = img[<span class="number">100</span>,<span class="number">100</span>]</div><div class="line"><span class="keyword">print</span> px</div><div class="line">blue = img[<span class="number">100</span>,<span class="number">100</span>,<span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> blue</div></pre></td></tr></table></figure></p>
+<p>例子2：修改像素值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">img[<span class="number">100</span>,<span class="number">100</span>] = [<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>]</div></pre></td></tr></table></figure></p>
+<p>例子3：获取像素值及修改的更好办法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">img=cv2.imread(<span class="string">'/home/duan/workspace/opencv/images/roi.jpg'</span>)</div><div class="line"><span class="keyword">print</span> img.item(<span class="number">10</span>,<span class="number">10</span>,<span class="number">2</span>)</div><div class="line">img.itemset((<span class="number">10</span>,<span class="number">10</span>,<span class="number">2</span>),<span class="number">100</span>)</div><div class="line"><span class="keyword">print</span> img.item(<span class="number">10</span>,<span class="number">10</span>,<span class="number">2</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="获取图像属性"><a href="#获取图像属性" class="headerlink" title="获取图像属性"></a>获取图像属性</h4><p>图像属性包括：行、列、通道、图像数据类型、像素数目等.<br>img.shape 可以获取图像的形状，返回值是一个包含行数、列数、通道数的元组.<br>img.size 可以返回图像的像素数目.<br>img.dtype 可以返回图像的数据类型.</p>
+<h3 id="图像ROI"><a href="#图像ROI" class="headerlink" title="图像ROI"></a>图像ROI</h3><p>ROI(Region of interest)，感兴趣区域，在机器视觉、图像处理中，从被处理的图像以方框、圆、椭圆、不规则多边形等方式勾勒出需要处理的区域，称为感兴趣区域，ROI。在Halcon、OpenCV、Matlab等机器视觉软件上常用到各种算子（Operator）和函数来求得感兴趣区域ROI，并进行图像的下一步处理。<br>在图像处理领域，感兴趣区域(ROI) 是从图像中选择的一个图像区域，这个区域是你的图像分析所关注的重点。圈定该区域以便进行进一步处理。使用ROI圈定你想读的目标，可以减少处理时间，增加精度。<br>例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">img = cv2.imread(<span class="string">'jordan01.jpg'</span>)</div><div class="line"></div><div class="line">cv2.imshow(<span class="string">"[srcImg]"</span>, img)  <span class="comment"># [1]显示原始图片</span></div><div class="line"></div><div class="line"><span class="comment"># 我们使用numpy中的数组切片的方式m截取载入图片上的猫头部分,</span></div><div class="line">roiImg = img[<span class="number">50</span>:<span class="number">150</span>, <span class="number">330</span>:<span class="number">430</span>]</div><div class="line"></div><div class="line"><span class="comment"># 然后,将截取的这部分ROI区域的图片保存在roiImg矩阵变量中</span></div><div class="line"><span class="comment"># 在这一步,我们将截取的ROI区域部分添加到原如的指定的区域</span></div><div class="line">img[<span class="number">100</span>:<span class="number">200</span>, <span class="number">100</span>:<span class="number">200</span>] = roiImg</div><div class="line"><span class="comment"># 显示添加的ROI区域的图片</span></div><div class="line">cv2.imshow(<span class="string">"[roiImg]"</span>, img)</div><div class="line">cv2.waitKey(<span class="number">0</span>)</div></pre></td></tr></table></figure></p>
+<p>结果如下：<br><img src="http://oa8dfoyas.bkt.clouddn.com/jordan01_roi_show.jpg" alt="enter description here"></p>
+<h3 id="拆分及合并图像通道"><a href="#拆分及合并图像通道" class="headerlink" title="拆分及合并图像通道"></a>拆分及合并图像通道</h3><p>例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">img=cv2.imread(<span class="string">'/home/duan/workspace/opencv/images/roi.jpg'</span>)</div><div class="line">b,g,r=cv2.split(img)</div><div class="line">img=cv2.merge(b,g,r)</div></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">b = img[:, :, <span class="number">0</span>]</div></pre></td></tr></table></figure></p>
+<p>假如你想使所有像素的红色通道值都为 0，你不必先拆分再赋值。你可以直接使用 Numpy 索引，这会更快。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">img=cv2.imread(<span class="string">'/home/duan/workspace/opencv/images/roi.jpg'</span>)</div><div class="line">img[:,:,<span class="number">2</span>]=<span class="number">0</span></div></pre></td></tr></table></figure></p>
+<h3 id="为图像扩边（填充）"><a href="#为图像扩边（填充）" class="headerlink" title="为图像扩边（填充）"></a>为图像扩边（填充）</h3><p>cv2.copyMakeBorder()<br>参数：</p>
+<ul>
+<li>src 输入图像</li>
+<li>top,bottom,left,right 对应边界的像素数目</li>
+<li>borderType 要添加那种类型的边界，类型如下：<ul>
+<li>cv2.BORDER_CONSTANT 添加有颜色的常数值边界，还需要下一个参数（value）。</li>
+<li>cv2.BORDER_REFLECT 边界元素的镜像。比如: fedcba|abcdefgh|hgfedcb</li>
+<li>cv2.BORDER_REFLECT_101 or cv2.BORDER_DEFAULT<br>跟上面一样，但稍作改动。例如: gfedcb|abcdefgh|gfedcba</li>
+<li>cv2.BORDER_REPLICATE 重复最后一个元素。例如: aaaaaa|<br>abcdefgh|hhhhhhh</li>
+<li>cv2.BORDER_WRAP 不知道怎么说了, 就像这样: cdefgh|<br>abcdefgh|abcdefg</li>
+</ul>
+</li>
+<li>value 边界颜色，如果边界的类型是 cv2.BORDER_CONSTANT<br>例子：<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</div><div class="line">BLUE=[<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>]</div><div class="line">img1=cv2.imread(<span class="string">'opencv_logo.png'</span>)</div><div class="line">replicate = cv2.copyMakeBorder(img1,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,cv2.BORDER_REPLICATE)</div><div class="line">reflect = cv2.copyMakeBorder(img1,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,cv2.BORDER_REFLECT)</div><div class="line">reflect101 = cv2.copyMakeBorder(img1,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,cv2.BORDER_REFLECT_101)</div><div class="line">wrap = cv2.copyMakeBorder(img1,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,cv2.BORDER_WRAP)</div><div class="line">constant= cv2.copyMakeBorder(img1,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>,cv2.BORDER_CONSTANT,value=BLUE)</div><div class="line">plt.subplot(<span class="number">231</span>),plt.imshow(img1,<span class="string">'gray'</span>),plt.title(<span class="string">'ORIGINAL'</span>)</div><div class="line">plt.subplot(<span class="number">232</span>),plt.imshow(replicate,<span class="string">'gray'</span>),plt.title(<span class="string">'REPLICATE'</span>)</div><div class="line">plt.subplot(<span class="number">233</span>),plt.imshow(reflect,<span class="string">'gray'</span>),plt.title(<span class="string">'REFLECT'</span>)</div><div class="line">plt.subplot(<span class="number">234</span>),plt.imshow(reflect101,<span class="string">'gray'</span>),plt.title(<span class="string">'REFLECT_101'</span>)</div><div class="line">plt.subplot(<span class="number">235</span>),plt.imshow(wrap,<span class="string">'gray'</span>),plt.title(<span class="string">'WRAP'</span>)</div><div class="line">plt.subplot(<span class="number">236</span>),plt.imshow(constant,<span class="string">'gray'</span>),plt.title(<span class="string">'CONSTANT'</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由于是使用 matplotlib 绘制，所以交换 R 和 B 的位置，OpenCV 中是按 BGR， matplotlib 中是按 RGB 排列</p>
+<h3 id="图像上的算术运算"><a href="#图像上的算术运算" class="headerlink" title="图像上的算术运算"></a>图像上的算术运算</h3><h4 id="图像加法"><a href="#图像加法" class="headerlink" title="图像加法"></a>图像加法</h4><p>可使用函数cv2.add，也可以直接使用numpy, res = img1 + img。<br>两幅图像的大小、类型必须一致，或者第二个图像可以使用一个简单的标量值。</p>
+<p>注意：OpenCV 中的加法与 Numpy 的加法是有所不同的。 OpenCV 的加法是一种饱和操作，而 Numpy 的加法是一种模操作。<br>例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x = np.uint8([<span class="number">250</span>])</div><div class="line">y = np.uint8([<span class="number">10</span>])</div><div class="line"><span class="keyword">print</span> cv2.add(x,y) <span class="comment"># 250+10 = 260 =&gt; 255</span></div><div class="line">[[<span class="number">255</span>]]</div><div class="line"><span class="keyword">print</span> x+y <span class="comment"># 250+10 = 260 % 256 = 4</span></div><div class="line">[<span class="number">4</span>]</div></pre></td></tr></table></figure></p>
+<h4 id="图像混合"><a href="#图像混合" class="headerlink" title="图像混合"></a>图像混合</h4><p>这其实也是加法，但是不同的是两幅图像的权重不同，这就会给人一种混合或者透明的感觉。图像混合的计算公式如下：</p>
+<p>$g (x) = (1 − α) f_0 (x) + αf_1(x)$<br>​<br>通过修改 α 的值（0 → 1），可以实现非常酷的混合。<br>现在我们把两幅图混合在一起。第一幅图的权重是 0.7，第二幅图的权重是 0.3。函数 cv2.addWeighted() 可以按下面的公式对图片进行混合操作。</p>
+<p>$dst = a · img1 + b · img2 + r$</p>
+<p>这里$r$的取值为0</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/12/29/python-opencv-learn-note01/">Python OpenCV学习记录</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
+        <p><span>发布时间:</span>2016-12-29, 10:21:30</p>
+        <p><span>最后更新:</span>2016-12-30, 13:44:22</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/29/python-opencv-learn-note01/" title="Python OpenCV学习记录">https://dragonflyxyz.github.io/2016/12/29/python-opencv-learn-note01/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2016/12/29/python-opencv-learn-note01/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/11/15/learn-deep-learning-zero-based-1/">
+                    零基础入门深度学习(1)-感知器
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考书1：《OpenCV官方教程中文版（For-Python）》"><span class="toc-number">1.</span> <span class="toc-text">参考书1：《OpenCV官方教程中文版（For Python）》</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本书介绍"><span class="toc-number">1.1.</span> <span class="toc-text">本书介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#译者的话："><span class="toc-number">1.1.1.</span> <span class="toc-text">译者的话：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本书的时效性："><span class="toc-number">1.1.2.</span> <span class="toc-text">本书的时效性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本书的目标读者："><span class="toc-number">1.1.3.</span> <span class="toc-text">本书的目标读者：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用OpenCV处理鼠标事件"><span class="toc-number">1.2.</span> <span class="toc-text">用OpenCV处理鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用滑动条做调色板"><span class="toc-number">1.3.</span> <span class="toc-text">用滑动条做调色板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像的基础操作"><span class="toc-number">1.4.</span> <span class="toc-text">图像的基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取并修改像素值"><span class="toc-number">1.4.1.</span> <span class="toc-text">获取并修改像素值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取图像属性"><span class="toc-number">1.4.2.</span> <span class="toc-text">获取图像属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像ROI"><span class="toc-number">1.5.</span> <span class="toc-text">图像ROI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拆分及合并图像通道"><span class="toc-number">1.6.</span> <span class="toc-text">拆分及合并图像通道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为图像扩边（填充）"><span class="toc-number">1.7.</span> <span class="toc-text">为图像扩边（填充）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像上的算术运算"><span class="toc-number">1.8.</span> <span class="toc-text">图像上的算术运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图像加法"><span class="toc-number">1.8.1.</span> <span class="toc-text">图像加法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图像混合"><span class="toc-number">1.8.2.</span> <span class="toc-text">图像混合</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python OpenCV学习记录　| Dragonflyxyz的知识整理　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/11/15/learn-deep-learning-zero-based-1/" title="下一篇: 零基础入门深度学习(1)-感知器">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/29/python-opencv-learn-note01/">Python OpenCV学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/learn-deep-learning-zero-based-1/">零基础入门深度学习(1)-感知器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/hexo-show-mathjax-and-table/">Hexo如何显示公式和表格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/hexo-local-search-only-titile/">让Hexo的本地搜索只搜索标题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/why-im-switching-from-python-to-nodejs/">为什么我从Python转战到Node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/php-develop-1200examples/">《PHP开发实战1200例》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/introduction-john-carmack/">第一人称射击游戏教父，首款3D游戏的开发者，传奇程序员——约翰·卡马克</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/Ebook-search-engine/">几个好的电子书搜索引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/MIT-tech-review-2016/">麻省理工科技评论2016年1-6月</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/head-first-python/">《Head First Python》中文版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/microsoft-opensource-malmo-ai/">微软开源Malmo AI项目平台 利用Minecraft构建复杂机器人任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/22/why-this-robot-in-the-grocery-store/">零售业有福了！大数据机器人卖场值班，点货超轻松</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/21/poor-zorro-linux-book/">穷佐罗的Linux书，知识点整理的很好</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/github-awesome-hadoop/">Hadoop学习资源集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/python-decorated-concurrency/">Python多线程(Decorated concurrency)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/github-awesome-machine-learning/">Github上最全的机器学习资料集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/the-9-best-languages-form-crunching-data/">数据处理的 9 大编程语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/github-awesome-bigdata/">最全的大数据学习资料集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/a-low-scientist-how-to-get-nobel-prize/">一个逗逼的科研狗是如何成为诺贝尔奖得主的</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/23/how-much-a-chip/">一枚芯片的实际成本是多少？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/awesome-python-site/">Awesome-python一个收集Python资源的网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/">Intel将两款arduino设备的实时操作系统开源</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/studying-the-language-and-structure-in-non-programmers-solutions/">《编程问题的非程序员解决方案之研究》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/if-human-and-animals-change/">如果人和动物角色互换？这样的世界怎样想象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/checksum-8bits-and-16bits/">checksum-8位和16位校验和代码示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/06/easy-popular-science-doc-deep-learning/">关于深度学习可能最容易读进去的科普贴</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/16/what-is-iot-ppt/">物联网是什么-ppt图</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/100-BBC-recordfile-parents-with-children/">家长应该陪孩子一起看的100部BBC纪录片</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/algorithm-detail-DES-AES-SHA/">DES、AES、SHA加密算法详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/homedesign-north-america/">越来越喜欢北美的家庭装饰风格</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/06/mysql-10millions-optimize-query/">Mysql数据库千万级别数据的查询优化和分页测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/16/my-blog-set/">博客设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/01/john-carmack-on-inlined-code/">John Carmack on inlined code</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/05/01/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/01/16/test1/">test1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Dragonflyxyz
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
