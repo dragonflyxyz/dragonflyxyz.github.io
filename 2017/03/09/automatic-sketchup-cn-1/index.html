@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Dragonflyxyz" />
+
+
+
+<meta name="description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz第3、4 章参考了李涛的博客http://blog.csdn.net/litaosdau，感谢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章">
+<meta property="og:url" content="https://dragonflyxyz.github.io/2017/03/09/automatic-sketchup-cn-1/index.html">
+<meta property="og:site_name" content="Dragonflyxyz的知识整理">
+<meta property="og:description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz第3、4 章参考了李涛的博客http://blog.csdn.net/litaosdau，感谢">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUpThe-SketchUp-Model.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/The-Entity-Class-Hierarchy.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-1.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-10-1.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-11.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-12.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-13.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/20140816103826166.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-1.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-2.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-4.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-6.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-9.jpg">
+<meta property="og:updated_time" content="2017-03-09T13:02:41.958Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章">
+<meta name="twitter:description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz第3、4 章参考了李涛的博客http://blog.csdn.net/litaosdau，感谢">
+<meta name="twitter:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUpThe-SketchUp-Model.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Dragonflyxyz的知识整理" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章 | Dragonflyxyz的知识整理</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Dragonflyxyz</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AES/">AES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft/">Microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDMS/">RDMS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SketchUp/">SketchUp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vision/">Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino/">arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chip/">chip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homedesign/">homedesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intel/">intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opensource/">opensource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimize/">optimize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/">others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picture/">picture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robot/">robot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solution/">solution</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-automatic-sketchup-cn-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/09/automatic-sketchup-cn-1/" class="article-date">
+      <time datetime="2017-03-09T12:58:51.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SketchUp/">SketchUp</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译<br>现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书<br>作者：Matthew Scarpino<br>发行日期：2010</p>
+<p>翻译：Dragonflyxyz<br>第3、4 章参考了李涛的博客<a href="http://blog.csdn.net/litaosdau，感谢" target="_blank" rel="external">http://blog.csdn.net/litaosdau，感谢</a><br><a id="more"></a></p>
+<h2 id="第1章-SketchUp脚本介绍"><a href="#第1章-SketchUp脚本介绍" class="headerlink" title="第1章 SketchUp脚本介绍"></a>第1章 SketchUp脚本介绍</h2><h3 id="1-1-学习SketchUp脚本的10个理由"><a href="#1-1-学习SketchUp脚本的10个理由" class="headerlink" title="1.1 学习SketchUp脚本的10个理由"></a>1.1 学习SketchUp脚本的10个理由</h3><p>(1)复杂设计的管理<br>SketchUp的组件和组使得设计元素的层次结构成为可能。像购物中心这样的设计可能有数以千计的组件、子组件，甚至子-子组件，使用脚本对这些层次的管理要比使用设计窗口容易得多。脚本还方便其他设计人员审查和分析你的设计。</p>
+<p>(2)插件</p>
+<p>(3)不用鼠标访问设计对象</p>
+<p>(4)可以在任何位置画任何物体</p>
+<p>(5)动画</p>
+<p>(6)免费、友好的支持</p>
+<p>(7)自动化</p>
+<p>(8)访问网络</p>
+<p>(9)大量可用的脚本</p>
+<p>(10)有趣</p>
+<h3 id="1-2-获取和安装SketchUp"><a href="#1-2-获取和安装SketchUp" class="headerlink" title="1.2 获取和安装SketchUp"></a>1.2 获取和安装SketchUp</h3><h3 id="1-3-一个简单的例子"><a href="#1-3-一个简单的例子" class="headerlink" title="1.3 一个简单的例子"></a>1.3 一个简单的例子</h3><p>画一条线从原点[0, 0, 0]到点[5, 5, 5]<br>可用命令来实现：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sketchup.active_model.entities.add_line( [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>] )</div></pre></td></tr></table></figure></p>
+<h3 id="1-4-SketcUp脚本和Ruby"><a href="#1-4-SketcUp脚本和Ruby" class="headerlink" title="1.4 SketcUp脚本和Ruby"></a>1.4 SketcUp脚本和Ruby</h3><h3 id="1-4这本书的结构"><a href="#1-4这本书的结构" class="headerlink" title="1.4这本书的结构"></a>1.4这本书的结构</h3><h3 id="1-5-小结"><a href="#1-5-小结" class="headerlink" title="1.5 小结"></a>1.5 小结</h3><h2 id="第2章-Ruby课程1：数据结构"><a href="#第2章-Ruby课程1：数据结构" class="headerlink" title="第2章 Ruby课程1：数据结构"></a>第2章 Ruby课程1：数据结构</h2><h2 id="第3章-SketchUp脚本基础"><a href="#第3章-SketchUp脚本基础" class="headerlink" title="第3章 SketchUp脚本基础"></a>第3章 SketchUp脚本基础</h2><h3 id="3-1-3个基础SketchUp结构"><a href="#3-1-3个基础SketchUp结构" class="headerlink" title="3.1 3个基础SketchUp结构"></a>3.1 3个基础SketchUp结构</h3><p>Sketchup, Model, Entities</p>
+<h4 id="（1）The-Sketchup-Module"><a href="#（1）The-Sketchup-Module" class="headerlink" title="（1）The Sketchup Module"></a>（1）The Sketchup Module</h4><p>Sketchup.version 得到当前SketchUp程序的版本号<br>Sketchup.os_language 得到当前的语言集<br>Sketchup.get_local 得到SketchUp环境标志</p>
+<p>可查看在SketchUp模块中提供的所有方法，可在SketchUp的Ruby终端中输入Sketchup.methods</p>
+<p>Sketchup模块中最重要的方法是active_model<br>mod = Sketchup.active_model</p>
+<h4 id="（2）The-Model-Object"><a href="#（2）The-Model-Object" class="headerlink" title="（2）The Model Object"></a>（2）The Model Object</h4><p>正如Sketchup模块代表整个Sketchup的应用程序，Model Object代表一个独立的SketchUp文件（*.skp），或更准确的说，设计信息包含在这个文件中。当在SketchUp中打开一个新文件时，Sketchup模块保持原样，但当前的Model object的数据完全不同。<br>Model class 中的methods提供关于当前设计的信息，例如，<figure class="highlight plain"><figcaption><span>表示从上次存盘起当前设计是否有改变。下列命令显示如何使用：</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">```ruby</div><div class="line">mod = Sketchup.active_model</div><div class="line">mod.modified?</div></pre></td></tr></table></figure></p>
+<p><code>title</code> 这个method得到当前设计的标题<br><code>description</code> 这个method得到设计的文本描述<br><code>path</code> 这个method得到当前设计的文件路径<br>在附录A中列出了所有Model class 的methods</p>
+<p>下图列出了Model object中最重要的6个object<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUpThe-SketchUp-Model.jpg" alt="enter description here"></p>
+<p>这些方法的多数有着复数名称如：entities, layers, definitions, materials。每个复数object实质上就像一个数组。<br>Entities数组的元素是一个Entity，<br>Layers数组的元素是一个Layer，等等。</p>
+<p>现在，我们想做的是画一个形状出来，开始的第一步是调用Model类的Entities方法，如下列代码：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mod = Sketchup.active_model</div><div class="line">ents = mod.entities</div></pre></td></tr></table></figure></p>
+<p>也可将两个方法写在一起<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div></pre></td></tr></table></figure></p>
+<h4 id="（3）The-Entities-Object"><a href="#（3）The-Entities-Object" class="headerlink" title="（3）The Entities Object"></a>（3）The Entities Object</h4><p>每个SketchUp设计中的几何对象都可以以一个Entity或它的子类表示，包括线、面、图像、文本、组等等组件。为管理或修改Entity对象，你需要访问设计的主要Entities容器，这个容器有以下3个作用：</p>
+<ul>
+<li>添加新的Entity对象</li>
+<li>移动、缩放、选择、删除Entity对象</li>
+<li>在可通过索引访问的数组中存储Entity对象</li>
+</ul>
+<p>其中第一条最重要，Entities类包括很多方法添加新的Entity对象，如下：</p>
+<ul>
+<li>add_line - creates an Edge object from two points</li>
+<li>add_edges - forms an array of Edge objects from a series of points</li>
+<li>add_circle - forms an array of Edge objects that combine to form a circle</li>
+<li>add_ngon - forms an array of Edge objects that combine to form a polygon</li>
+<li>add_face - creates a Face object from edges or points</li>
+<li>add_text - adds a label to the design at a given point</li>
+</ul>
+<h3 id="3-2-实体（Entity）和绘画元素类"><a href="#3-2-实体（Entity）和绘画元素类" class="headerlink" title="3.2 实体（Entity）和绘画元素类"></a>3.2 实体（Entity）和绘画元素类</h3><p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/The-Entity-Class-Hierarchy.jpg" alt="enter description here"></p>
+<p>Entity最主要的子类是Draswingelement，它是许多我们要用到的类的超类(superclass)，下面让我们来看看2个主要的超类。</p>
+<h4 id="（1）The-Entity-Class"><a href="#（1）The-Entity-Class" class="headerlink" title="（1）The Entity Class"></a>（1）The Entity Class</h4><p>在上图中，Entity类在所有层次结构的最上方，这个类所包括的方法在其下的所有子类都存在使用，许多方法包括关于Entity的基本信息，如：</p>
+<ul>
+<li><code>entityID</code> 得到Entity的唯一标识</li>
+<li><code>typename</code>  表示Entity的几何类别（Edge,Face等）</li>
+<li><code>valid? / deleted?</code>  表示Entity是否存在</li>
+<li><code>model</code> 得到设计的Model object</li>
+</ul>
+<p>例子：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">test_line = Sketchup.active_model.entities.add_line [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</div><div class="line">        <span class="comment">#&lt;Sketchup::Edge:0x767be50&gt;</span></div><div class="line">test_line.typename</div><div class="line">       Edge</div><div class="line">test_line.entityID</div><div class="line">       <span class="number">1895</span></div></pre></td></tr></table></figure></p>
+<h4 id="（2）The-Drawingelement-Class"><a href="#（2）The-Drawingelement-Class" class="headerlink" title="（2）The Drawingelement Class"></a>（2）The Drawingelement Class</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">new_line = Sketchup.active_model.entities.add_line [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">2</span>,<span class="number">2</span>,<span class="number">5</span>]</div><div class="line">     得到<span class="comment">#&lt;Sketchup::Edge:0x767ab18&gt;</span></div><div class="line"></div><div class="line">box = new_line.bounds</div><div class="line">    得到<span class="comment">#&lt;Geom::BoundingBox:0x76784d8&gt;</span></div><div class="line"></div><div class="line">box.center</div><div class="line">     得到Point3d(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2.5</span>)</div><div class="line"></div><div class="line">box.diagonal</div><div class="line">    得到<span class="number">5.74456264653803</span></div></pre></td></tr></table></figure>
+<p>BoundingBox对象很有用，用来检测是否用户点击一个形状(shape)。</p>
+<h3 id="3-3-Edges"><a href="#3-3-Edges" class="headerlink" title="3.3 Edges"></a>3.3 Edges</h3><p>Edge对象通过Entities类的add_line方法创建。如：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sketchup.active_model.entities.add_line [<span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>]</div></pre></td></tr></table></figure></p>
+<p>大多数Edge类的方法都可划分到以下两个种类中的其中一个中：<br>（1）Edge外观的设置方法<br>（2）连接到Edge的对象方法</p>
+<p>第一种类的方法是设置Edge的可见属性的。在Drawingelement类提供的hidden方法中，Edge提供了soft和smooth方法。最重要的是分辨隐藏线和平滑线的区别：平滑的曲线结合相邻表面成一个单一的表面(通常是弯曲的), 而隐藏线不改变相邻表面。<br>第二种类中，all_connected方法返回包含连接到Edge的所有Entity对象的数组。相类似的是faces方法返回包含连接到Edge的所有Face对象的数组。</p>
+<p>在SketchUp中，Edge的端点用Vertex对象表示。Edge类包含一些与Vertex交互的方法：</p>
+<ul>
+<li><code>vertices</code> ：返回Edge的两个Vertex对象的数组</li>
+<li><code>start / end</code> ： 返回Edge的起始/终止Vertex对象</li>
+<li><code>other_vertex</code> ：给定Edge的一个Vertex对象，返回另一个</li>
+<li><code>used_by?</code>  ： 判断一个Vertex是否连接到Edge</li>
+</ul>
+<p>在Edge类中有两个方法不属于任何一个种类：length和split。<br><code>length</code> 返回Edge对应的线段长度<br><code>split</code> 在Edge对象的线上用一个点建立第二个Edge对象。当调用split后，第一个Edge对象只能延续到给定的点，而第二个Edge对象则从给定的点到原来线的终点。</p>
+<p>例子：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">line = Sketchup.active_model.entities.add_line [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">6</span>, <span class="number">3</span>, <span class="number">0</span>]</div><div class="line">line.length</div><div class="line">得到 <span class="number">6.70820393249937</span></div><div class="line">new_line = line.split [<span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>]</div><div class="line">line.length</div><div class="line">得到 <span class="number">4.47213595499958</span></div><div class="line">line.start.position</div><div class="line">得到 Point3d(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">line.<span class="keyword">end</span>.position</div><div class="line">得到 Point3d(<span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>)</div><div class="line">new_line.length</div><div class="line">得到 <span class="number">2.23606797749979</span></div><div class="line">new_line.start.position</div><div class="line">得到 Point3d(<span class="number">4</span>, <span class="number">2</span>, <span class="number">0</span>)</div><div class="line">new_line.<span class="keyword">end</span>.position</div><div class="line">得到 Point3d(<span class="number">6</span>, <span class="number">3</span>, <span class="number">0</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="3-4-SketchUp脚本介绍"><a href="#3-4-SketchUp脚本介绍" class="headerlink" title="3.4 SketchUp脚本介绍"></a>3.4 SketchUp脚本介绍</h3><h4 id="Ruby-Scripts"><a href="#Ruby-Scripts" class="headerlink" title="Ruby Scripts"></a>Ruby Scripts</h4><p>重要的三点：</p>
+<ul>
+<li>SketchUp脚本必须用Ruby语言编写；</li>
+<li>不加密的脚本文件后缀为.rb，加密脚本文件后缀为 .rbs；</li>
+<li><p>为执行脚本，必须在SketchUp中加载。</p>
+<p>最有用的SketchUp命令是<code>load</code><br>例子：star.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># Access the current Entities object</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line"><span class="comment">=begin</span></div><div class="line">Create five points in three dimensions</div><div class="line">Each point is the vertex of a star shape</div><div class="line">=end</div><div class="line">pt1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</div><div class="line">pt2 = [<span class="number">0</span>.<span class="number">588</span>, -<span class="number">0</span>.<span class="number">809</span>, <span class="number">0</span>]</div><div class="line">pt3 = [-<span class="number">0</span>.<span class="number">951</span>, <span class="number">0</span>.<span class="number">309</span>, <span class="number">0</span>]</div><div class="line">pt4 = [<span class="number">0</span>.<span class="number">951</span>, <span class="number">0</span>.<span class="number">309</span>, <span class="number">0</span>]</div><div class="line">pt5 = [-<span class="number">0</span>.<span class="number">588</span>, -<span class="number">0</span>.<span class="number">809</span>, <span class="number">0</span>]</div><div class="line"><span class="comment"># Draw five lines in a star pattern</span></div><div class="line">ents.add_line pt1, pt2</div><div class="line">ents.add_line pt2, pt3</div><div class="line">ents.add_line pt3, pt4</div><div class="line">ents.add_line pt4, pt5</div><div class="line">ents.add_line pt5, pt1</div></pre></td></tr></table></figure>
+<p>将star.rb文件复制到SketchUp的插件目录下，SketchUp2016在windows10下的插件目录是：C:\Users\用户名\AppData\Roaming\SketchUp\SketchUp 2016\SketchUp\Plugins</p>
+<p>在SketchUp的Ruby终端中执行load<br>load “star.rb”</p>
+<p>也可将star.rb放到子目录中，如放置到插件目录的ch3子目录下，可如下方式调用：<br>load “ch3/star.rb”</p>
+<p>也可放到其他目录中，调用绝对路径<br>load “c:/ruby/ch3/star.rb”</p>
+<p>执行效果如下图：<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-1.jpg" alt="enter description here"></p>
+</li>
+</ul>
+<h4 id="Ruby命令"><a href="#Ruby命令" class="headerlink" title="Ruby命令"></a>Ruby命令</h4><p>Ruby的注释</p>
+<ul>
+<li>单行注释：行前用字符#</li>
+<li><p>多行注释：使用=begin开始，使用=end结束</p>
+<h3 id="3-5-向量（Vectors）"><a href="#3-5-向量（Vectors）" class="headerlink" title="3.5 向量（Vectors）"></a>3.5 向量（Vectors）</h3></li>
+</ul>
+<h3 id="边缘数组（Edge-Arrays-Curves-Circles-Arcs-Polygons）"><a href="#边缘数组（Edge-Arrays-Curves-Circles-Arcs-Polygons）" class="headerlink" title="边缘数组（Edge Arrays: Curves, Circles, Arcs, Polygons）"></a>边缘数组（Edge Arrays: Curves, Circles, Arcs, Polygons）</h3><p>我们可以在Sketchup中用“弧”和“圆”工具去画出相应图形，但是我们画出来并不是真正意义上的圆或弧形，而是由一段段细小的直线片段组成的。</p>
+<p>Entities类包括几个画形状的方法：</p>
+<ul>
+<li>add_curve  画曲线</li>
+<li>add_circle  画圆</li>
+<li>add_arc  画圆弧</li>
+<li>add_ngon  画多边形</li>
+</ul>
+<h4 id="曲线（Curves）"><a href="#曲线（Curves）" class="headerlink" title="曲线（Curves）"></a>曲线（Curves）</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">pt1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</div><div class="line">pt2 = [<span class="number">0</span>.<span class="number">588</span>, -<span class="number">0</span>.<span class="number">809</span>, <span class="number">0</span>]</div><div class="line">pt3 = [-<span class="number">0</span>.<span class="number">951</span>, <span class="number">0</span>.<span class="number">309</span>, <span class="number">0</span>]</div><div class="line">pt4 = [<span class="number">0</span>.<span class="number">951</span>, <span class="number">0</span>.<span class="number">309</span>, <span class="number">0</span>]</div><div class="line">pt5 = [-<span class="number">0</span>.<span class="number">588</span>, -<span class="number">0</span>.<span class="number">809</span>, <span class="number">0</span>]</div><div class="line">curve = Sketchup.active_model.entities.add_curve pt1, pt2, pt3, pt4, pt5, pt1</div><div class="line"></div><div class="line">curve.<span class="keyword">class</span></div><div class="line">得到 Array</div><div class="line">curve.length</div><div class="line">得到 <span class="number">5</span></div></pre></td></tr></table></figure>
+<p>在这里,add_curve方法产生一个五条边组成的边集,这就是说，add_curve方法产生的还是直线，并不是圆滑的曲线。但是，当我们把点数增加时，这些由点生成的紧密的多段线将像一个圆曲线。</p>
+<h4 id="圆（Circles）"><a href="#圆（Circles）" class="headerlink" title="圆（Circles）"></a>圆（Circles）</h4><p>add_circle方法使用一个给定的圆心，正向向量和半径来画圆<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">circle = Sketchup.active_model.entities.add_circle [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">7</span></div><div class="line">circle.<span class="keyword">class</span></div><div class="line">得到 Array</div><div class="line">circle.length</div><div class="line">得到 <span class="number">24</span></div><div class="line">circle[<span class="number">0</span>].<span class="keyword">class</span></div><div class="line">得到 Edge</div></pre></td></tr></table></figure></p>
+<p>add_circle方法所创建的圆由24条线段组成，每段15度。然而，你可以为add_circle方法添加第四个参数来定制圆的段数。<br>例如下面的命令创建一个由72条线段组成的圆：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">circle = Sketchup.active_model.entities.add_circle [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">7</span>, <span class="number">72</span></div></pre></td></tr></table></figure></p>
+<h4 id="多边形（Polygons）"><a href="#多边形（Polygons）" class="headerlink" title="多边形（Polygons）"></a>多边形（Polygons）</h4><p>画多边形的方法add_ngon与画圆的方法很像，唯一的区别在于，在画圆时，系统默认是的是由24条直线片段围成圆，而多边形是由你指定边数，下面看看代码如何实现。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div><div class="line">normal = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</div><div class="line">radius = <span class="number">1</span></div><div class="line"><span class="comment"># Polygon with 8 sides</span></div><div class="line">ents.add_ngon [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], normal, radius, <span class="number">8</span></div><div class="line"><span class="comment"># Circle with 8 sides</span></div><div class="line">ents.add_circle [<span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>], normal, radius, <span class="number">8</span></div><div class="line"><span class="comment"># Polygon with 24 sides</span></div><div class="line">ents.add_ngon [<span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>], normal, radius, <span class="number">24</span></div><div class="line"><span class="comment"># Circle with 24 sides</span></div><div class="line">ents.add_circle [<span class="number">9</span>, <span class="number">0</span>, <span class="number">0</span>], normal, radius</div></pre></td></tr></table></figure></p>
+<h4 id="圆弧（Arcs）"><a href="#圆弧（Arcs）" class="headerlink" title="圆弧（Arcs）"></a>圆弧（Arcs）</h4><p>add_arc的参数如下：</p>
+<ul>
+<li>center  圆弧的原点</li>
+<li>zero_vec  标识零角度的向量</li>
+<li>normal 一个垂直于圆弧的向量</li>
+<li>radius  半径</li>
+<li>start_angle</li>
+<li>end_angle</li>
+<li>num_segments（可选项）  组成圆弧的线段数</li>
+</ul>
+<p>画弧形相比画圆，需要我们指定起点和止点的角度，如下一条命令：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arc = Sketchup.active_model.entities.add_arc [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], <span class="number">50</span>, <span class="number">0</span>, <span class="number">90</span>.degrees</div></pre></td></tr></table></figure></p>
+<p>第一个参数（0, 0, 0）表示圆弧的原点；<br>第二个参数（0,1,0）表示圆弧的起点。</p>
+<h3 id="3-7-创建三维图形"><a href="#3-7-创建三维图形" class="headerlink" title="3.7 创建三维图形"></a>3.7 创建三维图形</h3><h4 id="（1）创建一个面"><a href="#（1）创建一个面" class="headerlink" title="（1）创建一个面"></a>（1）创建一个面</h4><p>创建面使用的方法是add_face，也是继承于Entities父类。add_face的参数是由一系列用逗号分割开的点或边。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 先创建五个点</span></div><div class="line">pt1 = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</div><div class="line">pt2 = [-<span class="number">0</span>.<span class="number">951</span>, <span class="number">0</span>.<span class="number">309</span>, <span class="number">0</span>]</div><div class="line">pt3 = [-<span class="number">0</span>.<span class="number">588</span>, -<span class="number">0</span>.<span class="number">809</span>, <span class="number">0</span>]</div><div class="line">pt4 = [ <span class="number">0</span>.<span class="number">588</span>, -<span class="number">0</span>.<span class="number">809</span>, <span class="number">0</span>]</div><div class="line">pt5 = [ <span class="number">0</span>.<span class="number">951</span>, <span class="number">0</span>.<span class="number">309</span>, <span class="number">0</span>]</div><div class="line"><span class="comment"># 用这五个点画一个面</span></div><div class="line">pent = Sketchup.active_model.entities.add_face pt1, pt2, pt3,pt4, pt5</div><div class="line"><span class="comment"># 打印出这五个点的坐标信息</span></div><div class="line">puts <span class="string">"Point 0: "</span> + pent.vertices[<span class="number">0</span>].position.to_s</div><div class="line">puts <span class="string">"Point 1: "</span> + pent.vertices[<span class="number">1</span>].position.to_s</div><div class="line">puts <span class="string">"Point 2: "</span> + pent.vertices[<span class="number">2</span>].position.to_s</div><div class="line">puts <span class="string">"Point 3: "</span> + pent.vertices[<span class="number">3</span>].position.to_s</div><div class="line">puts <span class="string">"Point 4: "</span> + pent.vertices[<span class="number">4</span>].position.to_s</div></pre></td></tr></table></figure></p>
+<h4 id="（2）面类的几何方法"><a href="#（2）面类的几何方法" class="headerlink" title="（2）面类的几何方法"></a>（2）面类的几何方法</h4><p>classify_point方法用于判断给定的点是否在这个面上，判断方法是通过返回的值，如表所示。</p>
+<ul>
+<li>0 - 不确定的点</li>
+<li>1 - 点在面上</li>
+<li>2 - 点在面的某一条边上</li>
+<li>4 - 点面的一个顶点</li>
+<li>8 - 点在面所在的平面上，但不在这个面上</li>
+<li>16 - 点不在这个面所在的平面上</li>
+</ul>
+<h4 id="（3）pushpull方法"><a href="#（3）pushpull方法" class="headerlink" title="（3）pushpull方法"></a>（3）pushpull方法</h4><p>这一小节是本节的重点，相信使用过Sketchup的筒子们，肯定特别熟悉推拉工具。face类提供了两个方法把二维面扩展为三维体：pushpull和followme，这跟Sketchup的Push/Pull和Follow Me工具是一样的。<br>pushpull非常容易使用和理解，pushpull的参数是一个整数，如果整数是正数，那么就会沿着面的正向量进行拉伸，类似，如果是负数就会沿着反方向拉伸。说到这里不能不说在已有三维体上进行切割功能了，只要在一个三维体指定一个面进行反向拉伸就能将其切除了，要是说的不明白可以看下面这个例子。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the box</span></div><div class="line">ent = Sketchup.active_model.entities</div><div class="line">main_face = ent.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">6</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">6</span>,<span class="number">8</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">8</span>,<span class="number">0</span>]</div><div class="line">main_face.reverse!</div><div class="line">main_face.pushpull <span class="number">5</span></div><div class="line"><span class="comment"># Draw a line across the upper-right corner</span></div><div class="line">cut = ent.add_line [<span class="number">6</span>,<span class="number">6</span>,<span class="number">5</span>], [<span class="number">4</span>,<span class="number">8</span>,<span class="number">5</span>]</div><div class="line"><span class="comment"># Remove the new face</span></div><div class="line">cut.faces[<span class="number">1</span>].pushpull -<span class="number">5</span></div></pre></td></tr></table></figure></p>
+<p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-10-1.jpg" alt="enter description here"><br>如果最后一行代码<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cut.faces[<span class="number">1</span>].pushpull -<span class="number">5</span></div></pre></td></tr></table></figure></p>
+<p>把faces<a href="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUpThe-SketchUp-Model.jpg" target="_blank" rel="external">1</a>变为faces[0],那么图形就变为留下小的那一小部分。</p>
+<h4 id="（4）followme方法"><a href="#（4）followme方法" class="headerlink" title="（4）followme方法"></a>（4）followme方法</h4><p>通过pushpull方法，我们可以沿着正向或反向进行拉伸，这还远远满足不了我们的需求。现在followme方法可以沿着你给定的向量进行扩展。<br>followme的扩展向量我们成为路径，可以使一条或多条直线，如果是多条直线则需要满足一下两个要求。</p>
+<ul>
+<li>所有的路径必须是相连的。</li>
+<li>要进行拉伸的面不能与路径所在的面重合，这一条非常重要。<br>下面看例子：</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Access the Entities container</span></div><div class="line">model = Sketchup.active_model</div><div class="line">ent = model.entities</div><div class="line"><span class="comment"># 创建一个圆面，直径为1英寸</span></div><div class="line">circle = ent.add_circle [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], <span class="number">1</span></div><div class="line">circle_face = ent.add_face circle</div><div class="line"><span class="comment"># 创建一个正方形的路径</span></div><div class="line">path = ent.add_curve [<span class="number">10</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">10</span>,<span class="number">0</span>,<span class="number">5</span>], [<span class="number">10</span>,<span class="number">5</span>,<span class="number">5</span>],</div><div class="line">[<span class="number">10</span>,<span class="number">5</span>,<span class="number">0</span>], [<span class="number">10</span>,<span class="number">0</span>,<span class="number">0</span>]</div><div class="line"><span class="comment"># Extrude the circle along the path</span></div><div class="line">circle_face.followme path</div></pre></td></tr></table></figure>
+<p>生成的图形类似于两个直角的白铁皮烟囱合一块。<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-11.jpg" alt="enter description here"></p>
+<p>再来看一个例子<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Access the Entities object</span></div><div class="line">model = Sketchup.active_model</div><div class="line">ents = model.entities</div><div class="line"><span class="comment"># Create the 2-D shape</span></div><div class="line">curve = ents.add_curve [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1.244209</span>], [<span class="number">0</span>.<span class="number">116554</span>, <span class="number">0</span>, <span class="number">1.238382</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">160261</span>, <span class="number">0</span>, <span class="number">1.217985</span>], [<span class="number">0</span>.<span class="number">186486</span>, <span class="number">0</span>, <span class="number">1.188846</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">1894</span>, <span class="number">0</span>, <span class="number">1.165536</span>], [<span class="number">0</span>.<span class="number">17483</span>, <span class="number">0</span>, <span class="number">1.145139</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">142778</span>, <span class="number">0</span>, <span class="number">1.127656</span>], [<span class="number">0</span>.096157, <span class="number">0</span>, <span class="number">1.118914</span>],</div><div class="line">[<span class="number">0</span>.093243, <span class="number">0</span>, <span class="number">1.063551</span>], [<span class="number">0</span>.<span class="number">175152</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">996269</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">175152</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">915269</span>], [<span class="number">0</span>.<span class="number">28237</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">871026</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">375392</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">801741</span>], [<span class="number">0</span>.<span class="number">448486</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">711683</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">497151</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">606398</span>], [<span class="number">0</span>.<span class="number">51839</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">492371</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">510894</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">376625</span>], [<span class="number">0</span>.<span class="number">475126</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">26629</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">413287</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">168161</span>], [<span class="number">0</span>.<span class="number">329188</span>, <span class="number">0</span>, <span class="number">0</span>.088283],</div><div class="line">[<span class="number">0</span>.<span class="number">228007</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">031575</span>], [<span class="number">0</span>.<span class="number">115978</span>, <span class="number">0</span>, <span class="number">0</span>.<span class="number">001531</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1.244209</span>]</div><div class="line">curve_face = ents.add_face curve</div><div class="line"><span class="comment"># Create the circular path</span></div><div class="line">path = ents.add_circle [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">2</span></div><div class="line"><span class="comment"># Create the figure</span></div><div class="line">curve_face.followme path</div></pre></td></tr></table></figure></p>
+<p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-12.jpg" alt="enter description here"></p>
+<p>再来看一个例子：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the box</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">main_face = ents.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">5</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">5</span>,<span class="number">8</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">8</span>,<span class="number">0</span>]</div><div class="line">main_face.reverse!</div><div class="line">main_face.pushpull <span class="number">6</span>, <span class="literal">true</span></div><div class="line"><span class="comment"># Draw a line across a corner</span></div><div class="line">cut = ents.add_line [<span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>], [<span class="number">5</span>, <span class="number">8</span>, <span class="number">5</span>]</div><div class="line"><span class="comment"># Create the chamfer</span></div><div class="line">cut.faces[<span class="number">0</span>].followme main_face.edges</div></pre></td></tr></table></figure></p>
+<p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/3-13.jpg" alt="enter description here"></p>
+<h4 id="（5）创建球体"><a href="#（5）创建球体" class="headerlink" title="（5）创建球体"></a>（5）创建球体</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#============创建球体============== </span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line"><span class="comment"># 创建一个正向为（0,0,1）的圆面</span></div><div class="line">center = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">radius = <span class="number">5</span></div><div class="line">circle = ents.add_circle center, [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], radius</div><div class="line">circle_face = ents.add_face circle</div><div class="line"><span class="comment"># 创建一个与上面圆面垂直的圆，作为路径</span></div><div class="line">path = ents.add_circle center, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], radius + <span class="number">1</span></div><div class="line"><span class="comment"># 创建球体</span></div><div class="line">circle_face.followme path</div><div class="line"><span class="comment"># 删除路径</span></div><div class="line">ents.erase_entities path</div></pre></td></tr></table></figure>
+<h2 id="第4章-转换和其他几何体"><a href="#第4章-转换和其他几何体" class="headerlink" title="第4章 转换和其他几何体"></a>第4章 转换和其他几何体</h2><h3 id="4-1-转换（Transformations）"><a href="#4-1-转换（Transformations）" class="headerlink" title="4.1 转换（Transformations）"></a>4.1 转换（Transformations）</h3><p>在Sketchup中，move工具使用的非常广泛，<img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/20140816103826166.jpg" alt="enter description here">，可以移动、拉伸和复制几何体，也可以用来旋转组件。举一个简单地例子。我们要做一个建筑物的尖顶，如下图所示，就是使用move工具实现的。<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-1.jpg" alt="enter description here"><br>接下来我们就要学习如何使用ruby实现这样的功能。<br>    实体类（Entities）提供了transform_entities方法来实现move的功能，transform_entities需要两个参数，一个或一系列实体对象和一个变换对象（Transformation）。<br>    例如，上图中屋顶中间的线我们叫做roof_line，下面的代码实现把这条线沿着Z轴网上移动5个单位（英寸）。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div><div class="line">tr = Geom::Transformation.translation [<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>]</div><div class="line">ents.transform_entities tr, roof_line</div></pre></td></tr></table></figure></p>
+<p> 在第二行，前缀“Geom：：”是必须的，这是因为Transformation类包含于Geom模型，这在接下来的章节中会介绍它是如何使用的。在这个例子中，tr是一个transformation对象，用于把roof_line从一个位置移动到另一个位置。<br>    transformation可以实现平移、旋转和缩放。</p>
+<h4 id="平移（Translation）"><a href="#平移（Translation）" class="headerlink" title="平移（Translation）"></a>平移（Translation）</h4><p>例如，想移动一个形状从[1, 2, 3]到[3, 2, 1]，转换需要使用数组[2, 0, -2]，这个三元素数组定义了方向和距离，通常被称为平移向量。<br>SketchUp API提供3种方法来创建转换：</p>
+<ul>
+<li>调用Geom::Transformation.new来使用平移向量</li>
+<li>调用Geom::Transformation.translation来使用平移向量</li>
+<li><p>自身使用三元素平移向量</p>
+<p>例子：translate.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># Create the face</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">tran_face = ents.add_face [-<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>], [-<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>]</div><div class="line"><span class="comment">#Translate four units in the +x direction</span></div><div class="line">t = Geom::Transformation.new [<span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">ents.transform_entities t, tran_face</div><div class="line"><span class="comment">#Translate six units in the +y direction</span></div><div class="line">t = Geom::Transformation.new [<span class="number">0</span>, <span class="number">6</span>, <span class="number">0</span>]</div><div class="line">ents.transform_entities t, tran_face</div><div class="line"><span class="comment">#Translate three units in the -x direction</span></div><div class="line">ents.transform_entities [-<span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>], tran_face</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-2.jpg" alt="enter description here"></p>
+<p>上例代码中的第3种用法：ents.transform_entities并没有明确创建一个Transformation对象，而是使用一个3元素数组，这是平移的最简单的方法，但是有个缺点：每次执行平移都要重写这个数组。而通过创建Transformation对象，你可以执行多次同样的平移而不用重写平移向量。</p>
+<h4 id="旋转（Rotation）"><a href="#旋转（Rotation）" class="headerlink" title="旋转（Rotation）"></a>旋转（Rotation）</h4><p>2种方法：</p>
+<ul>
+<li>调用Geom::Transformation.new（使用起源点，轴，角度）</li>
+<li><p>调用Geom::Transormation.rotation（使用起源点，轴，角度）</p>
+<p>下例2种代码都是以起源点[0, 0, 0]绕Z轴旋转30度：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tr = Geom::Transformation.new [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">30</span>.degrees</div><div class="line">tr = Geom::Transformation.rotation [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">30</span>.degrees</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>角度值是正数时，旋转为逆时针转动</p>
+<h4 id="缩放（Scaling）"><a href="#缩放（Scaling）" class="headerlink" title="缩放（Scaling）"></a>缩放（Scaling）</h4><p>在Sketchup中，缩放工具可以改变图形的大小形状和改变图形的位置。在用代码实现时，我们创建的缩放Transformation对象即会缩放图形的大小也会缩放相对于默认点（0,0,0）的距离，例如下面的代码缩小了图形的大小，也减小了到（0,0,0）的距离。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#创建一个正方形</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line"></div><div class="line">tran_face = ents.add_face [-<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>], [-<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], [<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>]</div><div class="line"><span class="comment">#沿X轴正向移动4个单位</span></div><div class="line">t = Geom::Transformation.new [<span class="number">4</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line"></div><div class="line">ents.transform_entities t, tran_face</div><div class="line"><span class="comment">#把正方形缩放为原来的一半，即改变形状也改变距原点的长度</span></div><div class="line">t = Geom::Transformation.new <span class="number">0</span>.<span class="number">5</span></div><div class="line"></div><div class="line">ents.transform_entities t, tran_face</div></pre></td></tr></table></figure></p>
+<p>实现缩放功能还可以用如下代码，效果跟上面的一样。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div><div class="line">t = Geom::Transformation.scaling <span class="number">0</span>.<span class="number">5</span></div><div class="line">ents.transform_entities t, shape</div></pre></td></tr></table></figure></p>
+<p> 除此之外，我们还可以改变默认缩放的源点，即上面的（0,0,0）。例如，下面的代码实现把图形放大2倍并把源点变为（5,5,5），相信在以后的应用中，这种写法会比较常见。<br> <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">t = Geom::Transformation.scaling [<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>], <span class="number">2</span></div></pre></td></tr></table></figure></p>
+<p> 上面介绍了改变源点进行缩放，下面我们介绍一下如何基于坐标轴进行缩放。<br>    为实现基于坐标轴缩放，需要调用Transformation.scaling结合三个参数，即X，Y，Z所缩放值，例如，下面代码实现减小X轴的一半，扩大Y轴的3倍，保持Z轴不变。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">t = Geom::Transformation.scaling <span class="number">0</span>.<span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>示意图如下：<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-4.jpg" alt="enter description here"></p>
+<h4 id="组合转换（Combining-Transformations）"><a href="#组合转换（Combining-Transformations）" class="headerlink" title="组合转换（Combining Transformations）"></a>组合转换（Combining Transformations）</h4><p>可以使用<code>*</code>操作符来实现组合Transformation对象。<br>例如：t_tran为平移一个实体，t_rot旋转实体，下面代码创建转换使用t_tran平移和t_rot旋转<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">t_prod = t_rot * t_tran</div></pre></td></tr></table></figure></p>
+<p>最右边的转换最先执行。</p>
+<h4 id="转换坐标系统（Transforming-Coordinate-Systems）"><a href="#转换坐标系统（Transforming-Coordinate-Systems）" class="headerlink" title="转换坐标系统（Transforming Coordinate Systems）"></a>转换坐标系统（Transforming Coordinate Systems）</h4><p>当你创建一个有4个轮胎的汽车模型，旋转汽车时，整个车体围绕车的起源点旋转。但当你旋转一个轮胎时，旋转则相关与轮胎的轴。出于转换的目的，每个轮胎都有其自身的起源点和轴。这种分离的坐标系统称为局部坐标系统，整个车的坐标系统称为全局坐标系统。</p>
+<p>将一种坐标系统转换为另一种坐标系统的几种方法：</p>
+<ul>
+<li>调用Geom:Transformation.new（使用新起源点和Z轴）</li>
+<li>调用Geom:Transformation.new（使用新起源点和X轴、Y轴）</li>
+<li>调用Geom:Transformation.new（使用新的X轴、Y轴、Z轴和起源点）</li>
+<li>调用Geom:Transformation.axes（使用新起源点，X轴、Y轴、Z轴）</li>
+</ul>
+<p>下例转换将全局坐标系转换为起源点在[10, 4, 6]，Z轴指向[4, 3, 3]的坐标系统：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">t = Geom::Transformation.new [<span class="number">10</span>, <span class="number">4</span>, <span class="number">6</span>], [<span class="number">4</span>, <span class="number">3</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure></p>
+<p>在此例中，X轴和Y轴计算任意。为校验起源点和轴是否设置正确，调用origin,xaxis,yaxis,zaxis方法如下：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">t.origin</div><div class="line">得到 [<span class="number">10</span>, <span class="number">4</span>, <span class="number">6</span>]</div><div class="line">t.xaxis</div><div class="line">得到 [-<span class="number">0</span>.<span class="number">6</span>, <span class="number">0</span>.<span class="number">8</span>, <span class="number">0</span>]</div><div class="line">t.yaxis</div><div class="line">得到 [-<span class="number">0</span>.<span class="number">411597</span>, -<span class="number">0</span>.<span class="number">308697</span>, <span class="number">0</span>.<span class="number">857493</span>]</div><div class="line">t.zaxis</div><div class="line">得到 [<span class="number">0</span>.<span class="number">685994</span>, <span class="number">0</span>.<span class="number">514496</span>, <span class="number">0</span>.<span class="number">514496</span>]</div></pre></td></tr></table></figure></p>
+<h3 id="4-2-文本（Text）"><a href="#4-2-文本（Text）" class="headerlink" title="4.2 文本（Text）"></a>4.2 文本（Text）</h3><p>SketchUp有两种工具创建文本：文本工具和3-D文本工具</p>
+<h4 id="二维文本"><a href="#二维文本" class="headerlink" title="二维文本"></a>二维文本</h4><p>下例创建了一个文本对象“Hellow,world!”，起始点在[0, 0, 0]。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div><div class="line">example_text = ents.add_text <span class="string">"Hello, world!"</span>, [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</div></pre></td></tr></table></figure></p>
+<p>文本总是定位面向使用者。</p>
+<p>创建二维文本时，没有办法通过文本对象改变字体和大小。<br>可给文本添加一个箭头，称为leader，使用方法是add_text加上第三个参数：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div><div class="line">example_text = ents.add_text <span class="string">"Hello, world!"</span>, [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>]</div></pre></td></tr></table></figure></p>
+<p>效果如下图所示：<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-6.jpg" alt="enter description here"></p>
+<p>文本对象的方法：</p>
+<ul>
+<li>text</li>
+<li>point</li>
+<li>vector</li>
+<li>line_weight</li>
+<li>arrow_type</li>
+<li><p>leader_type</p>
+<h4 id="三维文本"><a href="#三维文本" class="headerlink" title="三维文本"></a>三维文本</h4><p>实体类的add_3d_text方法的10个参数：</p>
+</li>
+<li>string</li>
+<li>alignment</li>
+<li>fontName</li>
+<li>bold</li>
+<li>italic</li>
+<li>height</li>
+<li>tolerance</li>
+<li>baseZ</li>
+<li>filled （true or false）</li>
+<li>extrusion 3D深度（当filled为ture时）</li>
+</ul>
+<p>例子：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Access the Entities container</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line"><span class="comment"># Draw in Times New Roman, left-aligned, tolerance = 100</span></div><div class="line">string1 = <span class="string">"This text is printed in \n \</span></div><div class="line">left-aligned Times New Roman \n with a tolerance of 100."</div><div class="line">ents.add_3d_text string1, TextAlignLeft, <span class="string">"Times"</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="literal">true</span>, <span class="number">10</span></div><div class="line">ents.transform_entities [<span class="number">0</span>, <span class="number">60</span>, <span class="number">0</span>], ents.to_a</div><div class="line"><span class="comment"># Draw in bold Arial, center-aligned, tolerance = 10</span></div><div class="line">string2 = <span class="string">"This text is printed in \n \</span></div><div class="line">center-aligned bold Arial \n with a tolerance of 10."</div><div class="line">ents.add_3d_text string2, TextAlignCenter, <span class="string">"Arial"</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">0</span>, <span class="literal">true</span>, <span class="number">10</span></div><div class="line">ents.transform_entities [<span class="number">0</span>, <span class="number">60</span>, <span class="number">0</span>], ents.to_a</div><div class="line"><span class="comment"># Draw in outline, italicized Courier New, tolerance = 1</span></div><div class="line">string3 = <span class="string">"This text outline is printed in \n \</span></div><div class="line">right-aligned, italicized \n Courier New with a tolerance of 1."</div><div class="line">ents.add_3d_text string3, TextAlignRight, <span class="string">"Courier New"</span>,<span class="literal">false</span>, <span class="literal">true</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="literal">false</span>, <span class="number">10</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-3-图像（Images）"><a href="#4-3-图像（Images）" class="headerlink" title="4.3 图像（Images）"></a>4.3 图像（Images）</h3><p>例1： The image is placed at [5, 0, 0] and its width is set to 20.<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ents = Sketchup.active_model.entities</div><div class="line">path = Sketchup.find_support_file <span class="string">"Ch4/lorca.png"</span>, <span class="string">"Plugins"</span></div><div class="line">im1 = ents.add_image path, [<span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>], <span class="number">20</span></div></pre></td></tr></table></figure></p>
+<p>通过添加第四个参数来改变图像长宽比<br>例2：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">im2 = ents.add_image path, [<span class="number">25</span>, <span class="number">0</span>, <span class="number">0</span>], <span class="number">20</span>, <span class="number">40</span></div><div class="line">tr = Geom::Transformation.new [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], <span class="number">90</span>.degrees</div><div class="line">ents.transform_entities tr, im2</div></pre></td></tr></table></figure></p>
+<h3 id="4-4-多边形网格（PolygonMeshs）"><a href="#4-4-多边形网格（PolygonMeshs）" class="headerlink" title="4.4 多边形网格（PolygonMeshs）"></a>4.4 多边形网格（PolygonMeshs）</h3><p>通过Entities.add_faces_from_mesh创建<br>分三步<br>（1）用Geom::PolygonMesh.new创建一个新的PolygonMesh（默认参数为许多点和多边形）<br>（2）调用add_point或add_polygon<br>（3）调用add_faces_from_mesh</p>
+<p>例子：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># GR is the Golden Ratio: (1 + sqrt(5))/2</span></div><div class="line">GR = <span class="number">1.618</span></div><div class="line"><span class="comment"># Create the points in the mesh</span></div><div class="line">pt<span class="number">0</span> = Geom::Point3d.new <span class="number">0</span>, <span class="number">1</span>, GR</div><div class="line">pt1 = Geom::Point3d.new <span class="number">0</span>, -<span class="number">1</span>, GR</div><div class="line">pt2 = Geom::Point3d.new GR, <span class="number">0</span>, <span class="number">1</span></div><div class="line">pt3 = Geom::Point3d.new -GR, <span class="number">0</span>, <span class="number">1</span></div><div class="line">pt4 = Geom::Point3d.new <span class="number">1</span>, -GR, <span class="number">0</span></div><div class="line">pt5 = Geom::Point3d.new -<span class="number">1</span>, -GR, <span class="number">0</span></div><div class="line">pt6 = Geom::Point3d.new <span class="number">0</span>, <span class="number">1</span>, -GR</div><div class="line">pt7 = Geom::Point3d.new <span class="number">0</span>, -<span class="number">1</span>, -GR</div><div class="line">pt8 = Geom::Point3d.new GR, <span class="number">0</span>, -<span class="number">1</span></div><div class="line">pt9 = Geom::Point3d.new -GR, <span class="number">0</span>, -<span class="number">1</span></div><div class="line">pt1<span class="number">0</span> = Geom::Point3d.new <span class="number">1</span>, GR, <span class="number">0</span></div><div class="line">pt11 = Geom::Point3d.new -<span class="number">1</span>, GR, <span class="number">0</span></div><div class="line"><span class="comment"># The PolygonMesh contains 12 points and 20 triangular faces</span></div><div class="line">pm = Geom::PolygonMesh.new <span class="number">12</span>, <span class="number">20</span></div><div class="line"><span class="comment"># Top half</span></div><div class="line">pm.add_polygon pt<span class="number">0</span>, pt1, pt2</div><div class="line">pm.add_polygon pt<span class="number">0</span>, pt1, pt3</div><div class="line">pm.add_polygon pt1, pt4, pt5</div><div class="line">pm.add_polygon pt1, pt4, pt2</div><div class="line">pm.add_polygon pt1, pt3, pt5</div><div class="line"><span class="comment"># Middle</span></div><div class="line">pm.add_polygon pt4, pt5, pt7</div><div class="line">pm.add_polygon pt2, pt8, pt4</div><div class="line">pm.add_polygon pt1<span class="number">0</span>, pt11, pt<span class="number">0</span></div><div class="line">pm.add_polygon pt3, pt9, pt5</div><div class="line">pm.add_polygon pt2, pt8, pt1<span class="number">0</span></div><div class="line">pm.add_polygon pt2, pt<span class="number">0</span>, pt1<span class="number">0</span></div><div class="line">pm.add_polygon pt9, pt5, pt7</div><div class="line">pm.add_polygon pt7, pt8, pt4</div><div class="line">pm.add_polygon pt11, pt9, pt3</div><div class="line">pm.add_polygon pt11, pt3, pt<span class="number">0</span></div><div class="line"><span class="comment"># Bottom half</span></div><div class="line">pm.add_polygon pt6, pt7, pt8</div><div class="line">pm.add_polygon pt6, pt7, pt9</div><div class="line">pm.add_polygon pt6, pt1<span class="number">0</span>, pt11</div><div class="line">pm.add_polygon pt6, pt1<span class="number">0</span>, pt8</div><div class="line">pm.add_polygon pt6, pt9, pt11</div><div class="line"><span class="comment"># Draw the Faces in the mesh</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">ents.add_faces_from_mesh pm</div></pre></td></tr></table></figure></p>
+<p>结果如下图：<br><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/4-9.jpg" alt="enter description here"></p>
+<h2 id="第5章-Ruby课程2：控制结构和文件"><a href="#第5章-Ruby课程2：控制结构和文件" class="headerlink" title="第5章 Ruby课程2：控制结构和文件"></a>第5章 Ruby课程2：控制结构和文件</h2>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/09/automatic-sketchup-cn-1/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
+        <p><span>发布时间:</span>2017-03-09, 20:58:51</p>
+        <p><span>最后更新:</span>2017-03-09, 21:02:41</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/09/automatic-sketchup-cn-1/" title="《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章">https://dragonflyxyz.github.io/2017/03/09/automatic-sketchup-cn-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2017/03/09/automatic-sketchup-cn-1/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/29/python-opencv-learn-note01/">
+                    Python OpenCV学习记录
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第1章-SketchUp脚本介绍"><span class="toc-number">1.</span> <span class="toc-text">第1章 SketchUp脚本介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-学习SketchUp脚本的10个理由"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 学习SketchUp脚本的10个理由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-获取和安装SketchUp"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 获取和安装SketchUp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-一个简单的例子"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 一个简单的例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-SketcUp脚本和Ruby"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 SketcUp脚本和Ruby</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4这本书的结构"><span class="toc-number">1.5.</span> <span class="toc-text">1.4这本书的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-小结"><span class="toc-number">1.6.</span> <span class="toc-text">1.5 小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第2章-Ruby课程1：数据结构"><span class="toc-number">2.</span> <span class="toc-text">第2章 Ruby课程1：数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第3章-SketchUp脚本基础"><span class="toc-number">3.</span> <span class="toc-text">第3章 SketchUp脚本基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3个基础SketchUp结构"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 3个基础SketchUp结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）The-Sketchup-Module"><span class="toc-number">3.1.1.</span> <span class="toc-text">（1）The Sketchup Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）The-Model-Object"><span class="toc-number">3.1.2.</span> <span class="toc-text">（2）The Model Object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）The-Entities-Object"><span class="toc-number">3.1.3.</span> <span class="toc-text">（3）The Entities Object</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-实体（Entity）和绘画元素类"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 实体（Entity）和绘画元素类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）The-Entity-Class"><span class="toc-number">3.2.1.</span> <span class="toc-text">（1）The Entity Class</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）The-Drawingelement-Class"><span class="toc-number">3.2.2.</span> <span class="toc-text">（2）The Drawingelement Class</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Edges"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 Edges</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-SketchUp脚本介绍"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 SketchUp脚本介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ruby-Scripts"><span class="toc-number">3.4.1.</span> <span class="toc-text">Ruby Scripts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ruby命令"><span class="toc-number">3.4.2.</span> <span class="toc-text">Ruby命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-向量（Vectors）"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 向量（Vectors）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#边缘数组（Edge-Arrays-Curves-Circles-Arcs-Polygons）"><span class="toc-number">3.6.</span> <span class="toc-text">边缘数组（Edge Arrays: Curves, Circles, Arcs, Polygons）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#曲线（Curves）"><span class="toc-number">3.6.1.</span> <span class="toc-text">曲线（Curves）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆（Circles）"><span class="toc-number">3.6.2.</span> <span class="toc-text">圆（Circles）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多边形（Polygons）"><span class="toc-number">3.6.3.</span> <span class="toc-text">多边形（Polygons）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#圆弧（Arcs）"><span class="toc-number">3.6.4.</span> <span class="toc-text">圆弧（Arcs）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-创建三维图形"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 创建三维图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）创建一个面"><span class="toc-number">3.7.1.</span> <span class="toc-text">（1）创建一个面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）面类的几何方法"><span class="toc-number">3.7.2.</span> <span class="toc-text">（2）面类的几何方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（3）pushpull方法"><span class="toc-number">3.7.3.</span> <span class="toc-text">（3）pushpull方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（4）followme方法"><span class="toc-number">3.7.4.</span> <span class="toc-text">（4）followme方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（5）创建球体"><span class="toc-number">3.7.5.</span> <span class="toc-text">（5）创建球体</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第4章-转换和其他几何体"><span class="toc-number">4.</span> <span class="toc-text">第4章 转换和其他几何体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-转换（Transformations）"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 转换（Transformations）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#平移（Translation）"><span class="toc-number">4.1.1.</span> <span class="toc-text">平移（Translation）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#旋转（Rotation）"><span class="toc-number">4.1.2.</span> <span class="toc-text">旋转（Rotation）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缩放（Scaling）"><span class="toc-number">4.1.3.</span> <span class="toc-text">缩放（Scaling）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合转换（Combining-Transformations）"><span class="toc-number">4.1.4.</span> <span class="toc-text">组合转换（Combining Transformations）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转换坐标系统（Transforming-Coordinate-Systems）"><span class="toc-number">4.1.5.</span> <span class="toc-text">转换坐标系统（Transforming Coordinate Systems）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-文本（Text）"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 文本（Text）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二维文本"><span class="toc-number">4.2.1.</span> <span class="toc-text">二维文本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三维文本"><span class="toc-number">4.2.2.</span> <span class="toc-text">三维文本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-图像（Images）"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 图像（Images）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-多边形网格（PolygonMeshs）"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 多边形网格（PolygonMeshs）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第5章-Ruby课程2：控制结构和文件"><span class="toc-number">5.</span> <span class="toc-text">第5章 Ruby课程2：控制结构和文件</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章　| Dragonflyxyz的知识整理　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/29/python-opencv-learn-note01/" title="下一篇: Python OpenCV学习记录">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/automatic-sketchup-cn-1/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/29/python-opencv-learn-note01/">Python OpenCV学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/learn-deep-learning-zero-based-1/">零基础入门深度学习(1)-感知器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/hexo-show-mathjax-and-table/">Hexo如何显示公式和表格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/hexo-local-search-only-titile/">让Hexo的本地搜索只搜索标题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/why-im-switching-from-python-to-nodejs/">为什么我从Python转战到Node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/php-develop-1200examples/">《PHP开发实战1200例》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/introduction-john-carmack/">第一人称射击游戏教父，首款3D游戏的开发者，传奇程序员——约翰·卡马克</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/Ebook-search-engine/">几个好的电子书搜索引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/MIT-tech-review-2016/">麻省理工科技评论2016年1-6月</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/head-first-python/">《Head First Python》中文版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/microsoft-opensource-malmo-ai/">微软开源Malmo AI项目平台 利用Minecraft构建复杂机器人任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/22/why-this-robot-in-the-grocery-store/">零售业有福了！大数据机器人卖场值班，点货超轻松</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/21/poor-zorro-linux-book/">穷佐罗的Linux书，知识点整理的很好</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/github-awesome-hadoop/">Hadoop学习资源集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/python-decorated-concurrency/">Python多线程(Decorated concurrency)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/github-awesome-machine-learning/">Github上最全的机器学习资料集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/the-9-best-languages-form-crunching-data/">数据处理的 9 大编程语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/github-awesome-bigdata/">最全的大数据学习资料集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/a-low-scientist-how-to-get-nobel-prize/">一个逗逼的科研狗是如何成为诺贝尔奖得主的</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/23/how-much-a-chip/">一枚芯片的实际成本是多少？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/awesome-python-site/">Awesome-python一个收集Python资源的网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/">Intel将两款arduino设备的实时操作系统开源</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/studying-the-language-and-structure-in-non-programmers-solutions/">《编程问题的非程序员解决方案之研究》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/if-human-and-animals-change/">如果人和动物角色互换？这样的世界怎样想象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/checksum-8bits-and-16bits/">checksum-8位和16位校验和代码示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/06/easy-popular-science-doc-deep-learning/">关于深度学习可能最容易读进去的科普贴</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/16/what-is-iot-ppt/">物联网是什么-ppt图</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/100-BBC-recordfile-parents-with-children/">家长应该陪孩子一起看的100部BBC纪录片</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/algorithm-detail-DES-AES-SHA/">DES、AES、SHA加密算法详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/homedesign-north-america/">越来越喜欢北美的家庭装饰风格</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/06/mysql-10millions-optimize-query/">Mysql数据库千万级别数据的查询优化和分页测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/16/my-blog-set/">博客设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/01/john-carmack-on-inlined-code/">John Carmack on inlined code</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/05/01/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/01/16/test1/">test1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Dragonflyxyz
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
