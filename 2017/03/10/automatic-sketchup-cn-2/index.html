@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Dragonflyxyz" />
+
+
+
+<meta name="description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章">
+<meta property="og:url" content="https://dragonflyxyz.github.io/2017/03/10/automatic-sketchup-cn-2/index.html">
+<meta property="og:site_name" content="Dragonflyxyz的知识整理">
+<meta property="og:description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/7-3.jpg">
+<meta property="og:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/7-5.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/9-1.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/9-4.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/10-2.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/10-3.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/10-4.jpg">
+<meta property="og:updated_time" content="2017-03-17T12:40:50.706Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章">
+<meta name="twitter:description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz">
+<meta name="twitter:image" content="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/7-3.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Dragonflyxyz的知识整理" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章 | Dragonflyxyz的知识整理</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Dragonflyxyz</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AES/">AES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft/">Microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDMS/">RDMS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SketchUp/">SketchUp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vision/">Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino/">arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chip/">chip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homedesign/">homedesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intel/">intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opensource/">opensource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimize/">optimize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/">others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picture/">picture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robot/">robot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solution/">solution</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-automatic-sketchup-cn-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/10/automatic-sketchup-cn-2/" class="article-date">
+      <time datetime="2017-03-10T04:16:08.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SketchUp/">SketchUp</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译<br>现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书<br>作者：Matthew Scarpino<br>发行日期：2010</p>
+<p>翻译：Dragonflyxyz</p>
+<a id="more"></a>
+<h2 id="第7章-管理图形：层、组和组件"><a href="#第7章-管理图形：层、组和组件" class="headerlink" title="第7章 管理图形：层、组和组件"></a>第7章 管理图形：层、组和组件</h2><h3 id="7-1-层（Layers）"><a href="#7-1-层（Layers）" class="headerlink" title="7.1 层（Layers）"></a>7.1 层（Layers）</h3><h4 id="使用代码建立层"><a href="#使用代码建立层" class="headerlink" title="使用代码建立层"></a>使用代码建立层</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">layer_array = Sketchup.active_model.layers</div><div class="line">  得到 <span class="comment">#&lt;Sketchup::Layers:0x75aae80&gt;</span></div><div class="line">first_layer = layer_array[<span class="number">0</span>]</div><div class="line">  得到 <span class="comment">#&lt;Sketchup::Layer:0x75aad90&gt;</span></div><div class="line">first_layer.name</div><div class="line">  得到 Layer<span class="number">0</span></div></pre></td></tr></table></figure>
+<p>例：建立一个层</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new_layer = Sketchup.active_model.layers.add <span class="string">"NewLayer"</span></div></pre></td></tr></table></figure>
+<p>当建立一个层对象后，并没有变为当前活动层，如想该层为活动层，需要调用<code>active_layer=</code>方法<br>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">model = Sketchup.active_model</div><div class="line">l_new = model.layers.add <span class="string">"Example"</span></div><div class="line">model.active_layer = l_new</div></pre></td></tr></table></figure>
+<p>Layer的3个属性</p>
+<ul>
+<li>name</li>
+<li>visible</li>
+<li>page_behavior  LAYER_VISIBLE_BY_DEFAULT（可见），LAYER_HIDDEN_BY_DEFAULE（隐藏）</li>
+</ul>
+<h3 id="7-2-组（Groups）"><a href="#7-2-组（Groups）" class="headerlink" title="7.2 组（Groups）"></a>7.2 组（Groups）</h3><h4 id="创建和删除组"><a href="#创建和删除组" class="headerlink" title="创建和删除组"></a>创建和删除组</h4><p>一个简单的例子将解释不同常规的形状和形状的实体对象组合在一个组。下面的命令创建一个立方体<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ent = Sketchup.active_model.entities</div><div class="line">face = ent.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]</div><div class="line">face.reverse!</div><div class="line">face.pushpull <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>下面的代码将与<code>face</code>接触的对象都放入组中：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">group1 = ent.add_group face.all_connected</div></pre></td></tr></table></figure></p>
+<p>下面的代码在组中添加一个圆形阵列<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ent_g = group1.entities</div><div class="line">circle = ent_g.add_circle [<span class="number">0</span>.<span class="number">5</span>, <span class="number">0</span>.<span class="number">5</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">0</span>.<span class="number">25</span></div></pre></td></tr></table></figure></p>
+<p>下面代码将组解散<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">group1.explode</div></pre></td></tr></table></figure></p>
+<h4 id="设置组的属性"><a href="#设置组的属性" class="headerlink" title="设置组的属性"></a>设置组的属性</h4><p>锁定组<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">group.locked = <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<p>组的名称和描述<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">group.name = <span class="string">"Cube"</span></div><div class="line">group.description = <span class="string">"Example Group"</span></div></pre></td></tr></table></figure></p>
+<h4 id="组的复制和转换（）"><a href="#组的复制和转换（）" class="headerlink" title="组的复制和转换（）"></a>组的复制和转换（）</h4><p>例：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">group2 = group1.copy</div><div class="line">tran = Geom::Transformation.translation [<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">group2.transform! tran</div></pre></td></tr></table></figure></p>
+<p><code>move!</code>和<code>transform!</code>方法是有区别的，例如：<br><code>group1.move! [2, 0, 0]</code>是将group1移动到点[2, 0, 0]，<br><code>group1.transform! [2, 0, 0]</code> 是将group1向X正方向移动2个单位。</p>
+<p>还有一种不太重要的区别，当你在SketchUp终端中执行<code>transform!</code> ，转换是实时在设计窗口中展示的，而当执行<code>move!</code> 时，需要点击窗口使之有效。</p>
+<h4 id="组的等级（Group-Hierarchies）"><a href="#组的等级（Group-Hierarchies）" class="headerlink" title="组的等级（Group Hierarchies）"></a>组的等级（Group Hierarchies）</h4><p>例：下面例子表现出组的等级，第一个组是一个六角头的螺栓，第二个组是一个套在螺栓底部的方形螺母，第三个组包含上面的螺栓组和螺母组。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the head of the bolt</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">hex_curve = ents.add_ngon [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">4</span>, <span class="number">6</span></div><div class="line">hex_face = ents.add_face hex_curve</div><div class="line">hex_face.pushpull -<span class="number">3</span></div><div class="line"><span class="comment"># Create the screw and the bolt group</span></div><div class="line">screw_curve = ents.add_circle [<span class="number">0</span>, <span class="number">0</span>, -<span class="number">8</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">1.5</span></div><div class="line">screw_face = ents.add_face screw_curve</div><div class="line">screw_face.pushpull <span class="number">8</span></div><div class="line">bolt_group = ents.add_group ents.to_a</div><div class="line">bolt_group.name = <span class="string">"Hex Bolt"</span></div><div class="line"><span class="comment"># Create the nut group</span></div><div class="line">nut_curve = ents.add_ngon [<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">3</span>, <span class="number">4</span></div><div class="line">nut_face = ents.add_face nut_curve</div><div class="line">nut_face.reverse!</div><div class="line">nut_face.pushpull <span class="number">1.5</span></div><div class="line">cut_curve = ents.add_circle [<span class="number">10</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">1.5</span></div><div class="line">cut_curve[<span class="number">0</span>].faces[<span class="number">0</span>].pushpull -<span class="number">1.5</span></div><div class="line">nut_group = ents.add_group cut_curve[<span class="number">0</span>].faces[<span class="number">1</span>].all_connected</div><div class="line">nut_group.name = <span class="string">"Square Nut"</span></div><div class="line">nut_group.transform! [-<span class="number">10</span>, <span class="number">0</span>, -<span class="number">7</span>]</div><div class="line"><span class="comment"># Create the combined group and transform</span></div><div class="line">full_group = ents.add_group bolt_group, nut_group</div><div class="line">full_group.name = <span class="string">"Nut-Bolt Group"</span></div><div class="line">t2 = Geom::Transformation.translation [<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>]</div><div class="line">t1 = Geom::Transformation.rotation [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], -<span class="number">45</span>.degrees</div><div class="line">full_group.transform! t1 * t2</div></pre></td></tr></table></figure></p>
+<p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/7-3.jpg" alt="enter description here"></p>
+<h3 id="7-3-组件（Components）"><a href="#7-3-组件（Components）" class="headerlink" title="7.3 组件（Components）"></a>7.3 组件（Components）</h3><p>与组类似，SketchUp组件包含实体对象，提供了同时操作所有实体对象的可能，但组件比组功能更强大。你可以保存组件在组件特性文件中，控制组件的行为和建立新的组件会很简单。当你修改一个组件的Copy（称为实例）时，更改会影响到设计中的每个实例。<br>组件的功能强大带来的副作用就是组件的代码会更复杂。组件有2个类：</p>
+<ul>
+<li>ComponentDefinition 就像切饼刀</li>
+<li><p>ComponentInstance 就像饼</p>
+<h4 id="用代码创建组件"><a href="#用代码创建组件" class="headerlink" title="用代码创建组件"></a>用代码创建组件</h4><p>在SketchUp窗口中，从一个形状创建组件很简单：鼠标右击形状，选择Make Component就可以了。但在代码中就没这么简单了，这涉及到两个分离的对象：<br>(1)ComponentDefinition保存组件模型信息，可以保存在文件中并可读写。<br>(2)ComponentInstance是在当前设计中一个组件的一个实例。</p>
+</li>
+</ul>
+<p>有两种方法在脚本中创建一个新的组件。</p>
+<p>第一种，如果有一个已存在的组，可以使用 <code>ComponentInstance</code> 的 <code>to_component</code> 方法。当<code>ComponentInstance</code>成型，SketchUp自动建立一个<code>ComponentDefinition</code>。</p>
+<p>第二种方法，使用当前<code>Model</code>的<code>DefinitionList</code>，这个list包含所有当前存在的组件定义，而且还提供<code>add</code>方法来用给定的名字建立一个新的<code>ComponentDefinition</code>。</p>
+<p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">def_list = Sketchup.active_model.definitions</div><div class="line">new_def = def_list.add <span class="string">"NewComp"</span></div><div class="line">new_def.save_as <span class="string">"newcomp.skp"</span></div></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the component definition</span></div><div class="line">list = Sketchup.active_model.definitions</div><div class="line">comp_def = list.add <span class="string">"Cube"</span></div><div class="line">comp_def.description = <span class="string">"This is a simple cube-shaped component."</span></div><div class="line"><span class="comment"># Add entities to the component definition</span></div><div class="line">ents = comp_def.entities</div><div class="line">face = ents.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]</div><div class="line">face.reverse!</div><div class="line">face.pushpull <span class="number">1</span></div><div class="line"><span class="comment"># Save the component definition</span></div><div class="line">save_path = Sketchup.find_support_file <span class="string">"Components"</span>, <span class="string">""</span></div><div class="line">comp_def.save_as(save_path + <span class="string">"/cube.skp"</span>)</div><div class="line">puts <span class="string">"The definition was saved to: "</span> + comp_def.path</div></pre></td></tr></table></figure>
+<h4 id="从文件中载入ComponentDefinition"><a href="#从文件中载入ComponentDefinition" class="headerlink" title="从文件中载入ComponentDefinition"></a>从文件中载入ComponentDefinition</h4><p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dl = Sketchup.active_model.definitions</div><div class="line">file_path = Sketchup.find_support_file <span class="string">"cube.skp"</span>, <span class="string">"Components"</span></div><div class="line">comp_def = dl.load file_path</div></pre></td></tr></table></figure>
+<h4 id="组件和行为（Components-and-Behavior）"><a href="#组件和行为（Components-and-Behavior）" class="headerlink" title="组件和行为（Components and Behavior）"></a>组件和行为（Components and Behavior）</h4><p>每个ComponentDefinition都有一个关联的Behavior对象，通过这个对象可以定义设计中每个组件的实例属性。</p>
+<p>Behavior类有六个方法控制设计窗口中的组件属性。<br>(1) always_face_camera 组件是否可以围绕面向视图相机的Z轴转动<br>(2) shadows_face_sun 阴影是否按照组件面向太阳方向垂落。<br>(3) no_scale_mask 缩放参数无效<br>(4) is2d 组件是否二维对象<br>(5) snapto 组件附着表面对齐<br>(6) cuts_opening 组件打开时，开口是否应被切割为一个曲面</p>
+<p>no_scale_mask 可以按位来定义在那个轴向进行缩放：<br>共有三位，如位置为1则不能在该方向缩放；最右位 沿着X轴缩放，中间位 沿着Y轴缩放，最左位 沿着Z轴缩放。</p>
+<ul>
+<li>0b000 组件可在X，Y，Z方向上缩放</li>
+<li>0b001 组件可在Y，Z方向缩放，不能在X方向缩放</li>
+<li>0b010</li>
+<li>0b011</li>
+<li>0b100</li>
+<li>0b101</li>
+<li>0b110</li>
+<li>0b111 组件不能在X，Y，Z任一方向缩放</li>
+</ul>
+<p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">beh = comp_def.behavior</div><div class="line">beh.no_scale_mask = 0b11<span class="number">0</span></div><div class="line">beh.always_face_camera = <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>当<code>is2d</code>设为true时，<code>snapto</code>方法可以用来定义组件表面的对齐方式：<br>(1) SnapTo_Arbitrary 组件可沿着任何面对齐<br>(2) SnapTo_Horizontal 组件可沿水平面对齐<br>(3) SnapTo_Vertiacal 组件可沿着垂直面对齐<br>(4) SnapTo_Sloped 组件可沿着倾斜面对齐</p>
+<h4 id="组件实例（Component-Instances）"><a href="#组件实例（Component-Instances）" class="headerlink" title="组件实例（Component Instances）"></a>组件实例（Component Instances）</h4><p>下例从一个名为<code>comp_def</code>的<code>ComponentDefinition</code> 创建一个<code>ComponentInstance</code>对象，然后沿<code>+X</code>和<code>+Y</code>方向移动3个单位。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ent = Sketchup.active_model.entities</div><div class="line">t = Geom::Transformation.translation [<span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>]</div><div class="line">inst = ent.add_instance comp_def, t</div></pre></td></tr></table></figure>
+<p>可以用<code>add_instance</code>来创建<code>comp_def</code>的更多实例，只要改变其中一个实例的形状，则其他实例的形状都跟着改变。当修改<code>comp_def</code>的行为时，相关的每个组件实例都发生变化。<br><code>ComponentInstance</code>对象提供了几个方法来修改组件实例的属性：</p>
+<ul>
+<li>glue_to  将组件连接到一个面上</li>
+<li>locked  防止实例移动或更改大小</li>
+<li>make_unique  建立一个唯一的实例ComponentDefinition<br>如果你想修改一个实例而不想更新其他的实例时，<code>make_unique</code>是一个非常有用的方法。<br>下例中，从文件<code>cube.skp</code>中创建一个叫<code>comp_def</code>的<code>ComponentDefinition</code>，然后创建2个<code>comp_def</code>的实例，并使得第二个实例唯一。</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Load the component definition</span></div><div class="line">model = Sketchup.active_model</div><div class="line">def_list = model.definitions</div><div class="line">def_path = Sketchup.find_support_file <span class="string">"cube.skp"</span>, <span class="string">"Components"</span></div><div class="line">comp_def = def_list.load def_path</div><div class="line"><span class="comment"># Create the component instances</span></div><div class="line">ents = model.entities</div><div class="line">inst1 = ents.add_instance comp_def, [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">inst2 = ents.add_instance comp_def, [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</div><div class="line">puts <span class="string">"Before unique, definition = "</span> + inst2.definition.name</div><div class="line">inst2.make_unique</div><div class="line">puts <span class="string">"After unique, definition = "</span> + inst2.definition.name</div></pre></td></tr></table></figure>
+<p>从上面代码中，用definition方法读取实例的ComponentDefinition，当执行时，在终端中可以得到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Before unique, definition = cube</div><div class="line">After unique, definition = cube<span class="comment">#1</span></div></pre></td></tr></table></figure>
+<p>这个<code>cube#1</code>就是创建的第二个实例（是唯一的）</p>
+<h4 id="组件和变换（Components-and-Transformation）"><a href="#组件和变换（Components-and-Transformation）" class="headerlink" title="组件和变换（Components and Transformation）"></a>组件和变换（Components and Transformation）</h4><p><code>ComponentInstance</code>的变换可以使用2个相同的方法：<code>Groups:move!</code> 和 <code>transform!</code>。<br>下例代码中，第一部分创建了一个<code>ComponentDefinition</code>，并保存在文件中。第二部分通过这个文件创建5个新的<code>ComponentInstance</code></p>
+<p>第一部分</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the component definition</span></div><div class="line">list = Sketchup.active_model.definitions</div><div class="line">candle_def = list.add <span class="string">"Candle"</span></div><div class="line">candle_def.description = <span class="string">"This is a simple candle."</span></div><div class="line">ents = candle_def.entities</div><div class="line"><span class="comment"># Create the candle face</span></div><div class="line">candle_curve = ents.add_curve(</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>.<span class="number">625</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">625</span>, <span class="number">0</span>, <span class="number">2.815</span>], [<span class="number">0</span>.<span class="number">208</span>, <span class="number">0</span>, <span class="number">2.815</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">208</span>, <span class="number">0</span>, <span class="number">3.173</span>], [<span class="number">0</span>.<span class="number">249</span>, <span class="number">0</span>, <span class="number">3.180</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">288</span>, <span class="number">0</span>, <span class="number">3.194</span>], [<span class="number">0</span>.<span class="number">325</span>, <span class="number">0</span>, <span class="number">3.214</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">358</span>, <span class="number">0</span>, <span class="number">3.239</span>], [<span class="number">0</span>.<span class="number">388</span>, <span class="number">0</span>, <span class="number">3.269</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">412</span>, <span class="number">0</span>, <span class="number">3.303</span>], [<span class="number">0</span>.<span class="number">431</span>, <span class="number">0</span>, <span class="number">3.340</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">444</span>, <span class="number">0</span>, <span class="number">3.380</span>], [<span class="number">0</span>.<span class="number">450</span>, <span class="number">0</span>, <span class="number">3.422</span>],</div><div class="line">[<span class="number">0</span>.<span class="number">450</span>, <span class="number">0</span>, <span class="number">3.463</span>], [<span class="number">0</span>.<span class="number">444</span>, <span class="number">0</span>, <span class="number">3.505</span>],</div><div class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">4.2</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>])</div><div class="line">candle_face = ents.add_face candle_curve</div><div class="line"><span class="comment"># Create the extrusion and save the definition</span></div><div class="line">path = ents.add_circle [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">1</span></div><div class="line">candle_face.followme path</div><div class="line">ents.erase_entities path</div><div class="line">comp_path = Sketchup.find_support_file <span class="string">"Components"</span>, <span class="string">""</span></div><div class="line">candle_def.save_as comp_path + <span class="string">"/candle.skp"</span></div><div class="line"><span class="comment"># 如果在windows下不好用可直接写成 candle_def.save_as "candle.skp"</span></div></pre></td></tr></table></figure>
+<p>第二部分</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Load the definition of the candle component</span></div><div class="line">model = Sketchup.active_model</div><div class="line">ents = model.entities</div><div class="line">def_list = model.definitions</div><div class="line">def_path = Sketchup.find_support_file <span class="string">"candle.skp"</span>, <span class="string">"Components"</span></div><div class="line"><span class="comment"># 如果在windows下不好用可直接写成  candle_def = def_list.load "candle.skp"</span></div><div class="line">candle_def = def_list.load def_path</div><div class="line"><span class="comment"># Create the Transformation objects</span></div><div class="line">tran1 = Geom::Transformation.scaling <span class="number">0</span>.<span class="number">5</span>, <span class="number">0</span>.<span class="number">5</span>, <span class="number">1.5</span></div><div class="line">tran2 = tran1 * Geom::Transformation.rotation(</div><div class="line">[<span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">30</span>.degrees)</div><div class="line">tran3 = tran1 * Geom::Transformation.rotation(</div><div class="line">[<span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], -<span class="number">30</span>.degrees)</div><div class="line">tran4 = tran1 * Geom::Transformation.rotation(</div><div class="line">[<span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">60</span>.degrees)</div><div class="line">tran5 = tran1 * Geom::Transformation.rotation(</div><div class="line">[<span class="number">0</span>, -<span class="number">5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], -<span class="number">60</span>.degrees)</div><div class="line"><span class="comment"># Create the candle instances</span></div><div class="line">inst1 = ents.add_instance candle_def, tran1</div><div class="line">inst2 = ents.add_instance candle_def, tran2</div><div class="line">inst3 = ents.add_instance candle_def, tran3</div><div class="line">inst4 = ents.add_instance candle_def, tran4</div><div class="line">inst5 = ents.add_instance candle_def, tran5</div></pre></td></tr></table></figure>
+<p><img src="http://oa8dfoyas.bkt.clouddn.com/Automatic-SketchUp/7-5.jpg" alt="enter description here"></p>
+<h2 id="第8章-Ruby-Lesson-3-Classes-and-Modules"><a href="#第8章-Ruby-Lesson-3-Classes-and-Modules" class="headerlink" title="第8章 Ruby Lesson 3 : Classes and Modules"></a>第8章 Ruby Lesson 3 : Classes and Modules</h2><h2 id="第9章-属性、选项和观察者"><a href="#第9章-属性、选项和观察者" class="headerlink" title="第9章 属性、选项和观察者"></a>第9章 属性、选项和观察者</h2><h3 id="9-1-属性和属性目录（Attributes-and-AttributeDictionaries）"><a href="#9-1-属性和属性目录（Attributes-and-AttributeDictionaries）" class="headerlink" title="9.1 属性和属性目录（Attributes and AttributeDictionaries）"></a>9.1 属性和属性目录（Attributes and AttributeDictionaries）</h3><h4 id="创建和检索属性"><a href="#创建和检索属性" class="headerlink" title="创建和检索属性"></a>创建和检索属性</h4><p>(1) set_attribute<br>(2) get_attribute<br>例如，有一个命名为<code>toy</code>的实体，想 保存一个<code>price</code>属性，其初始化值为$4.99。这个<code>price</code>属性保存在一个命名为<code>catalog</code>的目录内：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">toy.set_attribute <span class="string">"catalog"</span>, <span class="string">"price"</span>, <span class="number">4.99</span></div></pre></td></tr></table></figure>
+<p><code>set_attribute</code>的参数有：</p>
+<ul>
+<li>String  属性目录的名字，保存的是键-值（key-value）对</li>
+<li>String 属性key的名字</li>
+<li>Object 属性数据</li>
+</ul>
+<p>如果所命名的目录不存在，<code>set_attribute</code>就会建立一个新的<code>AttributeDictionary</code>对象。</p>
+<p><code>get_attribute</code>的用法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rotor_metal = rotor.get_attribute <span class="string">"metal_dict"</span>, <span class="string">"metal"</span></div></pre></td></tr></table></figure>
+<p>如果metal_dict不存在或不能找到叫metal的属性，则<code>get_attribute</code>返回<code>nil</code>。但是，可以通过添加第三个参数的方法来设定一个缺省值，如果属性没找到则返回这个缺省值。例如：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rotor_metal = rotor.get_attribute <span class="string">"metal_dict"</span>, <span class="string">"metal"</span>, <span class="string">"copper"</span></div></pre></td></tr></table></figure>
+<h4 id="属性目录（AttributeDictionary-and-AttributeDictionaries）"><a href="#属性目录（AttributeDictionary-and-AttributeDictionaries）" class="headerlink" title="属性目录（AttributeDictionary and AttributeDictionaries）"></a>属性目录（AttributeDictionary and AttributeDictionaries）</h4><p>例，如果一个叫obj的实体包括一个目录叫car_dict，下面的命令返回对应的<code>AttributeDictionary</code>对象：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">obj.attribute_dictionary <span class="string">"car_dict"</span></div></pre></td></tr></table></figure>
+<p>所有实体的<code>AttributeDictionary</code>对象都存储在一个集合对象<code>AttributeDictionaries</code>中，这个对象可以通过<code>attribute_dictionaries</code>方法访问。<br><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/9-1.jpg" alt="enter description here"></p>
+<p>一个实体的<code>AttributeDictionaries</code>与另一个实体的<code>AttributeDictionaries</code> 通常不会有什么共同之处。<br>(1)当在一个<code>ComponentDefinition</code>上添加属性时，它们不会复制到这个组件的实例中。<br>(2)当给一个组添加属性时，这个组的拷贝不会接收到这些属性。<br>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the group and set attributes</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">car_group = ents.add_group</div><div class="line">car_group.set_attribute <span class="string">"car_dict"</span>, <span class="string">"num_wheels"</span>, <span class="number">4</span></div><div class="line">car_group.set_attribute <span class="string">"car_dict"</span>, <span class="string">"num_seats"</span>, <span class="number">2</span></div><div class="line">car_group.set_attribute <span class="string">"car_dict"</span>, <span class="string">"transmission"</span>, <span class="string">"manual"</span></div><div class="line"></div><div class="line"><span class="comment"># Access the AttributeDirectories object</span></div><div class="line">ad = car_group.attribute_dictionaries</div><div class="line">puts <span class="string">"Number of dictionaries: "</span> + ad.to_a.length.to_s</div><div class="line"></div><div class="line"><span class="comment"># Access the AttributeDictionary</span></div><div class="line">dict = car_group.attribute_dictionary <span class="string">"car_dict"</span></div><div class="line">print <span class="string">"Keys: "</span></div><div class="line">dict.keys.each &#123;<span class="params">|k|</span> print k + <span class="string">" "</span>&#125;</div><div class="line">print <span class="string">"\nValues: "</span></div><div class="line">dict.values.each &#123;<span class="params">|v|</span> print v.to_s + <span class="string">" "</span>&#125;</div></pre></td></tr></table></figure>
+<p>这段代码创建了一个叫<code>car_group</code>的组，然后设置了属性<code>num_wheels</code>, <code>num_seats</code>, <code>transmission</code>。然后打印出<code>AttributeDictionaries</code>对象的数量，列出跟着的<code>car_dict</code>目录中的键和值。如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Number of dictionaries: 1</div><div class="line">Keys: num_seats num_wheels transmission</div><div class="line">Values: 2 4 manual</div></pre></td></tr></table></figure>
+<p>这段代码调用了<code>AttributeDictionaries</code>类的<code>keys</code>和<code>values</code>方法，分别返回目录的键和属性值。这个类还提供以下一些重要的方法：</p>
+<ul>
+<li><code>size</code>  返回目录中存储的键-值对的数量</li>
+<li><code>delete_key</code> 从目录中删除一个键-值对</li>
+<li><code>each_key</code> 遍历目录中的每个键</li>
+<li><p><code>each_pair</code> 遍历目录中的每个键-值对<br>最后一个方法<code>each_pair</code>很有趣，因为它遍历目录中存储的双元素数组，每个数组的第一个元素是键，第二个是值。例如下面的代码遍历了<code>dict</code>目录打印出每个键和值：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dict.each_pair &#123;<span class="params">|k, v|</span> puts <span class="string">"Key: "</span> + k + <span class="string">", Value: "</span> + v.to_s&#125;</div></pre></td></tr></table></figure>
+<p>注意其中的<code>v</code>必须跟着<code>to_s</code>，因为值不一定都是字符串。</p>
+</li>
+</ul>
+<h3 id="9-2-选项和渲染选项（Options-and-RenderingOptions）"><a href="#9-2-选项和渲染选项（Options-and-RenderingOptions）" class="headerlink" title="9.2 选项和渲染选项（Options and RenderingOptions）"></a>9.2 选项和渲染选项（Options and RenderingOptions）</h3><p>SketchUp API提供两种不同的选项（Option）：<br>通常的选项保存在<code>OptionsProvider</code> 对象中；<br>渲染选项保存在<code>RenderingOptions</code> 对象中。<br>大多数情况下，这些选项可以通过图形化的设置方法进行配置（Window &gt; Model Info）。</p>
+<h4 id="选项（Option）"><a href="#选项（Option）" class="headerlink" title="选项（Option）"></a>选项（Option）</h4><p>下例中，通过访问<code>UnitsOptions</code>的<code>AnglePrecision</code>选项，打印其值（1），然后将其值改为最大（3）。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Obtain the OptionsManager</span></div><div class="line"><span class="comment"># and the OptionsProvider called UnitsOptions</span></div><div class="line">opts = Sketchup.active_model.options</div><div class="line">prov = opts[<span class="string">"UnitsOptions"</span>]</div><div class="line"></div><div class="line"><span class="comment"># Print the value of the AnglePrecision option</span></div><div class="line">puts <span class="string">"Old value: "</span> + prov[<span class="string">"AnglePrecision"</span>].to_s</div><div class="line"></div><div class="line"><span class="comment"># Set the option to 3 for maximum precision</span></div><div class="line">prov[<span class="string">"AnglePrecision"</span>] = <span class="number">3</span></div><div class="line">puts <span class="string">"New value: "</span> + prov[<span class="string">"AnglePrecision"</span>].to_s</div></pre></td></tr></table></figure>
+<h4 id="渲染选项（Rendering-Options）"><a href="#渲染选项（Rendering-Options）" class="headerlink" title="渲染选项（Rendering Options）"></a>渲染选项（Rendering Options）</h4><p>例子：访问<code>GroundColor</code>选项，打印其值，然后设一个新的RGB值。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Obtain the RenderingOptions object and print the old value</span></div><div class="line">ro = Sketchup.active_model.rendering_options</div><div class="line">puts <span class="string">"Old background color: "</span> + ro[<span class="string">"BackgroundColor"</span>].to_s</div><div class="line"></div><div class="line"><span class="comment"># Change the option's value and print the new value</span></div><div class="line">ro[<span class="string">"BackgroundColor"</span>] = [<span class="number">175</span>, <span class="number">255</span>, <span class="number">175</span>]</div><div class="line">puts <span class="string">"New background color: "</span> + ro[<span class="string">"BackgroundColor"</span>].to_s</div></pre></td></tr></table></figure>
+<h3 id="9-3-设置阴影（Shadows）"><a href="#9-3-设置阴影（Shadows）" class="headerlink" title="9.3 设置阴影（Shadows）"></a>9.3 设置阴影（Shadows）</h3><p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the cube</span></div><div class="line">square = Sketchup.active_model.entities.add_face [-<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>], [<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>], [<span class="number">2</span>,-<span class="number">2</span>,<span class="number">0</span>], [-<span class="number">2</span>,-<span class="number">2</span>,<span class="number">0</span>]</div><div class="line">square.pushpull -<span class="number">4</span></div><div class="line"></div><div class="line"><span class="comment"># Access and configure the ShadowInfo object</span></div><div class="line">info = Sketchup.active_model.shadow_info</div><div class="line">info[<span class="string">"DisplayShadows"</span>] = <span class="literal">true</span></div><div class="line">info[<span class="string">"DisplayOnGroundPlane"</span>] = <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment"># Set the location and time</span></div><div class="line">later = Time.now + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">6</span>)</div><div class="line">info[<span class="string">"ShadowTime"</span>] = later</div><div class="line">info[<span class="string">"Latitude"</span>] = <span class="number">0</span></div><div class="line">info[<span class="string">"Longitude"</span>] = <span class="number">0</span></div></pre></td></tr></table></figure>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/9-4.jpg" alt="enter description here"><br>注：如果没有阴影，可能是地理位置未设置，设置地理位置后阴影就生效了。</p>
+<h3 id="9-4-观察者（Observers）"><a href="#9-4-观察者（Observers）" class="headerlink" title="9.4 观察者（Observers）"></a>9.4 观察者（Observers）</h3><p>(1)Entity / EntityObserver<br>(2)Selection / SelectionObserver<br>(3)Materials / MaterialsObserver</p>
+<h4 id="Entity-EntityObserver"><a href="#Entity-EntityObserver" class="headerlink" title="Entity / EntityObserver"></a>Entity / EntityObserver</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create a class that extends EntityObserver</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EntObserver</span> &lt; Sketchup::EntityObserver</span></div><div class="line">    <span class="comment"># Invoked when the Entity changes</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onChangeEntity</span><span class="params">(entity)</span></span></div><div class="line">        puts entity.typename + <span class="string">" changed"</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="comment"># Invoked when the Entity is erased</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onEraseEntity</span><span class="params">(entity)</span></span></div><div class="line">        puts entity.typename + <span class="string">" erased"</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Add an Edge and a Face to the model</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">face = ents.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]</div><div class="line">edge = ents.add_line [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]</div><div class="line"></div><div class="line"><span class="comment"># Associate a new observer with the face and edge</span></div><div class="line">obs = EntObserver.new</div><div class="line">face.add_observer obs</div><div class="line">edge.add_observer obs</div><div class="line"></div><div class="line"><span class="comment"># Extrude the face and soften the edge</span></div><div class="line">face.pushpull <span class="number">1</span></div><div class="line">edge.soft = <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment"># Erase the face and edge</span></div><div class="line">face.erase!</div><div class="line">edge.erase!</div></pre></td></tr></table></figure>
+<h4 id="Selection-SelectionObserver"><a href="#Selection-SelectionObserver" class="headerlink" title="Selection / SelectionObserver"></a>Selection / SelectionObserver</h4><p>例1：circle_select.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Access the model and the Selection object</span></div><div class="line">model = Sketchup.active_model</div><div class="line">ents = model.entities</div><div class="line">sel = model.selection</div><div class="line"></div><div class="line"><span class="comment"># Create a curve and select every edge</span></div><div class="line">circle = ents.add_circle [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], <span class="number">5</span></div><div class="line">sel.add circle</div><div class="line"></div><div class="line"><span class="comment"># Shift through the first three Edges and print their starting points</span></div><div class="line">puts <span class="string">"Edge 1 start: "</span> + sel.shift.start.position.to_s</div><div class="line">puts <span class="string">"Edge 2 start: "</span> + sel.shift.start.position.to_s</div><div class="line">puts <span class="string">"Edge 3 start: "</span> + sel.shift.start.position.to_s</div></pre></td></tr></table></figure>
+<p>例2：selection_observer.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create a class that extends SelectionObserver</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SelObserver</span> &lt; Sketchup::SelectionObserver</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onSelectionBulkChange</span><span class="params">(sel)</span></span></div><div class="line">        sel.each &#123;<span class="params">|e|</span> e.material = [<span class="number">200</span>, <span class="number">255</span>, <span class="number">200</span>]&#125;</div><div class="line">    <span class="keyword">end</span></div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onSelectedCleared</span><span class="params">(sel)</span></span></div><div class="line">        ents = sel.model.entities</div><div class="line">        ents.each &#123;<span class="params">|e|</span> e.material = [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>]&#125;</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Associate the model's Selection with the observer</span></div><div class="line">sel = Sketchup.active_model.selection</div><div class="line">sel.add_observer SelObserver.new</div><div class="line"></div><div class="line"><span class="comment"># Create a 3 x 3 x 3 cube</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">face = ents.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">3</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">3</span>,<span class="number">3</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>]</div><div class="line">face.reverse!</div><div class="line">face.pushpull <span class="number">3</span></div></pre></td></tr></table></figure>
+<h4 id="Materials-MaterialsObserver"><a href="#Materials-MaterialsObserver" class="headerlink" title="Materials / MaterialsObserver"></a>Materials / MaterialsObserver</h4><p>例：materials_observer.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create a class that extends MaterialsObserver</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MatObserver</span> &lt; Sketchup::MaterialsObserver</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onMaterialAdd</span><span class="params">(mats, mat)</span></span></div><div class="line">        puts <span class="string">"Added "</span> + mat.name + <span class="string">" to the model."</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onMaterialSetCurrent</span><span class="params">(mats, mat)</span></span></div><div class="line">        puts <span class="string">"Setting "</span> + mat.name + <span class="string">" to current."</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onMaterialChange</span><span class="params">(mats, mat)</span></span></div><div class="line">        puts <span class="string">"Changed "</span> + mat.name + <span class="string">"."</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">	</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onMaterialRefChange</span><span class="params">(mats, mat)</span></span></div><div class="line">        puts <span class="string">"The material "</span> + mat.name + <span class="string">" has been applied."</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Associate the observer with the Materials object</span></div><div class="line">mats = Sketchup.active_model.materials</div><div class="line">obs = MatObserver.new</div><div class="line">mats.add_observer obs</div><div class="line"></div><div class="line"><span class="comment"># Create a cube at the origin</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">face = ents.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">3</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">3</span>,<span class="number">3</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>]</div><div class="line">face.reverse!</div><div class="line">face.pushpull <span class="number">3</span></div><div class="line">Sketchup.active_model.active_view.zoom_extents</div><div class="line"></div><div class="line"><span class="comment"># Add two materials to the model</span></div><div class="line">puts <span class="string">"Adding materials... "</span></div><div class="line">mats = Sketchup.active_model.materials</div><div class="line">mat1 = mats.add <span class="string">"Diamond"</span></div><div class="line">mat2 = mats.add <span class="string">"Brick"</span></div><div class="line">mat1.texture = Sketchup.find_support_file <span class="string">"Ch9/diamond.jpg"</span>, <span class="string">"Plugins"</span></div><div class="line">mat2.texture = Sketchup.find_support_file <span class="string">"Ch9/brick.jpg"</span>, <span class="string">"Plugins"</span></div><div class="line"></div><div class="line"><span class="comment"># Apply the materials to the top and bottom faces</span></div><div class="line">puts <span class="string">"Applying materials to entities... "</span></div><div class="line">face1 = ents.find &#123;<span class="params">|e|</span> (e.typename == <span class="string">"Face"</span>) &amp;&amp;(e.normal == [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>])&#125;</div><div class="line">face1.material = mat1</div><div class="line">face2 = ents.find &#123;<span class="params">|e|</span> (e.typename == <span class="string">"Face"</span>) &amp;&amp;(e.normal == [<span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>])&#125;</div><div class="line">face2.material = mat2</div><div class="line"></div><div class="line"><span class="comment"># Set the model's current material</span></div><div class="line">puts <span class="string">"Setting the current material..."</span></div><div class="line">mats.current = mat1</div><div class="line"></div><div class="line"><span class="comment"># Change the materials</span></div><div class="line">puts <span class="string">"Changing texture and color..."</span></div><div class="line">mat1.texture = Sketchup.find_support_file <span class="string">"Ch9/brick.jpg"</span>, <span class="string">"Plugins"</span></div><div class="line">mat2.texture = Sketchup.find_support_file <span class="string">"Ch9/diamond.jpg"</span>, <span class="string">"Plugins"</span></div><div class="line">mat1.color = [<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">mat2.color = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>]</div><div class="line"></div><div class="line"><span class="comment"># Remove the observer</span></div><div class="line">mats.remove_observer obs</div></pre></td></tr></table></figure>
+<h2 id="第10章-SketchUp接口：对话框、菜单、命令和插件"><a href="#第10章-SketchUp接口：对话框、菜单、命令和插件" class="headerlink" title="第10章 SketchUp接口：对话框、菜单、命令和插件"></a>第10章 SketchUp接口：对话框、菜单、命令和插件</h2><h3 id="10-1-对话框和UI模块"><a href="#10-1-对话框和UI模块" class="headerlink" title="10.1 对话框和UI模块"></a>10.1 对话框和UI模块</h3><p>对话框<br>通过<code>UI.messagebox</code>方法创建对话框，有3个参数：</p>
+<ul>
+<li>message</li>
+<li>type （可选项）</li>
+<li>title （可选项）</li>
+</ul>
+<p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UI.messagebox <span class="string">"This is a message box!"</span>, MB_OKCANCEL</div></pre></td></tr></table></figure>
+<p>通过messagebox，还可以实现输入框（inputbox），输入框有3个参数，其中后两个是可选项：</p>
+<ul>
+<li>labels</li>
+<li>defaults （可选项）</li>
+<li>title （可选项）</li>
+</ul>
+<p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the input box</span></div><div class="line">prompts = [<span class="string">"Title"</span>, <span class="string">"Message"</span>]</div><div class="line">defaults = [<span class="string">"Dialog Title"</span>, <span class="string">"World peace"</span>]</div><div class="line">results = inputbox prompts, defaults, <span class="string">"Inputbox Example"</span></div><div class="line"></div><div class="line"><span class="comment"># Create the message box</span></div><div class="line">UI.messagebox results[<span class="number">1</span>], MB_MULTILINE, results[<span class="number">0</span>]</div></pre></td></tr></table></figure>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/10-2.jpg" alt="enter description here"></p>
+<p>通过创建输入框和消息框，可以打开文件存取和SketchUp设置对话框。涉及到<code>UI.openpanel</code>和<code>UI.savepanel</code>方法。这两个方法都有3个参数：</p>
+<ul>
+<li>title</li>
+<li>dir 打开对话框的缺省目录</li>
+<li><p>file 存取的默认文件名</p>
+<p>例：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">path = UI.savepanel <span class="string">"Custom Save"</span>, <span class="string">"C:/designs"</span>, <span class="string">"new_file.skp"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="计时器和声音（Timers-and-Sounds）"><a href="#计时器和声音（Timers-and-Sounds）" class="headerlink" title="计时器和声音（Timers and Sounds）"></a>计时器和声音（Timers and Sounds）</h4><h4 id="菜单（Menu）"><a href="#菜单（Menu）" class="headerlink" title="菜单（Menu）"></a>菜单（Menu）</h4><p>例：view_menu.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Procedure called by the first menu item</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">item1</span></span></div><div class="line">    UI.messagebox <span class="string">"Hooray! It's June!"</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Procedure called by the second menu item</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">item2</span></span></div><div class="line">    UI.messagebox <span class="string">"It's not June."</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="comment"># Validation procedure for the first menu item</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate1</span></span></div><div class="line">    (Time.new.month == <span class="number">6</span>) ? MF_ENABLED : MF_GRAYED</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Validation procedure for the second menu item</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate2</span></span></div><div class="line">    (Time.new.month == <span class="number">6</span>) ? MF_GRAYED : MF_ENABLED</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Access the main View menu</span></div><div class="line">view_menu = UI.menu <span class="string">"View"</span></div><div class="line"></div><div class="line"><span class="comment"># Add a separator and a submenu</span></div><div class="line">view_menu.add_separator</div><div class="line">sub_menu = view_menu.add_submenu(<span class="string">"June Check"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Add two menu items to the submenu</span></div><div class="line">it1 = sub_menu.add_item(<span class="string">"Item 1"</span>) &#123;item1&#125;</div><div class="line">it2 = sub_menu.add_item(<span class="string">"Item 2"</span>) &#123;item2&#125;</div><div class="line"></div><div class="line"><span class="comment"># Validate the two menu items</span></div><div class="line">sub_menu.set_validation_proc(it1) &#123;validate1&#125;</div><div class="line">sub_menu.set_validation_proc(it2) &#123;validate2&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/10-3.jpg" alt="enter description here"></p>
+<h4 id="添加右键菜单（Context-Menu）"><a href="#添加右键菜单（Context-Menu）" class="headerlink" title="添加右键菜单（Context Menu）"></a>添加右键菜单（Context Menu）</h4><p>例：context_menu.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Procedure to color all Drawingelements blue</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_blue</span></span></div><div class="line">    sel = Sketchup.active_model.selection</div><div class="line">    sel.each <span class="keyword">do</span> <span class="params">|e|</span></div><div class="line">        e.material = [<span class="number">200</span>, <span class="number">200</span>, <span class="number">255</span>]</div><div class="line">        <span class="keyword">if</span> e.typename == <span class="string">"Face"</span></div><div class="line">            e.back_material = [<span class="number">200</span>, <span class="number">200</span>, <span class="number">255</span>]</div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Procedure to make sure a Face is</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_face</span></span></div><div class="line">    sel = Sketchup.active_model.selection</div><div class="line">    ok = sel.find&#123; <span class="params">|e|</span> e.typename == <span class="string">"Face"</span>&#125;</div><div class="line">    ok ? MF_ENABLED : MF_GRAYED</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Access SketchUp's context menu</span></div><div class="line">UI.add_context_menu_handler <span class="keyword">do</span> <span class="params">|menu|</span></div><div class="line"></div><div class="line"><span class="comment"># Add an item to the context menu</span></div><div class="line">menu.add_separator</div><div class="line">item = menu.add_item(<span class="string">"Make Blue"</span>) &#123; make_blue &#125;</div><div class="line"></div><div class="line"><span class="comment"># Check to make sure that a face is selected</span></div><div class="line">menu.set_validation_proc(item) &#123; check_face &#125;</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>为测试此代码，可在SketchUp中画一个矩形，然后在矩形上点击鼠标右键，选中<code>Make Blue</code>菜单后，将颜色赋到矩形表面上。<br><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/10-4.jpg" alt="enter description here"></p>
+<h3 id="10-3-命令（Commands）"><a href="#10-3-命令（Commands）" class="headerlink" title="10.3 命令（Commands）"></a>10.3 命令（Commands）</h3><p>例：blue_command.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the Command object</span></div><div class="line">cmd = UI::Command.new(<span class="string">"Make Blue"</span>) &#123;</div><div class="line">    sel = Sketchup.active_model.selection</div><div class="line">    sel.each <span class="keyword">do</span> <span class="params">|e|</span></div><div class="line">        e.material = [<span class="number">200</span>, <span class="number">200</span>, <span class="number">255</span>]</div><div class="line">        <span class="keyword">if</span> e.typename == <span class="string">"Face"</span></div><div class="line">            e.back_material = [<span class="number">200</span>, <span class="number">200</span>, <span class="number">255</span>]</div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Validation procedure - check for face</span></div><div class="line">cmd.set_validation_proc &#123;</div><div class="line">    sel = Sketchup.active_model.selection</div><div class="line">    ok = sel.find&#123; <span class="params">|e|</span> e.typename == <span class="string">"Face"</span>&#125;</div><div class="line">    ok ? MF_ENABLED : MF_GRAYED</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Access SketchUp's context menu</span></div><div class="line">UI.add_context_menu_handler <span class="keyword">do</span> <span class="params">|menu|</span></div><div class="line">menu.add_separator</div><div class="line">menu.add_item cmd</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>尽管它们实现同样的结果，但这个<code>blue_command.rb</code>的代码要比<code>context_menu.rb</code>的代码简单。这有2个原因-第一点，取代了创建2个方法，而是调用Command类的两个方法：</p>
+<ul>
+<li>new 当命令执行，接受一个显示字符串的调用</li>
+<li>set_validation_proc  决定命令如何显示<br>第二点，代码不需要调用<code>Menu</code>类的许多方法。不用确定执行和验证程序，只是简单的调用<code>Command</code>对象的<code>add_item</code>。</li>
+</ul>
+<h3 id="10-4-插件（Plugins）"><a href="#10-4-插件（Plugins）" class="headerlink" title="10.4 插件（Plugins）"></a>10.4 插件（Plugins）</h3><p>插件应该是专业和安全的。</p>
+<ul>
+<li>插件应该用最标准的Ruby编写代码</li>
+<li>插件不应该干扰SketchUp和其他插件的工作</li>
+<li>插件的方法应该是在模块中定义以防止名称冲突</li>
+<li>当插件执行前，应检查插件是否正确加载</li>
+<li>在插件中尽量少用全局变量，最好不用</li>
+<li>插件应该在一个独立的资源文件中存储<code>user-readable</code>文本(???)</li>
+<li>理想情况中，插件应该在每种SketchUp支持的操作系统中运行</li>
+</ul>
+<p>SketchUp自带2个有用的插件：<br>(1) sketchup.rb 包含辅助例程访问菜单和其他插件<br>(2) langhandler.rb 包含访问资源文件中文本的例程</p>
+<h4 id="sketchup-rb"><a href="#sketchup-rb" class="headerlink" title="sketchup.rb"></a>sketchup.rb</h4><p>sketchup.rb脚本中包含5个工具方法来帮助编写插件：<br>(1) inputbox - 创建输入对话框（就像使用<code>UI.inputbox</code>方法一样）<br>(2) add_separator_to_menu - 在菜单结束添加分离线<br>(3) require_all - 从其他目录调用插件文件<br>(4) file_loaded - 给插件数组添加文件名<br>(5) file_loaded? - 返回文件名是否插件数组中的一个元素</p>
+<p>前3个好理解，后2个就需要解释一下了。当初始化时，<code>sketchup.rb</code>脚本创建一个叫<code>loaded_files</code>的空数组。如果一个插件用插件的名字调用<code>file_loaded</code>，这字符串就添加到<code>loaded_files</code>数组。然后插件可以通过调用<code>file_loaded?</code>方法来检查看在数组中它的名字。<br>这个检查很重要，在许多插件中，第一步就是调用名字检查。通过这个检查就可以确定你的插件是不是只被装载一次。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">"sketchup.rb"</span></div><div class="line">..</div><div class="line"><span class="keyword">if</span>( <span class="keyword">not</span> file_loaded? <span class="string">"example_plugin.rb"</span> )</div><div class="line">    ..Perform processing..</div><div class="line">    file_loaded <span class="string">"example_plugin.rb"</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h4 id="langhandler-rb"><a href="#langhandler-rb" class="headerlink" title="langhandler.rb"></a>langhandler.rb</h4><p>langhandler.rb提供了资源文件中字符串读写的一些方法。资源文件中保存着<code>name=value</code>这样的对。一般如下例中的样式：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"menu_name"</span>=<span class="string">"Triangulation"</span>;</div><div class="line"><span class="string">"menu_item1"</span>=<span class="string">"Ear clipping method"</span>;</div><div class="line"><span class="string">"menu_item2"</span>=<span class="string">"Seidel method"</span>;</div></pre></td></tr></table></figure>
+<p>例： menu_plugin.rb<br>下面的例子将本章涉及的内容都包含进去。首先创建一个命令，同时有2个菜单项：一个在Edit菜单下，另一个在右键菜单。这个插件还从资源文件中取一个字符串叫做<code>basic.strings</code>（假设地区是en-US）。无论那个菜单项被选取，都在对话框中打印读取的字符串。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">"sketchup.rb"</span></div><div class="line"><span class="keyword">require</span> <span class="string">"langhandler.rb"</span></div><div class="line"></div><div class="line"><span class="comment"># Check to see if the plugin is already loaded</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> file_loaded? <span class="string">"menu_plugin.rb"</span></div><div class="line"></div><div class="line">    cmd = UI::Command.new(<span class="string">"Say Hello!"</span>) &#123;</div><div class="line">        <span class="comment"># Access the String with the given name</span></div><div class="line">        handler = LanguageHandler.new <span class="string">"basic.strings"</span></div><div class="line">        display_text = handler.GetString <span class="string">"greeting"</span></div><div class="line">        </div><div class="line">		<span class="comment"># Create the dialog box</span></div><div class="line">        UI.beep</div><div class="line">        UI.messagebox display_text</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment"># Access SketchUp's Edit menu</span></div><div class="line">    edit_menu = UI.menu <span class="string">"Edit"</span></div><div class="line">    edit_menu.add_separator</div><div class="line">    item = edit_menu.add_item cmd</div><div class="line"></div><div class="line">    <span class="comment"># Access SketchUp's context menu</span></div><div class="line">    UI.add_context_menu_handler <span class="keyword">do</span> <span class="params">|menu|</span></div><div class="line">        menu.add_separator</div><div class="line">        item = menu.add_item cmd</div><div class="line">    <span class="keyword">end</span></div><div class="line">    </div><div class="line">	<span class="comment"># Mark the plugin as loaded</span></div><div class="line">    file_loaded <span class="string">"menu_plugin.rb"</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>上面的代码可以以常规脚本在终端里输入执行，但这不是正常的插件执行方式。首先，解释器没法找到<code>basic.strings</code>的资源文件。<br>应该的做法是把<code>menu_plugin.zip</code>压缩文件复制到SketchUp的顶级目录然后解压。这将<code>menu_plugin.rb</code>放置在<code>Plugins</code>目录，<code>basic.strings</code>在<code>Resources/en-US</code>目录下。</p>
+<ul>
+<li>注：在window10下，SketchUp的插件目录在<code>C:\Users\你的用户名\AppData\Roaming\SketchUp\SketchUp 2016\SketchUp\Plugins</code>。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/10/automatic-sketchup-cn-2/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
+        <p><span>发布时间:</span>2017-03-10, 12:16:08</p>
+        <p><span>最后更新:</span>2017-03-17, 20:40:50</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/10/automatic-sketchup-cn-2/" title="《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章">https://dragonflyxyz.github.io/2017/03/10/automatic-sketchup-cn-2/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2017/03/10/automatic-sketchup-cn-2/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/09/automatic-sketchup-cn-1/">
+                    《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第7章-管理图形：层、组和组件"><span class="toc-number">1.</span> <span class="toc-text">第7章 管理图形：层、组和组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-层（Layers）"><span class="toc-number">1.1.</span> <span class="toc-text">7.1 层（Layers）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用代码建立层"><span class="toc-number">1.1.1.</span> <span class="toc-text">使用代码建立层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-组（Groups）"><span class="toc-number">1.2.</span> <span class="toc-text">7.2 组（Groups）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建和删除组"><span class="toc-number">1.2.1.</span> <span class="toc-text">创建和删除组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置组的属性"><span class="toc-number">1.2.2.</span> <span class="toc-text">设置组的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组的复制和转换（）"><span class="toc-number">1.2.3.</span> <span class="toc-text">组的复制和转换（）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组的等级（Group-Hierarchies）"><span class="toc-number">1.2.4.</span> <span class="toc-text">组的等级（Group Hierarchies）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-组件（Components）"><span class="toc-number">1.3.</span> <span class="toc-text">7.3 组件（Components）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用代码创建组件"><span class="toc-number">1.3.1.</span> <span class="toc-text">用代码创建组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从文件中载入ComponentDefinition"><span class="toc-number">1.3.2.</span> <span class="toc-text">从文件中载入ComponentDefinition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件和行为（Components-and-Behavior）"><span class="toc-number">1.3.3.</span> <span class="toc-text">组件和行为（Components and Behavior）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件实例（Component-Instances）"><span class="toc-number">1.3.4.</span> <span class="toc-text">组件实例（Component Instances）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件和变换（Components-and-Transformation）"><span class="toc-number">1.3.5.</span> <span class="toc-text">组件和变换（Components and Transformation）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第8章-Ruby-Lesson-3-Classes-and-Modules"><span class="toc-number">2.</span> <span class="toc-text">第8章 Ruby Lesson 3 : Classes and Modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第9章-属性、选项和观察者"><span class="toc-number">3.</span> <span class="toc-text">第9章 属性、选项和观察者</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-属性和属性目录（Attributes-and-AttributeDictionaries）"><span class="toc-number">3.1.</span> <span class="toc-text">9.1 属性和属性目录（Attributes and AttributeDictionaries）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建和检索属性"><span class="toc-number">3.1.1.</span> <span class="toc-text">创建和检索属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性目录（AttributeDictionary-and-AttributeDictionaries）"><span class="toc-number">3.1.2.</span> <span class="toc-text">属性目录（AttributeDictionary and AttributeDictionaries）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-选项和渲染选项（Options-and-RenderingOptions）"><span class="toc-number">3.2.</span> <span class="toc-text">9.2 选项和渲染选项（Options and RenderingOptions）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#选项（Option）"><span class="toc-number">3.2.1.</span> <span class="toc-text">选项（Option）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渲染选项（Rendering-Options）"><span class="toc-number">3.2.2.</span> <span class="toc-text">渲染选项（Rendering Options）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-设置阴影（Shadows）"><span class="toc-number">3.3.</span> <span class="toc-text">9.3 设置阴影（Shadows）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-观察者（Observers）"><span class="toc-number">3.4.</span> <span class="toc-text">9.4 观察者（Observers）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Entity-EntityObserver"><span class="toc-number">3.4.1.</span> <span class="toc-text">Entity / EntityObserver</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Selection-SelectionObserver"><span class="toc-number">3.4.2.</span> <span class="toc-text">Selection / SelectionObserver</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Materials-MaterialsObserver"><span class="toc-number">3.4.3.</span> <span class="toc-text">Materials / MaterialsObserver</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第10章-SketchUp接口：对话框、菜单、命令和插件"><span class="toc-number">4.</span> <span class="toc-text">第10章 SketchUp接口：对话框、菜单、命令和插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-对话框和UI模块"><span class="toc-number">4.1.</span> <span class="toc-text">10.1 对话框和UI模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计时器和声音（Timers-and-Sounds）"><span class="toc-number">4.1.1.</span> <span class="toc-text">计时器和声音（Timers and Sounds）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#菜单（Menu）"><span class="toc-number">4.1.2.</span> <span class="toc-text">菜单（Menu）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加右键菜单（Context-Menu）"><span class="toc-number">4.1.3.</span> <span class="toc-text">添加右键菜单（Context Menu）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-命令（Commands）"><span class="toc-number">4.2.</span> <span class="toc-text">10.3 命令（Commands）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-插件（Plugins）"><span class="toc-number">4.3.</span> <span class="toc-text">10.4 插件（Plugins）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sketchup-rb"><span class="toc-number">4.3.1.</span> <span class="toc-text">sketchup.rb</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#langhandler-rb"><span class="toc-number">4.3.2.</span> <span class="toc-text">langhandler.rb</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章　| Dragonflyxyz的知识整理　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/09/automatic-sketchup-cn-1/" title="下一篇: 《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/automatic-sketchup-cn-2/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/automatic-sketchup-cn-1/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/29/python-opencv-learn-note01/">Python OpenCV学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/learn-deep-learning-zero-based-1/">零基础入门深度学习(1)-感知器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/hexo-show-mathjax-and-table/">Hexo如何显示公式和表格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/hexo-local-search-only-titile/">让Hexo的本地搜索只搜索标题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/why-im-switching-from-python-to-nodejs/">为什么我从Python转战到Node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/php-develop-1200examples/">《PHP开发实战1200例》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/introduction-john-carmack/">第一人称射击游戏教父，首款3D游戏的开发者，传奇程序员——约翰·卡马克</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/Ebook-search-engine/">几个好的电子书搜索引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/MIT-tech-review-2016/">麻省理工科技评论2016年1-6月</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/head-first-python/">《Head First Python》中文版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/microsoft-opensource-malmo-ai/">微软开源Malmo AI项目平台 利用Minecraft构建复杂机器人任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/22/why-this-robot-in-the-grocery-store/">零售业有福了！大数据机器人卖场值班，点货超轻松</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/21/poor-zorro-linux-book/">穷佐罗的Linux书，知识点整理的很好</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/github-awesome-hadoop/">Hadoop学习资源集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/python-decorated-concurrency/">Python多线程(Decorated concurrency)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/github-awesome-machine-learning/">Github上最全的机器学习资料集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/the-9-best-languages-form-crunching-data/">数据处理的 9 大编程语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/github-awesome-bigdata/">最全的大数据学习资料集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/a-low-scientist-how-to-get-nobel-prize/">一个逗逼的科研狗是如何成为诺贝尔奖得主的</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/23/how-much-a-chip/">一枚芯片的实际成本是多少？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/awesome-python-site/">Awesome-python一个收集Python资源的网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/">Intel将两款arduino设备的实时操作系统开源</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/studying-the-language-and-structure-in-non-programmers-solutions/">《编程问题的非程序员解决方案之研究》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/if-human-and-animals-change/">如果人和动物角色互换？这样的世界怎样想象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/checksum-8bits-and-16bits/">checksum-8位和16位校验和代码示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/06/easy-popular-science-doc-deep-learning/">关于深度学习可能最容易读进去的科普贴</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/16/what-is-iot-ppt/">物联网是什么-ppt图</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/100-BBC-recordfile-parents-with-children/">家长应该陪孩子一起看的100部BBC纪录片</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/algorithm-detail-DES-AES-SHA/">DES、AES、SHA加密算法详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/homedesign-north-america/">越来越喜欢北美的家庭装饰风格</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/06/mysql-10millions-optimize-query/">Mysql数据库千万级别数据的查询优化和分页测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/16/my-blog-set/">博客设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/01/john-carmack-on-inlined-code/">John Carmack on inlined code</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/05/01/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/01/16/test1/">test1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Dragonflyxyz
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
