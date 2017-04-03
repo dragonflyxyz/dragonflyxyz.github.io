@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Dragonflyxyz" />
+
+
+
+<meta name="description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Automatic SketchUp中文翻译11-13章">
+<meta property="og:url" content="https://dragonflyxyz.github.io/2017/03/23/automatic-sketchup-cn-3/index.html">
+<meta property="og:site_name" content="Dragonflyxyz的知识整理">
+<meta property="og:description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-1.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-6.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-7.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-8.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-1.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-2-1.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-2-2.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-2-3.jpg">
+<meta property="og:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-3.jpg">
+<meta property="og:updated_time" content="2017-04-03T11:19:03.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Automatic SketchUp中文翻译11-13章">
+<meta name="twitter:description" content="《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书作者：Matthew Scarpino发行日期：2010
+翻译：Dragonflyxyz">
+<meta name="twitter:image" content="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-1.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Dragonflyxyz的知识整理" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Automatic SketchUp中文翻译11-13章 | Dragonflyxyz的知识整理</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Dragonflyxyz</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AES/">AES</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOT/">IOT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIT/">MIT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Microsoft/">Microsoft</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDMS/">RDMS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTOS/">RTOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SketchUp/">SketchUp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vision/">Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino/">arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chip/">chip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/">code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/homedesign/">homedesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intel/">intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opensource/">opensource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/optimize/">optimize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/">others</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picture/">picture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/robot/">robot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/science/">science</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solution/">solution</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Dragonflyxyz</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-automatic-sketchup-cn-3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/23/automatic-sketchup-cn-3/" class="article-date">
+      <time datetime="2017-03-23T01:05:08.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Automatic SketchUp中文翻译11-13章
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SketchUp/">SketchUp</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>《Automatic SketchUp Creating 3-D Models in Ruby》的中文翻译<br>现存的唯一一本关于用Ruby进行SketchUp脚本开发的电子书<br>作者：Matthew Scarpino<br>发行日期：2010</p>
+<p>翻译：Dragonflyxyz</p>
+<a id="more"></a>
+<h2 id="第11章-SketchUp接口：视图、相机、页、工具"><a href="#第11章-SketchUp接口：视图、相机、页、工具" class="headerlink" title="第11章 SketchUp接口：视图、相机、页、工具"></a>第11章 SketchUp接口：视图、相机、页、工具</h2><p>前2个对象：视图（View）和相机（Camera）定义了在SketchUp窗口中的表现。<br>页（Pages）和工具（Tools）可以通过插件建立和控制更多的图形元素。</p>
+<p>可以通过当前模型（Model）的<code>active_view</code>方法访问当前视图对象。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">view = Sketchup.active_model.active_view</div></pre></td></tr></table></figure>
+<h3 id="11-1-视图（View）"><a href="#11-1-视图（View）" class="headerlink" title="11.1 视图（View）"></a>11.1 视图（View）</h3><h4 id="像素信息（Pixel-Information）"><a href="#像素信息（Pixel-Information）" class="headerlink" title="像素信息（Pixel Information）"></a>像素信息（Pixel Information）</h4><p>视图类涉及到像素和设计窗口的6个方法：</p>
+<ul>
+<li>vpheight 返回设计窗口的高度（单位：像素）</li>
+<li>vpwidth 返回设计窗口的宽度（单位：像素）</li>
+<li>corner  返回窗口一个角的像素坐标</li>
+<li>center 返回窗口中心的像素坐标</li>
+<li>screen_coords 返回一个三维点的像素坐标</li>
+<li><p>pixels_to_model 转换一个点的像素尺寸到设计尺寸</p>
+<p>例：view_test.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">view = Sketchup.active_model.active_view</div><div class="line"></div><div class="line"><span class="comment"># Determine the size of the design window</span></div><div class="line">h = view.vpheight.to_s;</div><div class="line">w = view.vpwidth.to_s</div><div class="line"></div><div class="line"><span class="comment"># Display the window dimensions</span></div><div class="line">puts <span class="string">"Window dimensions: "</span> + w + <span class="string">", "</span> + h</div><div class="line"></div><div class="line"><span class="comment"># Display the locations of the four corners</span></div><div class="line">puts <span class="string">"Upper left: "</span> + view.corner(<span class="number">0</span>)[<span class="number">0</span>].to_s + <span class="string">", "</span> +</div><div class="line">view.corner(<span class="number">0</span>)[<span class="number">1</span>].to_s</div><div class="line">puts <span class="string">"Upper right: "</span> + view.corner(<span class="number">1</span>)[<span class="number">0</span>].to_s + <span class="string">", "</span> +</div><div class="line">view.corner(<span class="number">1</span>)[<span class="number">1</span>].to_s</div><div class="line">puts <span class="string">"Bottom left: "</span> + view.corner(<span class="number">2</span>)[<span class="number">0</span>].to_s + <span class="string">", "</span> +</div><div class="line">view.corner(<span class="number">2</span>)[<span class="number">1</span>].to_s</div><div class="line">puts <span class="string">"Bottom right: "</span> + view.corner(<span class="number">3</span>)[<span class="number">0</span>].to_s + <span class="string">", "</span> +</div><div class="line">view.corner(<span class="number">3</span>)[<span class="number">1</span>].to_s</div><div class="line"></div><div class="line"><span class="comment"># Find the location of the window's center</span></div><div class="line">center = view.center</div><div class="line"></div><div class="line"><span class="comment"># Display the coordinates of the window's center</span></div><div class="line">puts <span class="string">"Center: "</span> + center[<span class="number">0</span>].to_s + <span class="string">", "</span> + center[<span class="number">1</span>].to_s</div><div class="line"></div><div class="line"><span class="comment"># Screen coordinates</span></div><div class="line">origin = view.screen_coords [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</div><div class="line">puts <span class="string">"Origin: "</span> + origin[<span class="number">0</span>].to_f.to_s + <span class="string">", "</span> + origin[<span class="number">1</span>].to_f.to_s</div><div class="line"></div><div class="line"><span class="comment"># Find out how many units a five-pixel line should take</span></div><div class="line">size = view.pixels_to_model <span class="number">50</span>, [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">puts <span class="string">"Size of a 50-pixel line at the origin: "</span> + size.to_s</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="视野（Field-of-View）"><a href="#视野（Field-of-View）" class="headerlink" title="视野（Field of View）"></a>视野（Field of View）</h4><p>View类提供了3个方法来控制模型在窗口中的表示。<br>(1) zoom_extents  在视野中聚焦实体对象<br>(2) zoom  放大和缩小视野<br>(3) field_of_view 设置参数来定义设计窗口中显示的三维空间</p>
+<p>例：下面代码取得选中的实体对象并聚焦。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">view = Sketchup.active_model.active_view</div><div class="line">sel = Sketchup.active_model.selection</div><div class="line">view.zoom sel</div></pre></td></tr></table></figure>
+<p>在SketchUp中，视野的定义决定你同时能看到多少。它是用一个角度值来表示的，默认视野的值是35°。</p>
+<p>例：下面代码将放大2倍视野</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">view = Sketchup.active_model.active_view</div><div class="line">view.field_of_view = <span class="number">70</span></div><div class="line">view.invalidate</div></pre></td></tr></table></figure>
+<p><code>field_of_view</code>不能立即调整视角，所以要使用<code>invalidate</code>，这个方法刷新视图然后执行后续命令。</p>
+<h3 id="11-2-相机（Camera）"><a href="#11-2-相机（Camera）" class="headerlink" title="11.2 相机（Camera）"></a>11.2 相机（Camera）</h3><h4 id="建立一个相机"><a href="#建立一个相机" class="headerlink" title="建立一个相机"></a>建立一个相机</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">view = Sketchup.active_model.active_view</div><div class="line">	→ <span class="comment">#&lt;Sketchup::View:0x6270e28&gt;</span></div><div class="line">cam = view.camera</div><div class="line">	→ <span class="comment">#&lt;Sketchup::Camera:0x6270d68&gt;</span></div><div class="line">cam.eye</div><div class="line">	→ Point3d(<span class="number">228.442</span>, -<span class="number">181.086</span>, <span class="number">153.334</span>)</div><div class="line">cam.target</div><div class="line">	→ Point3d(-<span class="number">312.404</span>, <span class="number">523.733</span>, -<span class="number">226.269</span>)</div><div class="line">cam.up</div><div class="line">	→ Vector3d(-<span class="number">0</span>.<span class="number">239197</span>, <span class="number">0</span>.<span class="number">311717</span>, <span class="number">0</span>.<span class="number">919574</span>)</div></pre></td></tr></table></figure>
+<p>这表示什么呢？这意味着当我打开SketchUp使用工程模板时，我在设计窗口的初始化位置是[228.442, -181.086, 153.334]。</p>
+<p>下例camera_test.rb，将观众放在[100, 100, 500]，然后直接对着原点，观众的直立向上方向是Z轴。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">view = Sketchup.active_model.active_view</div><div class="line"></div><div class="line"><span class="comment"># Set the camera properties</span></div><div class="line">eye = [<span class="number">100</span>, <span class="number">100</span>, <span class="number">500</span>]</div><div class="line">target = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</div><div class="line">up = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</div><div class="line"></div><div class="line"><span class="comment"># Create the camera and make it active</span></div><div class="line">cam = Sketchup::Camera.new eye, target, up</div><div class="line">view.camera = cam</div></pre></td></tr></table></figure>
+<h4 id="相机透视和可见范围"><a href="#相机透视和可见范围" class="headerlink" title="相机透视和可见范围"></a>相机透视和可见范围</h4><p>下图中的球都是一样大的，只不过Y坐标分别是 -20, 0, 20。<br><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-1.jpg" alt="enter description here"></p>
+<p>透视投影法（Perspective Projection）：离观察者越远，物体显示得越小。</p>
+<p>正交投影法（Orthographic Projection）：物体显示得一样大</p>
+<h3 id="11-3-页（Pages）"><a href="#11-3-页（Pages）" class="headerlink" title="11.3 页（Pages）"></a>11.3 页（Pages）</h3><h4 id="页面容器（The-Pages-Container）"><a href="#页面容器（The-Pages-Container）" class="headerlink" title="页面容器（The Pages Container）"></a>页面容器（The Pages Container）</h4><p>例：basic_pages.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the PagesObserver</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PgObserver</span> &lt; Sketchup::PagesObserver</span></div><div class="line">    <span class="comment"># Respond to the user's page change</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onContentsModified</span><span class="params">(pages)</span></span></div><div class="line">        UI.messagebox(<span class="string">"Name of the selected page: "</span> +  pages.selected_page.label)</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Create a page called "One"</span></div><div class="line">pages = Sketchup.active_model.pages</div><div class="line">pg1 = pages.add <span class="string">"One"</span></div><div class="line"></div><div class="line"><span class="comment"># Create a page without a name</span></div><div class="line">pg2 = pages.add</div><div class="line"></div><div class="line"><span class="comment"># Associate the observer with the Pages object</span></div><div class="line">obs = PgObserver.new</div><div class="line">pages.add_observer obs</div></pre></td></tr></table></figure>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-6.jpg" alt="enter description here"></p>
+<h4 id="页面对象（The-Page-Object）"><a href="#页面对象（The-Page-Object）" class="headerlink" title="页面对象（The Page Object）"></a>页面对象（The Page Object）</h4><p>上节的代码（basic_pages.rb）表示了<code>Page</code>类的<code>label</code>方法是如何工作的：它返回附着在<code>Page</code>的tab名字。而<code>name</code>方法也可得到同样的结果，而且在Page建立后可通过<code>page=</code>来修改名字。类似的<code>Page</code>的<code>description</code>和<code>description=</code>方法也可对文本描述进行操作。<br>每个Page保存着属性内容是如何在SketchUp窗口显示的。这些属性以对象来表示，并可通过以下方法来读取：</p>
+<ul>
+<li>camera  返回<code>Camera</code>对象（定义着Page的视角，包括观察者的位置和轴的方向）</li>
+<li>layers 返回<code>Layers</code>对象，包含在<code>Page</code>内所有可配置的<code>Layer</code>。</li>
+<li>rendering_options （参见第9章）</li>
+<li>shadow_info （参见第9章）</li>
+</ul>
+<p>例：three_pages.rb<br>显示了Page属性是如何被读取和修改的。特意创建了3个<code>Layers</code>和3个<code>Pages</code>。然后通过<code>Camera</code>和<code>ShadowInfo</code>对象设置了每个页的属性，还设置了不同层的可视性。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">model = Sketchup.active_model</div><div class="line">model.rendering_options[<span class="string">"BackgroundColor"</span>] = [<span class="number">195</span>, <span class="number">255</span>, <span class="number">195</span>]</div><div class="line">ents = model.entities</div><div class="line"></div><div class="line"><span class="comment"># Create a 4x4 cube</span></div><div class="line">cube = ents.add_group</div><div class="line">square = cube.entities.add_face [-<span class="number">6</span>,<span class="number">6</span>,<span class="number">0</span>], [<span class="number">6</span>,<span class="number">6</span>,<span class="number">0</span>], [<span class="number">6</span>,-<span class="number">6</span>,<span class="number">0</span>], [-<span class="number">6</span>,-<span class="number">6</span>,<span class="number">0</span>]</div><div class="line">square.pushpull -<span class="number">12</span></div><div class="line">cube.material = <span class="string">"Yellow"</span></div><div class="line"></div><div class="line"><span class="comment"># Add two layers to the design</span></div><div class="line">layers = Sketchup.active_model.layers</div><div class="line">layer1 = layers.add <span class="string">"Cylinder Layer"</span></div><div class="line">layer2 = layers.add <span class="string">"Sphere Layer"</span></div><div class="line"></div><div class="line"><span class="comment"># Create a cylinder in Layer 1</span></div><div class="line">model.active_layer = layer1</div><div class="line">cyl = ents.add_group</div><div class="line">base = cyl.entities.add_circle [-<span class="number">18</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>], <span class="number">6</span></div><div class="line">base_face = cyl.entities.add_face base</div><div class="line">base_face.pushpull -<span class="number">12</span></div><div class="line">cyl.material = <span class="string">"Blue"</span></div><div class="line"></div><div class="line"><span class="comment"># Create a sphere in Layer 2</span></div><div class="line">model.active_layer = layer2</div><div class="line">sph = ents.add_group</div><div class="line">circle = sph.entities.add_circle [<span class="number">18</span>, <span class="number">0</span>, <span class="number">6</span>], [<span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>], <span class="number">6</span></div><div class="line">circle_face = sph.entities.add_face circle</div><div class="line">path = sph.entities.add_circle [<span class="number">18</span>, <span class="number">0</span>, <span class="number">6</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], <span class="number">7</span></div><div class="line">circle_face.followme path</div><div class="line">sph.entities.erase_entities path</div><div class="line">sph.material = <span class="string">"Red"</span></div><div class="line"></div><div class="line"><span class="comment"># Access the Pages container and get the time</span></div><div class="line">pages = Sketchup.active_model.pages</div><div class="line">now = Time.now</div><div class="line"></div><div class="line"><span class="comment"># Create the first page</span></div><div class="line">pg1 = pages.add <span class="string">"Pg1"</span></div><div class="line">pg1.camera.aspect_ratio = <span class="number">2</span></div><div class="line">pg1.shadow_info[<span class="string">"DisplayShadows"</span>] = <span class="literal">true</span></div><div class="line">pg1.shadow_info[<span class="string">"ShadowTime"</span>] = now</div><div class="line"></div><div class="line"><span class="comment"># Create the second page</span></div><div class="line">pg2 = pages.add <span class="string">"Pg2"</span></div><div class="line">pg2.camera.aspect_ratio = <span class="number">1.5</span></div><div class="line">pg2.shadow_info[<span class="string">"DisplayShadows"</span>] = <span class="literal">true</span></div><div class="line">pg2.shadow_info[<span class="string">"ShadowTime"</span>] = now + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">6</span>)</div><div class="line">pg2.set_visibility layer1, <span class="literal">false</span></div><div class="line">pg2.set_visibility layer2, <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment"># Create the third page</span></div><div class="line">pg3 = pages.add <span class="string">"Pg3"</span></div><div class="line">pg3.camera.aspect_ratio = <span class="number">1</span></div><div class="line">pg3.shadow_info[<span class="string">"DisplayShadows"</span>] = <span class="literal">true</span></div><div class="line">pg3.shadow_info[<span class="string">"ShadowTime"</span>] = now + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span>)</div><div class="line">pg3.set_visibility layer1, <span class="literal">true</span></div><div class="line">pg3.set_visibility layer2, <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p>结果如下图：<br><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-7.jpg" alt="enter description here"><br>执行上面的代码，在不同的页间切换，你会发现窗口的纵横比例变化和实体的阴影变化。影子的大小和方向依赖于SketchUp的时区定义和定义的当天时间。</p>
+<p>在这3个页中，脚本还建立了3个层，Page2设置Layer1的可视化为false，Pages的Layer3的可视化设为false。因为这个原因，Page2没有显示圆柱体，Page3没有显示球体。</p>
+<h3 id="11-4-工具条（Toolbars）"><a href="#11-4-工具条（Toolbars）" class="headerlink" title="11.4 工具条（Toolbars）"></a>11.4 工具条（Toolbars）</h3><p>可用通过调用<code>UI::toolbar_names</code> 来获得可用的工具条列表，还可以通过<code>UI::toolbar_visible?</code>找到给定的工具条是否可见。下例代码列出了当前可见的工具条：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UI::toolbar_names.each <span class="keyword">do</span> <span class="params">|name|</span></div><div class="line">    puts name <span class="keyword">if</span> UI::toolbar_visible? name</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>每个工具条都对应一个<code>Toolbar</code>对象，通过<code>UI.toolbar</code>方法可以返回复合工具条名字的<code>Toolbar</code>。<br>例如，下例代码使用名字<code>GettingStarted</code>访问<code>Toolbar</code>。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gs_bar = UI::toolbar <span class="string">"GettingStarted"</span></div></pre></td></tr></table></figure>
+<p>Toolbar类最主要的方法是<code>add_item</code>，它接受了一个<code>Command</code>。前一章解释了命令是如何与菜单项交互的，那他们用同样的方法与工具条交互。首先这个<code>Command</code>调用他的校验过程（set_validation_proc）来检查是否有效或灰色的。如其有效且用户选中它，在<code>Command</code>构造函数中定义的代码块被执行。<br>下例（basic_toolbar.rb）中创建了一个叫basic_toolbar的工具条并添加一个项<code>basic_cmd</code>。执行后得到一个显示欢迎信息的对话框。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the Command object</span></div><div class="line">basic_cmd = UI::Command.new(<span class="string">"Basic"</span>) &#123;</div><div class="line">    UI.messagebox <span class="string">"Hello from the basic command!"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Command's validation procedure - not useful in this case</span></div><div class="line">basic_cmd.set_validation_proc &#123;</div><div class="line">    <span class="literal">true</span> ? MF_ENABLED : MF_GRAYED</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Configure the Command's appearance</span></div><div class="line">basic_cmd.small_icon = <span class="string">"basic_small.gif"</span></div><div class="line">basic_cmd.large_icon = <span class="string">"basic_large.gif"</span></div><div class="line">basic_cmd.tooltip = <span class="string">"Basic Toolbar Entry"</span></div><div class="line"></div><div class="line"><span class="comment"># Create and configure the Toolbar</span></div><div class="line">basic_toolbar = UI::Toolbar.new <span class="string">"Basic"</span></div><div class="line">basic_toolbar.add_item basic_cmd</div><div class="line">basic_toolbar.show</div></pre></td></tr></table></figure>
+<p>大多数脚本代码涉及到设置basic_cmd，但了解<code>Toolbar</code>类的方法也是很重要的：</p>
+<ul>
+<li>add_time - 从一个<code>Command</code>对象建立一个工具条实体</li>
+<li>add_separator - 在工具条实体添加一个分离条</li>
+<li>get_last_state - 鉴别工具条状态：可见（1），隐藏（0），从不显示（-1）</li>
+<li>hide - 从视图移除工具条</li>
+<li>new - 建立一个新工具条实体</li>
+<li>restore - 复位工具条并使之可见</li>
+<li>show - 使工具条可见</li>
+<li>visible?  - 判断工具条当前是否可见</li>
+</ul>
+<h3 id="11-5-工具类（The-Tool-Class）"><a href="#11-5-工具类（The-Tool-Class）" class="headerlink" title="11.5 工具类（The Tool Class）"></a>11.5 工具类（The Tool Class）</h3><p>在这里，Ruby并没有通常的接口。但类似的<code>Tool</code>类并不意味着被扩展。 工具类确定的方法是供SketchUp查找一个tool是活动的且用户执行一个动作。大多数<code>Tool</code>类的方法可以归纳到以下两类：<br>(1) Life-cycle 关联到<code>Tool</code>的活动和操作的方法<br>(2) Event-handling - 在响应用户事件中调用的方法</p>
+<h4 id="SketchUp工具的生命周期（The-Life-Cycle-of-a-SketchUp-Tool）"><a href="#SketchUp工具的生命周期（The-Life-Cycle-of-a-SketchUp-Tool）" class="headerlink" title="SketchUp工具的生命周期（The Life Cycle of a SketchUp Tool）"></a>SketchUp工具的生命周期（The Life Cycle of a SketchUp Tool）</h4><p>在任何时间，在SketchUp工具条上只有一个工具能被激活。默认情况下，激活工具是选择工具。为在代码中激活工具，需要调用<code>Model</code>类的<code>select_tool</code>方法。例如如想使<code>my_tool</code>激活，需要执行下列命令：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sketchup.active_model.select_tool my_tool</div></pre></td></tr></table></figure>
+<p>当一个新工具被激活，SketchUp调用它的<code>activate</code>方法。这在这个工具执行事件前要执行初始化任务。当工具完成其操作变为非激活时，<code>deactivate</code>方法执行处理回收程序。</p>
+<h4 id="工具事件执行（Tool-Event-Handling-）"><a href="#工具事件执行（Tool-Event-Handling-）" class="headerlink" title="工具事件执行（Tool Event Handling ）"></a>工具事件执行（Tool Event Handling ）</h4><p>当工具的用户接口设计好并激活，SketchUp调用工具的方法来响应。例如当<code>my_tool</code>是激活的，且用户在窗口中双击鼠标，SketchUp找到<code>my_tool</code>对象，试图调用它的<code>onLButtonDoubleClick</code>方法。<code>my_tool</code>的<code>onLButtonDoubleClick</code>中并没有代码，但只要有，SketchUp就会在双击鼠标时调用这个方法。</p>
+<p>下表中是Tool类所有事件操作的方法</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Input Parameters</th>
+<th>Description </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onCancel</td>
+<td>reason, view</td>
+<td>当用户cancels / undoes 一个操作时调用</td>
+</tr>
+<tr>
+<td>onKeyDown</td>
+<td>key, repeat, flags, view</td>
+<td>当用户按下一个键时调用</td>
+</tr>
+<tr>
+<td>onKeyUp</td>
+<td>key, repeat, flags, view</td>
+<td>当键抬起时调用</td>
+</tr>
+<tr>
+<td>onLButtonDoubleClick</td>
+<td>flags, x, y, view</td>
+<td>当鼠标左键双击时调用</td>
+</tr>
+<tr>
+<td>onLButtonDown</td>
+<td>flags, x, y, view</td>
+<td>当鼠标左键单击时调用</td>
+</tr>
+<tr>
+<td>onLButtonUp</td>
+<td>flags, x, y, view</td>
+<td>当鼠标左键抬起时调用</td>
+</tr>
+<tr>
+<td>onMButtonDoubleClick</td>
+<td>flags, x, y, view</td>
+<td>当鼠标中键双击时调用</td>
+</tr>
+<tr>
+<td>onMButtonDown</td>
+<td>flags, x, y, view</td>
+<td>当鼠标中键单击时调用</td>
+</tr>
+<tr>
+<td>onMButtonUp</td>
+<td>flags, x, y, view</td>
+<td>当鼠标中键抬起时调用</td>
+</tr>
+<tr>
+<td>onMouseEnter</td>
+<td>view</td>
+<td>当鼠标进入设计窗口时调用</td>
+</tr>
+<tr>
+<td>onMouseLeave</td>
+<td>view</td>
+<td>当鼠标离开设计窗口时调用</td>
+</tr>
+<tr>
+<td>onMouseMove</td>
+<td>view</td>
+<td>当鼠标移动时调用</td>
+</tr>
+<tr>
+<td>onRButtonDoubleClick</td>
+<td>flags, x, y, view</td>
+<td>当鼠标右键双击时调用</td>
+</tr>
+<tr>
+<td>onRButtonDown</td>
+<td>flags, x, y, view</td>
+<td>当鼠标右键单击时调用</td>
+</tr>
+<tr>
+<td>onRButtonUp</td>
+<td>flags, x, y, view</td>
+<td>当鼠标右键抬起时调用</td>
+</tr>
+<tr>
+<td>onReturn</td>
+<td>view</td>
+<td>当按下回车键时调用</td>
+</tr>
+<tr>
+<td>onUserText</td>
+<td>text, view</td>
+<td>当用户在<code>Value Control Box</code>（VCB）输入文本时调用</td>
+</tr>
+</tbody>
+</table>
+<p>下例代码simpletool.rb 是一个响应鼠标点击的工具例子，在某个点鼠标点左键或右键，在VCB中显示点的三维坐标：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleTool</span></span></div><div class="line"></div><div class="line">    <span class="comment"># Initialize the input point upon start</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">activate</span></span></div><div class="line">        @input = Sketchup::InputPoint.new</div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    <span class="comment"># Respond to left-clicks in the design window</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onLButtonDown</span> <span class="title">flags</span>, <span class="title">x</span>, <span class="title">y</span>, <span class="title">view</span></span></div><div class="line">        @input.pick view, x, y</div><div class="line">        Sketchup::set_status_text <span class="string">"Left click "</span>, SB_VCB_LABEL</div><div class="line">        pos = @input.position</div><div class="line">        str = <span class="string">"%.2f, %.2f, %.2f"</span> % [pos.x, pos.y, pos.z]</div><div class="line">        Sketchup::set_status_text str, SB_VCB_VALUE</div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    <span class="comment"># Respond to right-clicks in the design window</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onRButtonDown</span> <span class="title">flags</span>, <span class="title">x</span>, <span class="title">y</span>, <span class="title">view</span></span></div><div class="line">        @input.pick view, x, y</div><div class="line">        Sketchup::set_status_text <span class="string">"Right click "</span>, SB_VCB_LABEL</div><div class="line">        pos = @input.position</div><div class="line">        str = <span class="string">"%.2f, %.2f, %.2f"</span> % [pos.x, pos.y, pos.z]</div><div class="line">        Sketchup::set_status_text str, SB_VCB_VALUE</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Create the Command object</span></div><div class="line">simple_cmd = UI::Command.new(<span class="string">"Simple"</span>) &#123;</div><div class="line">    Sketchup.active_model.select_tool SimpleTool.new</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Add the Command to the Tools menu</span></div><div class="line">tool_menu = UI.menu <span class="string">"Tools"</span></div><div class="line">tool_menu.add_separator</div><div class="line">tool_menu.add_item simple_cmd</div></pre></td></tr></table></figure>
+<p>VCB是右下角的一个文本框，上例效果见下图：<br><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/11-8.jpg" alt="enter description here"></p>
+<p>这里有三点要注意。第一点，这个工具创建了一个包含响应鼠标点击坐标的<code>InputPoint</code>。第二点，坐标显示在VCB中。最后，这个工具附在在菜单实体(Tools)中，而不是一个工具实体。</p>
+<p><code>InputPoints</code>将二维坐标转换为三维坐标，其中最重要的两个方法是：</p>
+<ul>
+<li>pick 提供了<code>InputPonit</code>的像素坐标</li>
+<li>position 返回设计中点的位置</li>
+</ul>
+<p><code>pick</code>有两种调用方法：<br>(1) pick x, y, view  - 在view中将<code>input_point</code>和二维位置联合在一起<br>(2) pick x, y, view, input_point  -  在view中用第二个推理的input_point将<code>input_point</code>和二维位置联合在一起</p>
+<p>在<code>pick</code>和<code>position</code>使用中，有用的<code>InputPoint</code>方法有：<code>edge</code>, <code>face</code>, <code>vertex</code> 。当一个<code>InputPoint</code>位于一个实体上，这些方法返回附着的<code>Edge</code>，<code>Face</code>和<code>Vertex</code>。这在一个工具需要修改几何体时很有用。</p>
+<p>set_status_text方法用来设置VCB中的文本。它有2个参数：String和一个常量（这个常量定义文本是如何显示的）<br>这个常量有3种值：<br>(1) SB_PROMPT - 在左下角紧贴几个图标的位置显示（不在VCB中）<br>(2) SB_VCB_LABEL - 在VCB左侧显示<br>(3) SB_VCB_VALUE - 在VCB内显示</p>
+<h4 id="工具图形（Tool-Graphics）"><a href="#工具图形（Tool-Graphics）" class="headerlink" title="工具图形（Tool Graphics）"></a>工具图形（Tool Graphics）</h4><p>略</p>
+<h4 id="工具类（The-Tools-Class）"><a href="#工具类（The-Tools-Class）" class="headerlink" title="工具类（The Tools Class）"></a>工具类（The Tools Class）</h4><p>工具类不像实体类、材料类等其他提到的类。它不包含一个工具对象的数组，也没有创建新工具对象的<code>add</code>方法。<code>Model</code>类的<code>tools</code>方法用来访问当前的工具对象，下例代码展示如何使用：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tools = Sketchup.active_model.tools</div></pre></td></tr></table></figure>
+<p>简而言之，Tools对象没什么用处，它包含2个方法：<code>active_tool_id</code>和<code>active_tool_name</code>来表示当前激活的工具。</p>
+<h2 id="第12章-动作和动画（Actions-amp-Animation）"><a href="#第12章-动作和动画（Actions-amp-Animation）" class="headerlink" title="第12章 动作和动画（Actions &amp; Animation）"></a>第12章 动作和动画（Actions &amp; Animation）</h2><h3 id="12-1-动作（Actions）"><a href="#12-1-动作（Actions）" class="headerlink" title="12.1 动作（Actions）"></a>12.1 动作（Actions）</h3><p>动作的使用很简单，只要调用<code>Sketchup.send_action</code> 带上动作名就可以了。动作名通常以小写英文字母开头，以冒号结束，例如：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sketchup.send_action <span class="string">"selectProtractorTool:"</span></div></pre></td></tr></table></figure>
+<p>附录C的第一个表列出了SketchUp支持的所有动作，但本章我们只对这几个关于pages的动作感兴趣：<code>pageAdd:，pageDelete:，pageUpdate:，pageNext:，pagePrevious:</code>。在12.3节中展示页面是如何动画的。</p>
+<h3 id="12-2-视图动画（View-Animation）"><a href="#12-2-视图动画（View-Animation）" class="headerlink" title="12.2 视图动画（View Animation）"></a>12.2 视图动画（View Animation）</h3><p>默认情况下，SketchUp提供了一个样例动画代码<code>animation.rb</code>。可以在<code>Plugins/Utilities</code>目录中找到。（我没有找到！）</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FOVAnimator</span></span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize</span></span></div><div class="line"><span class="comment"># Create a 4x4 cube at the origin</span></div><div class="line">square = Sketchup.active_model.entities.add_face [-<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>],</div><div class="line">[<span class="number">2</span>,<span class="number">2</span>,<span class="number">0</span>], [<span class="number">2</span>,-<span class="number">2</span>,<span class="number">0</span>], [-<span class="number">2</span>,-<span class="number">2</span>,<span class="number">0</span>]</div><div class="line">square.pushpull -<span class="number">4</span></div><div class="line"><span class="comment"># Point the camera at the origin</span></div><div class="line">cam = Sketchup.active_model.active_view.camera</div><div class="line">cam.set cam.eye, [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</div><div class="line"><span class="comment"># Initialize the fov variable and its update variable</span></div><div class="line">@orig_fov = Sketchup.active_model.active_view.field_of_view</div><div class="line">@fov = @orig_fov</div><div class="line">@delta = <span class="number">1</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">nextFrame</span><span class="params">(view)</span></span></div><div class="line"><span class="comment"># Set the field of view</span></div><div class="line">view.field_of_view = @fov</div><div class="line"><span class="comment"># Refresh the design window</span></div><div class="line">view.show_frame</div><div class="line"><span class="comment"># Update the fov variable</span></div><div class="line">@fov = @fov + @delta</div><div class="line"><span class="keyword">if</span> @fov == @orig_fov + <span class="number">30</span> <span class="params">||</span> @fov == @orig_fov - <span class="number">30</span></div><div class="line">@delta = -@delta</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">return</span> <span class="literal">true</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="comment"># Create a menu entry</span></div><div class="line">view_menu = UI.menu <span class="string">"View"</span></div><div class="line">view_menu.add_separator</div><div class="line">sub_menu = view_menu.add_submenu(<span class="string">"FOV Animation"</span>)</div><div class="line"><span class="comment"># Add two menu items to the submenu</span></div><div class="line">start_zoom = sub_menu.add_item(<span class="string">"Start FOV Animation"</span>) &#123;</div><div class="line">Sketchup.active_model.active_view.animation = FOVAnimator.new</div><div class="line">&#125;</div><div class="line">end_zoom = sub_menu.add_item(<span class="string">"End FOV Animation"</span>) &#123;</div><div class="line">Sketchup.active_model.active_view.animation = <span class="literal">nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="12-3-页动画（Page-Animation）"><a href="#12-3-页动画（Page-Animation）" class="headerlink" title="12.3 页动画（Page Animation）"></a>12.3 页动画（Page Animation）</h3><p>略</p>
+<h3 id="12-4-简单对象动画（Simple-Object-Animation）"><a href="#12-4-简单对象动画（Simple-Object-Animation）" class="headerlink" title="12.4 简单对象动画（Simple Object Animation）"></a>12.4 简单对象动画（Simple Object Animation）</h3><p>略</p>
+<h3 id="12-5-骨骼动画（Skeletal-Animation）"><a href="#12-5-骨骼动画（Skeletal-Animation）" class="headerlink" title="12.5 骨骼动画（Skeletal Animation）"></a>12.5 骨骼动画（Skeletal Animation）</h3><p>略</p>
+<h2 id="第13章-网络对话框（WebDialogs）"><a href="#第13章-网络对话框（WebDialogs）" class="headerlink" title="第13章 网络对话框（WebDialogs）"></a>第13章 网络对话框（WebDialogs）</h2><p>网络对话框是SketchUp API最有用和通用的功能之一。例如，你可以创建一个WebDialog 监控每一个动画的动作来显示每个骨骼的关节位置和角度。</p>
+<h3 id="13-1-WebDialogs介绍"><a href="#13-1-WebDialogs介绍" class="headerlink" title="13.1 WebDialogs介绍"></a>13.1 WebDialogs介绍</h3><p>WebDialogs是一个对话框，执行的动作通常关联到网络浏览器。你可以打开网站，显示格式化的HTML。但和通常的浏览器不同，WebDialogs可以创建和访问SketchUp的Ruby脚本，可以通过JavaScript访问Ruby脚本。</p>
+<h4 id="创建一个基本的WebDialogs"><a href="#创建一个基本的WebDialogs" class="headerlink" title="创建一个基本的WebDialogs"></a>创建一个基本的WebDialogs</h4><p>下例2行代码创建一个简单的WebDialogs</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wd = UI::WebDialog.new <span class="string">"Hi There!"</span></div><div class="line">wd.show</div></pre></td></tr></table></figure>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-1.jpg" alt="enter description here"></p>
+<p>在上例中，UI::WebDialog.new跟着一个可选项字符串参数来设定对话框的标题。这个结构可接受总共8个可选参数如下：</p>
+<ul>
+<li>title</li>
+<li>scrollbars</li>
+<li>key 存储对话框选项的注册键（大小和位置）</li>
+<li>width</li>
+<li>height</li>
+<li>left</li>
+<li>top</li>
+<li><p>resizable</p>
+<h4 id="创建后修改对话框"><a href="#创建后修改对话框" class="headerlink" title="创建后修改对话框"></a>创建后修改对话框</h4><p>调整WebDialog的方法：<br>(1) set_position<br>(2) set_size<br>(3) max_height<br>(4) max_width<br>(5) min_height<br>(6) min_width</p>
+<h3 id="13-2-WebDialog和浏览器"><a href="#13-2-WebDialog和浏览器" class="headerlink" title="13.2 WebDialog和浏览器"></a>13.2 WebDialog和浏览器</h3></li>
+</ul>
+<p>WebDialog实际上是安装在操作系统中浏览器的一个实例。在Windows系统中浏览器是Internet Explorer，在Mac OS中是Safari。WebDialog不提供复杂的浏览器控件（前进、后退、地址栏等），但你可以通过SketchUp API执行基于浏览器的操作。这一节讨论如何通过WebDialog访问外部网站并显示格式化的HTML。</p>
+<h4 id="使用WebDialog访问网站"><a href="#使用WebDialog访问网站" class="headerlink" title="使用WebDialog访问网站"></a>使用WebDialog访问网站</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">get_dialog = UI::WebDialog.new</div><div class="line">get_dialog.show</div><div class="line">get_dialog.set_url <span class="string">"http://www.biaud.com/"</span></div></pre></td></tr></table></figure>
+<p>上例中是执行HTTP的<code>GET</code>动作，下例显示如何执行<code>POST</code>动作：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">post_dialog = UI::WebDialog.new</div><div class="line">post_dialog.show</div><div class="line">post_dialog.post_url <span class="string">"http://www.google.com/search"</span>, <span class="string">"sketchup"</span></div></pre></td></tr></table></figure>
+<p>不幸的是，Google.com并不直接响应POST请求。Google需要在线向搜索引擎输入数据。</p>
+<h4 id="HTML和WebDialog"><a href="#HTML和WebDialog" class="headerlink" title="HTML和WebDialog"></a>HTML和WebDialog</h4><p>下例显示如何用WebDialog显示一个HTML文件：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">html_dialog = UI::WebDialog.new</div><div class="line">path = Sketchup.find_support_file <span class="string">"ch13/basic.html"</span>, <span class="string">"Plugins"</span></div><div class="line">html_dialog.set_file path</div><div class="line">html_dialog.show</div></pre></td></tr></table></figure>
+<h3 id="13-3-JavaScript"><a href="#13-3-JavaScript" class="headerlink" title="13.3 JavaScript"></a>13.3 JavaScript</h3><p>略</p>
+<h3 id="13-4-JavaScript和SketchUp结合"><a href="#13-4-JavaScript和SketchUp结合" class="headerlink" title="13.4 JavaScript和SketchUp结合"></a>13.4 JavaScript和SketchUp结合</h3><h4 id="在SketchUp中执行JavaScript"><a href="#在SketchUp中执行JavaScript" class="headerlink" title="在SketchUp中执行JavaScript"></a>在SketchUp中执行JavaScript</h4><p>例：point_checker.rb 定义了一个EntityObserver类关联到一个面的观察者，然后创建一个WebDialog显示面顶点的坐标<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create a class that extends EntityObserver</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EntObserver</span> &lt; Sketchup::EntityObserver</span></div><div class="line"></div><div class="line">    <span class="comment"># Invoked when the Entity changes</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onChangeEntity</span><span class="params">(entity)</span></span></div><div class="line">        f_count = <span class="number">1</span></div><div class="line">        </div><div class="line">		<span class="comment"># Execute the script with the vertex locations</span></div><div class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> entity.vertices</div><div class="line">            args = <span class="string">"'"</span> + v.position.x.to_s + <span class="string">"', '"</span> +</div><div class="line">                v.position.y.to_s + <span class="string">"', '"</span> + v.position.z.to_s + <span class="string">"'"</span></div><div class="line">            $wd.execute_script(<span class="string">"setPoint"</span> + f_count.to_s + <span class="string">"("</span> + args + <span class="string">")"</span>)</div><div class="line">            f_count = f_count + <span class="number">1</span></div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    <span class="comment"># Invoked when the Entity is deleted</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onEraseEntity</span><span class="params">(entity)</span></span></div><div class="line">        $wd.execute_script(<span class="string">"faceDeleted()"</span>)</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment"># Add an Edge and a Face to the model</span></div><div class="line">ents = Sketchup.active_model.entities</div><div class="line">face = ents.add_face [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">10</span>,<span class="number">0</span>,<span class="number">0</span>], [<span class="number">10</span>,<span class="number">10</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">10</span>,<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="comment"># Associate a new observer with the face and edge</span></div><div class="line">obs = EntObserver.new</div><div class="line">face.add_observer obs</div><div class="line"></div><div class="line"><span class="comment"># Create a WebDialog and set its HTML</span></div><div class="line">$wd = UI::WebDialog.new <span class="string">"Point Checker"</span></div><div class="line">path = Sketchup.find_support_file <span class="string">"Ch13/point_checker.html"</span>, <span class="string">"Plugins"</span></div><div class="line">$wd.set_file path</div><div class="line">$wd.show</div></pre></td></tr></table></figure></p>
+<p>让我们来弄清上面的代码做了什么：<br>(1) 代码创建了一个<code>Face</code>，关联了一个<code>EntityObserver</code>。<br>(2) 不论这个面如何改变，观察者的<code>onChangeEntity</code>方法访问面的顶点并执行4个JavaScript函数调用（通过使用<code>execute_script</code>去调用每个函数）。<br>(3) 如果删除这个面，观察者的<code>onEraseEntity</code>方法调用<code>execute_script</code>来调用<code>face_deleted</code>函数。<br>(4) 最后，Ruby脚本创建一个<code>WebDialog</code>，通过<code>point_checker.html</code>文件来初始化内容。</p>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-2-1.jpg" alt="enter description here"></p>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-2-2.jpg" alt="enter description here"></p>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-2-3.jpg" alt="enter description here"></p>
+<p>其中的point_checker.html如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    function setPoint1(c1, c2, c3)</div><div class="line">    &#123;</div><div class="line">        document.getElementById("pt1").innerHTML = c1 + ", " + c2 + ", " + c3</div><div class="line">    &#125;</div><div class="line">function setPoint2(c1, c2, c3)</div><div class="line">&#123;</div><div class="line">document.getElementById("pt2").innerHTML = c1 + ", " + c2 + ", " + c3</div><div class="line">&#125;</div><div class="line">function setPoint3(c1, c2, c3)</div><div class="line">&#123;</div><div class="line">document.getElementById("pt3").innerHTML = c1 + ", " + c2 + ", " + c3</div><div class="line">&#125;</div><div class="line">function setPoint4(c1, c2, c3)</div><div class="line">&#123;</div><div class="line">document.getElementById("pt4").innerHTML = c1 + ", " + c2 + ", " + c3</div><div class="line">&#125;</div><div class="line">function faceDeleted()</div><div class="line">&#123;</div><div class="line">document.getElementById("pt1").innerHTML = "Face deleted"</div><div class="line">document.getElementById("pt2").innerHTML = "Face deleted"</div><div class="line">document.getElementById("pt3").innerHTML = "Face deleted"</div><div class="line">document.getElementById("pt4").innerHTML = "Face deleted"</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the first vertex --&gt;</span></div><div class="line">Point 1:</div><div class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">id</span>=<span class="string">"pt1"</span>&gt;</span>Initial position<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the second vertex --&gt;</span></div><div class="line">Point 2:</div><div class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">id</span>=<span class="string">"pt2"</span>&gt;</span>Initial position<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the third vertex --&gt;</span></div><div class="line">Point 3:</div><div class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">id</span>=<span class="string">"pt3"</span>&gt;</span>Initial position<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the fourth vertex --&gt;</span></div><div class="line">Point 4:</div><div class="line"><span class="tag">&lt;<span class="name">b</span> <span class="attr">id</span>=<span class="string">"pt4"</span>&gt;</span>Initial position<span class="tag">&lt;/<span class="name">b</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="从JavaScript中访问SketchUp"><a href="#从JavaScript中访问SketchUp" class="headerlink" title="从JavaScript中访问SketchUp"></a>从JavaScript中访问SketchUp</h4><p>例：create_face.rb</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the WebDialog and set its HTML file</span></div><div class="line">face_dialog = UI::WebDialog.new</div><div class="line">path = Sketchup.find_support_file <span class="string">"Ch13/create_face.html"</span>, <span class="string">"Plugins"</span></div><div class="line">face_dialog.set_file path</div><div class="line"></div><div class="line"><span class="comment"># Set the WebDialog's callback</span></div><div class="line">face_dialog.add_action_callback(<span class="string">"create_face"</span>) &#123;<span class="params">|d, arg|</span></div><div class="line">    <span class="keyword">if</span> arg.to_s.length == <span class="number">0</span></div><div class="line">        puts <span class="string">"Invalid input. Coordinates must be valid numbers."</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">        v = arg.to_s.split(<span class="string">","</span>)</div><div class="line">        pt1 = Geom::Point3d.new(Float(v[<span class="number">0</span>].strip), Float(v[<span class="number">1</span>].strip), Float(v[<span class="number">2</span>].strip))</div><div class="line">        pt2 = Geom::Point3d.new(Float(v[<span class="number">3</span>].strip), Float(v[<span class="number">4</span>].strip), Float(v[<span class="number">5</span>].strip))</div><div class="line">        pt3 = Geom::Point3d.new(Float(v[<span class="number">6</span>].strip), Float(v[<span class="number">7</span>].strip), Float(v[<span class="number">8</span>].strip))</div><div class="line">        pt4 = Geom::Point3d.new(Float(v[<span class="number">9</span>].strip), Float(v[<span class="number">10</span>].strip), Float(v[<span class="number">11</span>].strip))</div><div class="line"></div><div class="line">        vec1 = pt2 - pt1</div><div class="line">        vec2 = pt2 - pt3</div><div class="line">        plane = [pt1, vec1 * vec2]</div><div class="line">        <span class="keyword">if</span> pt4.on_plane? plane</div><div class="line">            Sketchup.active_model.entities.add_face pt1, pt2, pt3, pt4</div><div class="line">        <span class="keyword">else</span></div><div class="line">            puts <span class="string">"Invalid input. Points must lie on the same plane."</span></div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># Display the dialog box</span></div><div class="line"><span class="keyword">if</span> RUBY_PLATFORM.index <span class="string">"darwin"</span></div><div class="line">    face_dialog.show_modal</div><div class="line"><span class="keyword">else</span></div><div class="line">    face_dialog.show</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>create_face.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">function sendPoints()</div><div class="line">&#123;</div><div class="line">var ids = new Array ("x1", "y1", "z1", "x2", "y2", "z2",</div><div class="line">"x3", "y3", "z3", "x4", "y4", "z4");</div><div class="line">var arg = ""; var entry = ""; var valid = true;</div><div class="line">// Iterate through the text boxes to form output argument</div><div class="line">for (i in ids)</div><div class="line">&#123;</div><div class="line">entry = document.getElementById(ids[i]).value</div><div class="line">if ((entry.length == 0) || isNaN(entry))</div><div class="line">&#123;</div><div class="line">valid = false;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">arg = arg + entry + ",";</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">// Send argument to SketchUp script for processing</div><div class="line">if (!valid)</div><div class="line">&#123;</div><div class="line">arg = "";</div><div class="line">&#125;</div><div class="line">window.location = 'skp:create_face@' + arg;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the first vertex --&gt;</span></div><div class="line">Point 1:</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"x1"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"y1"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"z1"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the second vertex --&gt;</span></div><div class="line">Point 2:</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"x2"</span> <span class="attr">value</span>=<span class="string">"10.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"y2"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"z2"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the third vertex --&gt;</span></div><div class="line">Point 3:</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"x3"</span> <span class="attr">value</span>=<span class="string">"10.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"y3"</span> <span class="attr">value</span>=<span class="string">"10.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"z3"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Location of the fourth vertex --&gt;</span></div><div class="line">Point 4:</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"x4"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"y4"</span> <span class="attr">value</span>=<span class="string">"10.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"z4"</span> <span class="attr">value</span>=<span class="string">"0.0"</span> <span class="attr">size</span>=<span class="string">"10"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- Send points to JavaScript --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">onclick</span>=<span class="string">"sendPoints();"</span></span></div><div class="line"><span class="attr">value</span>=<span class="string">"Create Face"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="http://dragonflyxyzblog.image.alimmdn.com/AutomaticSketchup/13-3.jpg" alt="enter description here"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/23/automatic-sketchup-cn-3/">Automatic SketchUp中文翻译11-13章</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Dragonflyxyz</a></p>
+        <p><span>发布时间:</span>2017-03-23, 09:05:08</p>
+        <p><span>最后更新:</span>2017-04-03, 19:19:03</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/23/automatic-sketchup-cn-3/" title="Automatic SketchUp中文翻译11-13章">https://dragonflyxyz.github.io/2017/03/23/automatic-sketchup-cn-3/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://dragonflyxyz.github.io/2017/03/23/automatic-sketchup-cn-3/　　作者: Dragonflyxyz" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/10/automatic-sketchup-cn-2/">
+                    《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第11章-SketchUp接口：视图、相机、页、工具"><span class="toc-number">1.</span> <span class="toc-text">第11章 SketchUp接口：视图、相机、页、工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-视图（View）"><span class="toc-number">1.1.</span> <span class="toc-text">11.1 视图（View）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#像素信息（Pixel-Information）"><span class="toc-number">1.1.1.</span> <span class="toc-text">像素信息（Pixel Information）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视野（Field-of-View）"><span class="toc-number">1.1.2.</span> <span class="toc-text">视野（Field of View）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-相机（Camera）"><span class="toc-number">1.2.</span> <span class="toc-text">11.2 相机（Camera）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#建立一个相机"><span class="toc-number">1.2.1.</span> <span class="toc-text">建立一个相机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#相机透视和可见范围"><span class="toc-number">1.2.2.</span> <span class="toc-text">相机透视和可见范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-3-页（Pages）"><span class="toc-number">1.3.</span> <span class="toc-text">11.3 页（Pages）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#页面容器（The-Pages-Container）"><span class="toc-number">1.3.1.</span> <span class="toc-text">页面容器（The Pages Container）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面对象（The-Page-Object）"><span class="toc-number">1.3.2.</span> <span class="toc-text">页面对象（The Page Object）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-4-工具条（Toolbars）"><span class="toc-number">1.4.</span> <span class="toc-text">11.4 工具条（Toolbars）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-5-工具类（The-Tool-Class）"><span class="toc-number">1.5.</span> <span class="toc-text">11.5 工具类（The Tool Class）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SketchUp工具的生命周期（The-Life-Cycle-of-a-SketchUp-Tool）"><span class="toc-number">1.5.1.</span> <span class="toc-text">SketchUp工具的生命周期（The Life Cycle of a SketchUp Tool）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工具事件执行（Tool-Event-Handling-）"><span class="toc-number">1.5.2.</span> <span class="toc-text">工具事件执行（Tool Event Handling ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工具图形（Tool-Graphics）"><span class="toc-number">1.5.3.</span> <span class="toc-text">工具图形（Tool Graphics）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工具类（The-Tools-Class）"><span class="toc-number">1.5.4.</span> <span class="toc-text">工具类（The Tools Class）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第12章-动作和动画（Actions-amp-Animation）"><span class="toc-number">2.</span> <span class="toc-text">第12章 动作和动画（Actions & Animation）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-动作（Actions）"><span class="toc-number">2.1.</span> <span class="toc-text">12.1 动作（Actions）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-视图动画（View-Animation）"><span class="toc-number">2.2.</span> <span class="toc-text">12.2 视图动画（View Animation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3-页动画（Page-Animation）"><span class="toc-number">2.3.</span> <span class="toc-text">12.3 页动画（Page Animation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-4-简单对象动画（Simple-Object-Animation）"><span class="toc-number">2.4.</span> <span class="toc-text">12.4 简单对象动画（Simple Object Animation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-5-骨骼动画（Skeletal-Animation）"><span class="toc-number">2.5.</span> <span class="toc-text">12.5 骨骼动画（Skeletal Animation）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第13章-网络对话框（WebDialogs）"><span class="toc-number">3.</span> <span class="toc-text">第13章 网络对话框（WebDialogs）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#13-1-WebDialogs介绍"><span class="toc-number">3.1.</span> <span class="toc-text">13.1 WebDialogs介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建一个基本的WebDialogs"><span class="toc-number">3.1.1.</span> <span class="toc-text">创建一个基本的WebDialogs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建后修改对话框"><span class="toc-number">3.1.2.</span> <span class="toc-text">创建后修改对话框</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-2-WebDialog和浏览器"><span class="toc-number">3.2.</span> <span class="toc-text">13.2 WebDialog和浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用WebDialog访问网站"><span class="toc-number">3.2.1.</span> <span class="toc-text">使用WebDialog访问网站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML和WebDialog"><span class="toc-number">3.2.2.</span> <span class="toc-text">HTML和WebDialog</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-3-JavaScript"><span class="toc-number">3.3.</span> <span class="toc-text">13.3 JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-4-JavaScript和SketchUp结合"><span class="toc-number">3.4.</span> <span class="toc-text">13.4 JavaScript和SketchUp结合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在SketchUp中执行JavaScript"><span class="toc-number">3.4.1.</span> <span class="toc-text">在SketchUp中执行JavaScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从JavaScript中访问SketchUp"><span class="toc-number">3.4.2.</span> <span class="toc-text">从JavaScript中访问SketchUp</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Automatic SketchUp中文翻译11-13章　| Dragonflyxyz的知识整理　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/10/automatic-sketchup-cn-2/" title="下一篇: 《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/automatic-sketchup-cn-3/">Automatic SketchUp中文翻译11-13章</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/automatic-sketchup-cn-2/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译7-10章</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/automatic-sketchup-cn-1/">《Automatic SketchUp Creating 3-D Models in Ruby》中文翻译1-5章</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/29/python-opencv-learn-note01/">Python OpenCV学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/learn-deep-learning-zero-based-1/">零基础入门深度学习(1)-感知器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/hexo-show-mathjax-and-table/">Hexo如何显示公式和表格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/23/hexo-local-search-only-titile/">让Hexo的本地搜索只搜索标题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/why-im-switching-from-python-to-nodejs/">为什么我从Python转战到Node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/php-develop-1200examples/">《PHP开发实战1200例》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/introduction-john-carmack/">第一人称射击游戏教父，首款3D游戏的开发者，传奇程序员——约翰·卡马克</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/Ebook-search-engine/">几个好的电子书搜索引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/MIT-tech-review-2016/">麻省理工科技评论2016年1-6月</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/head-first-python/">《Head First Python》中文版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/microsoft-opensource-malmo-ai/">微软开源Malmo AI项目平台 利用Minecraft构建复杂机器人任务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/22/why-this-robot-in-the-grocery-store/">零售业有福了！大数据机器人卖场值班，点货超轻松</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/21/poor-zorro-linux-book/">穷佐罗的Linux书，知识点整理的很好</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/github-awesome-hadoop/">Hadoop学习资源集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/python-decorated-concurrency/">Python多线程(Decorated concurrency)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/github-awesome-machine-learning/">Github上最全的机器学习资料集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/the-9-best-languages-form-crunching-data/">数据处理的 9 大编程语言</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/github-awesome-bigdata/">最全的大数据学习资料集合（Github）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/01/a-low-scientist-how-to-get-nobel-prize/">一个逗逼的科研狗是如何成为诺贝尔奖得主的</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/23/how-much-a-chip/">一枚芯片的实际成本是多少？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/awesome-python-site/">Awesome-python一个收集Python资源的网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/21/intel-releases-the-arduino-101-firmware-source-code/">Intel将两款arduino设备的实时操作系统开源</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/studying-the-language-and-structure-in-non-programmers-solutions/">《编程问题的非程序员解决方案之研究》</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/26/if-human-and-animals-change/">如果人和动物角色互换？这样的世界怎样想象</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/checksum-8bits-and-16bits/">checksum-8位和16位校验和代码示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/06/easy-popular-science-doc-deep-learning/">关于深度学习可能最容易读进去的科普贴</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/16/what-is-iot-ppt/">物联网是什么-ppt图</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/14/100-BBC-recordfile-parents-with-children/">家长应该陪孩子一起看的100部BBC纪录片</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/29/photo-wall-style/">教你轻松搞定相片墙壁搭配</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/algorithm-detail-DES-AES-SHA/">DES、AES、SHA加密算法详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/16/homedesign-north-america/">越来越喜欢北美的家庭装饰风格</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/06/mysql-10millions-optimize-query/">Mysql数据库千万级别数据的查询优化和分页测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/16/my-blog-set/">博客设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/01/john-carmack-on-inlined-code/">John Carmack on inlined code</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/05/01/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/01/16/test1/">test1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Dragonflyxyz
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
